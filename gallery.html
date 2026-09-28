@@ -1,0 +1,2479 @@
+<!doctype html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+
+  <meta
+    name="description"
+    content="عبد الحميد فياض — معرض الأعمال البصرية والتصويرية."
+  >
+
+  <meta name="author" content="Abdullhamid Fayad">
+
+  <meta property="og:title" content="Visual Gallery — Abdullhamid Fayad">
+
+  <meta
+    property="og:description"
+    content="A curated collection of visual works by Abdullhamid Fayad."
+  >
+
+  <meta property="og:type" content="website">
+
+  <meta
+    property="og:url"
+    content="https://abdullhamid-fayad-portfolio.vercel.app/gallery.html"
+  >
+
+  <title>Visual Gallery — Abdullhamid Fayad</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="default"
+  >
+  <meta name="apple-mobile-web-app-title" content="FAYAD">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <style>
+
+    /* =========================================================
+       VARIABLES
+    ========================================================= */
+
+    :root {
+      --white: #ffffff;
+      --background: #f6faf9;
+      --surface: #ffffff;
+      --surface-soft: #edf6f4;
+
+      --teal: #087f78;
+      --teal-dark: #075f5a;
+      --teal-light: #dff3f0;
+
+      --gold: #b99658;
+      --gold-light: #f3ead9;
+
+      --text: #102522;
+      --text-soft: #344a46;
+      --muted: #71827e;
+
+      --border: rgba(8, 127, 120, 0.14);
+      --border-strong: rgba(8, 127, 120, 0.28);
+
+      --shadow-small:
+        0 8px 25px rgba(16, 37, 34, 0.06);
+
+      --shadow-medium:
+        0 20px 50px rgba(16, 37, 34, 0.09);
+
+      --shadow-large:
+        0 30px 80px rgba(16, 37, 34, 0.14);
+
+      --radius: 22px;
+      --radius-large: 30px;
+
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--white);
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+
+      color: var(--text);
+      font-family: "Inter", "Tajawal", sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 90% 0%,
+          rgba(8, 127, 120, 0.10),
+          transparent 350px
+        ),
+        radial-gradient(
+          circle at 0% 45%,
+          rgba(185, 150, 88, 0.06),
+          transparent 300px
+        ),
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #f7fbfa 50%,
+          #ffffff 100%
+        );
+    }
+
+    body::before {
+      content: "";
+
+      position: fixed;
+      inset: 0;
+
+      pointer-events: none;
+      z-index: -2;
+
+      opacity: 0.45;
+
+      background-image:
+        linear-gradient(
+          rgba(8, 127, 120, 0.035) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(8, 127, 120, 0.035) 1px,
+          transparent 1px
+        );
+
+      background-size: 40px 40px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          transparent 85%
+        );
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      border: 0;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    ::selection {
+      background: var(--teal);
+      color: #fff;
+    }
+
+
+    /* =========================================================
+       SCROLLBAR
+    ========================================================= */
+
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #edf3f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #9dbbb6;
+      border-radius: 100px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--teal);
+    }
+
+
+    /* =========================================================
+       DECORATION
+    ========================================================= */
+
+    .page-decoration {
+      position: fixed;
+
+      width: 500px;
+      height: 500px;
+
+      top: -290px;
+      right: -220px;
+
+      border: 1px solid rgba(8, 127, 120, 0.08);
+      border-radius: 50%;
+
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .page-decoration::before {
+      content: "";
+
+      position: absolute;
+      inset: 55px;
+
+      border: 1px solid rgba(185, 150, 88, 0.10);
+      border-radius: 50%;
+    }
+
+    .page-decoration::after {
+      content: "";
+
+      position: absolute;
+
+      width: 8px;
+      height: 8px;
+
+      left: 100px;
+      bottom: 100px;
+
+      border-radius: 50%;
+
+      background: var(--gold);
+
+      box-shadow:
+        0 0 0 7px rgba(185, 150, 88, 0.08);
+    }
+
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    .gallery-header {
+      position: relative;
+      z-index: 20;
+
+      width: min(calc(100% - 48px), 1240px);
+
+      margin: 0 auto;
+
+      padding:
+        max(22px, calc(var(--safe-top) + 12px))
+        0
+        22px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .gallery-header::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: -1px;
+
+      height: 2px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          var(--teal),
+          transparent
+        );
+
+      transform: scaleX(0.18);
+
+      transition: 0.5s ease;
+    }
+
+    .gallery-header:hover::after {
+      transform: scaleX(0.5);
+    }
+
+
+    /* =========================================================
+       BRAND
+    ========================================================= */
+
+    .gallery-brand {
+      display: inline-flex;
+      align-items: center;
+
+      gap: 12px;
+
+      direction: ltr;
+    }
+
+    .brand-mark {
+      position: relative;
+
+      width: 48px;
+      height: 48px;
+
+      display: grid;
+      place-items: center;
+
+      overflow: hidden;
+
+      border: 1px solid rgba(8, 127, 120, 0.22);
+      border-radius: 15px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff,
+          var(--teal-light)
+        );
+
+      color: var(--teal);
+
+      font-size: 18px;
+      font-weight: 900;
+
+      box-shadow:
+        0 8px 25px rgba(8, 127, 120, 0.08);
+
+      transition:
+        transform 0.4s ease,
+        background 0.35s ease,
+        color 0.35s ease,
+        box-shadow 0.35s ease;
+    }
+
+    .brand-mark::before {
+      content: "";
+
+      position: absolute;
+
+      width: 90px;
+      height: 90px;
+
+      top: -55px;
+      left: -55px;
+
+      border-radius: 50%;
+
+      background: rgba(8, 127, 120, 0.10);
+
+      transition: 0.5s ease;
+    }
+
+    .brand-mark::after {
+      content: "";
+
+      position: absolute;
+
+      width: 7px;
+      height: 7px;
+
+      right: 7px;
+      bottom: 7px;
+
+      border-radius: 50%;
+
+      background: var(--gold);
+
+      box-shadow:
+        0 0 0 4px rgba(185, 150, 88, 0.10);
+    }
+
+    .gallery-brand:hover .brand-mark {
+      color: #fff;
+
+      background: var(--teal);
+
+      transform:
+        translateY(-3px)
+        rotate(-3deg)
+        scale(1.04);
+
+      box-shadow:
+        0 16px 35px rgba(8, 127, 120, 0.22);
+    }
+
+    .gallery-brand:hover .brand-mark::before {
+      transform: translate(30px, 30px);
+    }
+
+    .gallery-brand:active .brand-mark {
+      transform: scale(0.91);
+    }
+
+    .gallery-brand-text {
+      display: flex;
+      flex-direction: column;
+
+      gap: 3px;
+    }
+
+    .gallery-brand-text strong {
+      color: var(--text);
+
+      font-size: 13px;
+      font-weight: 900;
+
+      letter-spacing: 0.14em;
+    }
+
+    .gallery-brand-text small {
+      color: var(--muted);
+
+      font-size: 7px;
+      font-weight: 800;
+
+      letter-spacing: 0.17em;
+    }
+
+
+    /* =========================================================
+       BACK BUTTON
+    ========================================================= */
+
+    .back-link {
+      min-height: 44px;
+
+      display: inline-flex;
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 0 16px;
+
+      border: 1px solid var(--border-strong);
+      border-radius: 14px;
+
+      background: rgba(255, 255, 255, 0.9);
+
+      color: var(--text-soft);
+
+      font-size: 10px;
+      font-weight: 800;
+
+      box-shadow: var(--shadow-small);
+
+      transition: 0.3s ease;
+    }
+
+    .back-link i {
+      color: var(--teal);
+
+      transition: 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--teal);
+
+      transform: translateY(-3px);
+
+      border-color: var(--teal);
+
+      box-shadow:
+        0 15px 35px rgba(8, 127, 120, 0.12);
+    }
+
+    .back-link:hover i {
+      transform: translateX(-4px);
+    }
+
+    .back-link:active {
+      transform: scale(0.96);
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .gallery-hero {
+      position: relative;
+
+      width: min(calc(100% - 48px), 1240px);
+
+      margin: 58px auto 42px;
+
+      padding: 58px 62px 52px;
+
+      overflow: hidden;
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius-large);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.98),
+          rgba(246, 251, 249, 0.96)
+        );
+
+      box-shadow: var(--shadow-small);
+    }
+
+    .gallery-hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 330px;
+      height: 330px;
+
+      left: -180px;
+      bottom: -210px;
+
+      border: 1px solid rgba(8, 127, 120, 0.10);
+
+      border-radius: 50%;
+    }
+
+    .gallery-hero::after {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      right: 0;
+
+      width: 45%;
+      height: 3px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          var(--teal)
+        );
+    }
+
+    .hero-topline {
+      display: inline-flex;
+      align-items: center;
+
+      gap: 10px;
+
+      color: var(--teal);
+
+      font-size: 9px;
+      font-weight: 900;
+
+      letter-spacing: 0.2em;
+    }
+
+    .hero-topline::before {
+      content: "";
+
+      width: 35px;
+      height: 2px;
+
+      border-radius: 100px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--gold),
+          var(--teal)
+        );
+    }
+
+    .gallery-hero h1 {
+      position: relative;
+      z-index: 2;
+
+      margin-top: 18px;
+
+      max-width: 950px;
+
+      color: var(--text);
+
+      font-size: clamp(52px, 8vw, 108px);
+      line-height: 0.9;
+
+      font-weight: 900;
+
+      letter-spacing: -0.075em;
+    }
+
+    .gallery-hero h1 span {
+      position: relative;
+
+      color: var(--teal);
+    }
+
+    .gallery-hero h1 span::after {
+      content: "";
+
+      position: absolute;
+
+      width: 35%;
+      height: 7px;
+
+      right: 4px;
+      bottom: -13px;
+
+      border-radius: 100px;
+
+      background: var(--gold);
+
+      opacity: 0.65;
+    }
+
+    .hero-description {
+      position: relative;
+      z-index: 2;
+
+      max-width: 680px;
+
+      margin-top: 31px;
+
+      color: var(--muted);
+
+      font-family: "Tajawal", sans-serif;
+
+      font-size: 14px;
+      line-height: 2;
+
+      text-wrap: balance;
+    }
+
+    .hero-meta {
+      position: relative;
+      z-index: 2;
+
+      margin-top: 28px;
+
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+
+      gap: 16px;
+    }
+
+    .gallery-count,
+    .gallery-note {
+      display: inline-flex;
+      align-items: center;
+
+      gap: 9px;
+
+      color: var(--muted);
+
+      font-size: 9px;
+      font-weight: 800;
+    }
+
+    .gallery-count strong {
+      color: var(--teal);
+
+      font-size: 21px;
+      line-height: 1;
+    }
+
+    .gallery-note i {
+      color: var(--gold);
+    }
+
+    .meta-divider {
+      width: 1px;
+      height: 18px;
+
+      background: var(--border-strong);
+    }
+
+
+    /* =========================================================
+       GALLERY CONTAINER
+    ========================================================= */
+
+    .gallery-section {
+      position: relative;
+
+      width: min(calc(100% - 48px), 1240px);
+
+      margin: 0 auto;
+
+      padding: 30px;
+
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius-large);
+
+      background: rgba(255, 255, 255, 0.84);
+
+      box-shadow: var(--shadow-medium);
+    }
+
+    .gallery-section::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      right: 45px;
+
+      width: 80px;
+      height: 3px;
+
+      border-radius:
+        0 0
+        8px 8px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--gold),
+          var(--teal)
+        );
+    }
+
+
+    /* =========================================================
+       SECTION HEADER
+    ========================================================= */
+
+    .gallery-section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      margin-bottom: 26px;
+
+      padding:
+        5px
+        5px
+        20px;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .gallery-section-label {
+      color: var(--muted);
+
+      font-size: 8px;
+      font-weight: 900;
+
+      letter-spacing: 0.18em;
+    }
+
+    .gallery-section-label span {
+      color: var(--teal);
+    }
+
+    .gallery-hint {
+      color: #9aa8a4;
+
+      font-size: 8px;
+      font-weight: 700;
+
+      letter-spacing: 0.08em;
+
+      direction: ltr;
+    }
+
+
+    /* =========================================================
+       GALLERY
+       
+       Masonry instead of fixed grid rows.
+       This removes the ugly empty spaces.
+    ========================================================= */
+
+    .gallery-grid {
+      column-count: 3;
+      column-gap: 22px;
+    }
+
+    .gallery-item {
+      position: relative;
+
+      display: block;
+
+      width: 100%;
+
+      margin-bottom: 22px;
+
+      padding: 9px;
+
+      overflow: hidden;
+
+      break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+
+      border:
+        1px solid
+        rgba(8, 127, 120, 0.14);
+
+      border-radius: 22px;
+
+      background: #fff;
+
+      box-shadow:
+        0 8px 25px
+        rgba(16, 37, 34, 0.07);
+
+      cursor: pointer;
+
+      opacity: 0;
+
+      transform: translateY(25px);
+
+      animation:
+        galleryReveal
+        0.7s
+        cubic-bezier(.2,.75,.2,1)
+        forwards;
+
+      transition:
+        transform 0.4s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+    }
+
+    @keyframes galleryReveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+
+      border-radius: 15px;
+
+      object-fit: cover;
+
+      transition:
+        transform 0.8s
+        cubic-bezier(.2,.75,.2,1),
+        filter 0.5s ease;
+    }
+
+    /* Image inner frame */
+    .gallery-item::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 9px;
+
+      z-index: 2;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.2);
+
+      border-radius: 15px;
+
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(7,28,25,0) 45%,
+          rgba(7,28,25,.72) 100%
+        );
+
+      opacity: 0.55;
+
+      transition: 0.45s ease;
+    }
+
+    /* Teal glow */
+    .gallery-item::after {
+      content: "";
+
+      position: absolute;
+
+      width: 180px;
+      height: 180px;
+
+      top: -110px;
+      left: -110px;
+
+      z-index: 3;
+
+      border-radius: 50%;
+
+      background:
+        rgba(8,127,120,.20);
+
+      filter: blur(30px);
+
+      opacity: 0;
+
+      transition:
+        opacity .45s ease,
+        transform .6s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-8px);
+
+      border-color:
+        rgba(8,127,120,.38);
+
+      box-shadow:
+        0 28px 60px
+        rgba(16,37,34,.15),
+
+        0 0 0 4px
+        rgba(8,127,120,.025);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.045);
+
+      filter:
+        saturate(1.08)
+        contrast(1.02);
+    }
+
+    .gallery-item:hover::before {
+      opacity: 0.82;
+    }
+
+    .gallery-item:hover::after {
+      opacity: 1;
+
+      transform:
+        translate(38px,38px);
+    }
+
+
+    /* =========================================================
+       IMAGE NUMBER
+    ========================================================= */
+
+    .gallery-number {
+      position: absolute;
+
+      left: 20px;
+      bottom: 19px;
+
+      z-index: 5;
+
+      display: inline-flex;
+      align-items: center;
+
+      gap: 8px;
+
+      color: #fff;
+
+      font-size: 9px;
+      font-weight: 900;
+
+      letter-spacing: 0.13em;
+
+      direction: ltr;
+    }
+
+    .gallery-number::before {
+      content: "";
+
+      width: 18px;
+      height: 2px;
+
+      border-radius: 100px;
+
+      background: var(--gold);
+    }
+
+
+    /* =========================================================
+       EXPAND BUTTON
+    ========================================================= */
+
+    .gallery-open {
+      position: absolute;
+
+      top: 18px;
+      right: 18px;
+
+      z-index: 6;
+
+      width: 40px;
+      height: 40px;
+
+      display: grid;
+      place-items: center;
+
+      border:
+        1px solid
+        rgba(255,255,255,.42);
+
+      border-radius: 50%;
+
+      background:
+        rgba(7,30,27,.45);
+
+      color: #fff;
+
+      backdrop-filter: blur(10px);
+
+      opacity: 0;
+
+      transform:
+        translateY(-7px)
+        scale(.85);
+
+      transition: .3s ease;
+    }
+
+    .gallery-item:hover .gallery-open,
+    .gallery-item:focus-visible .gallery-open {
+      opacity: 1;
+
+      transform:
+        translateY(0)
+        scale(1);
+    }
+
+    .gallery-open:hover {
+      background: var(--teal);
+
+      border-color: var(--teal);
+    }
+
+
+    /* =========================================================
+       LIGHTBOX
+    ========================================================= */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+
+      z-index: 9999;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 18px;
+
+      background:
+        rgba(5,24,22,.94);
+
+      backdrop-filter: blur(18px);
+
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      transition: .3s ease;
+    }
+
+    .modal.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      position: relative;
+
+      width: min(1200px, 94vw);
+      height: min(90dvh, 850px);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-image {
+      max-width: 100%;
+      max-height: calc(100% - 20px);
+
+      object-fit: contain;
+
+      border:
+        1px solid
+        rgba(255,255,255,.15);
+
+      border-radius: 16px;
+
+      box-shadow:
+        0 35px 100px
+        rgba(0,0,0,.45);
+
+      opacity: 0;
+
+      transform: scale(.96);
+
+      transition: .35s ease;
+    }
+
+    .modal.open .modal-image {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .modal-top {
+      position: absolute;
+
+      top: 0;
+      left: 0;
+      right: 0;
+
+      z-index: 10;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-counter {
+      min-height: 42px;
+
+      display: inline-flex;
+      align-items: center;
+
+      gap: 7px;
+
+      padding: 0 13px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.13);
+
+      border-radius: 12px;
+
+      background:
+        rgba(7,24,22,.75);
+
+      color: rgba(255,255,255,.7);
+
+      font-size: 9px;
+      font-weight: 800;
+
+      backdrop-filter: blur(12px);
+    }
+
+    .modal-counter-current {
+      color: #67e8d9;
+      font-size: 12px;
+    }
+
+    .modal-counter-divider {
+      color: #60736f;
+    }
+
+    .modal-counter-total {
+      color: #9aa9a5;
+    }
+
+    .modal-close,
+    .modal-nav {
+      width: 44px;
+      height: 44px;
+
+      display: grid;
+      place-items: center;
+
+      border:
+        1px solid
+        rgba(255,255,255,.15);
+
+      border-radius: 50%;
+
+      background:
+        rgba(7,24,22,.78);
+
+      color: #fff;
+
+      transition: .25s ease;
+    }
+
+    .modal-close:hover,
+    .modal-nav:hover {
+      background: var(--teal);
+      border-color: var(--teal);
+
+      transform: translateY(-2px);
+    }
+
+    .modal-close:active,
+    .modal-nav:active {
+      transform: scale(.9);
+    }
+
+    .modal-nav {
+      position: absolute;
+
+      top: 50%;
+
+      z-index: 10;
+
+      transform: translateY(-50%);
+    }
+
+    .modal-prev {
+      left: -4px;
+    }
+
+    .modal-next {
+      right: -4px;
+    }
+
+    .modal-bottom {
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      display: flex;
+      justify-content: center;
+    }
+
+    .modal-hint {
+      color: rgba(255,255,255,.45);
+
+      font-size: 8px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 7px;
+
+      direction: ltr;
+    }
+
+    .modal-hint kbd {
+      min-width: 25px;
+      height: 22px;
+
+      display: grid;
+      place-items: center;
+
+      padding: 0 6px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.13);
+
+      border-radius: 6px;
+
+      background:
+        rgba(255,255,255,.05);
+
+      color: rgba(255,255,255,.7);
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    .gallery-footer {
+      width: min(calc(100% - 48px), 1240px);
+
+      margin: 28px auto 0;
+
+      padding:
+        25px
+        0
+        calc(25px + var(--safe-bottom));
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      border-top:
+        1px solid
+        var(--border);
+
+      color: var(--muted);
+
+      font-size: 8px;
+      font-weight: 700;
+
+      letter-spacing: .08em;
+    }
+
+    .footer-brand {
+      color: var(--teal);
+      font-weight: 900;
+    }
+
+    .footer-gold {
+      color: var(--gold);
+    }
+
+
+    /* =========================================================
+       TABLET
+    ========================================================= */
+
+    @media (max-width: 1000px) {
+
+      .gallery-grid {
+        column-count: 2;
+      }
+
+      .gallery-hero {
+        padding:
+          48px
+          45px
+          45px;
+      }
+
+    }
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 650px) {
+
+      body::before {
+        background-size: 28px 28px;
+        opacity: .25;
+      }
+
+      .gallery-header,
+      .gallery-hero,
+      .gallery-section,
+      .gallery-footer {
+        width: calc(100% - 28px);
+      }
+
+
+      /* Header */
+
+      .gallery-header {
+        padding:
+          max(14px, calc(var(--safe-top) + 8px))
+          0
+          14px;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+
+        border-radius: 13px;
+      }
+
+      .gallery-brand-text strong {
+        font-size: 11px;
+      }
+
+      .gallery-brand-text small {
+        font-size: 6px;
+      }
+
+      .back-link {
+        min-height: 40px;
+
+        padding: 0 12px;
+
+        font-size: 8px;
+      }
+
+
+      /* Hero */
+
+      .gallery-hero {
+        margin-top: 30px;
+        margin-bottom: 28px;
+
+        padding:
+          35px
+          23px
+          31px;
+
+        border-radius: 23px;
+      }
+
+      .gallery-hero::after {
+        width: 60%;
+        height: 2px;
+      }
+
+      .hero-topline {
+        font-size: 7px;
+      }
+
+      .gallery-hero h1 {
+        margin-top: 14px;
+
+        font-size:
+          clamp(
+            45px,
+            14vw,
+            72px
+          );
+      }
+
+      .gallery-hero h1 span::after {
+        height: 5px;
+        bottom: -9px;
+      }
+
+      .hero-description {
+        margin-top: 24px;
+
+        font-size: 12px;
+        line-height: 1.95;
+      }
+
+      .hero-meta {
+        margin-top: 21px;
+        gap: 11px;
+      }
+
+      .gallery-count,
+      .gallery-note {
+        font-size: 7px;
+      }
+
+      .gallery-count strong {
+        font-size: 17px;
+      }
+
+
+      /* Gallery */
+
+      .gallery-section {
+        padding: 18px 12px 14px;
+
+        border-radius: 23px;
+      }
+
+      .gallery-section::before {
+        right: 25px;
+
+        width: 55px;
+        height: 2px;
+      }
+
+      .gallery-section-head {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 7px;
+
+        margin-bottom: 18px;
+
+        padding:
+          2px
+          5px
+          15px;
+      }
+
+      .gallery-section-label,
+      .gallery-hint {
+        font-size: 7px;
+      }
+
+      .gallery-grid {
+        column-count: 2;
+
+        column-gap: 9px;
+      }
+
+      .gallery-item {
+        margin-bottom: 9px;
+
+        padding: 6px;
+
+        border-radius: 16px;
+      }
+
+      .gallery-item img {
+        border-radius: 11px;
+      }
+
+      .gallery-item::before {
+        inset: 6px;
+
+        border-radius: 11px;
+      }
+
+      .gallery-open {
+        width: 30px;
+        height: 30px;
+
+        top: 12px;
+        right: 12px;
+
+        opacity: 1;
+
+        transform: none;
+
+        font-size: 8px;
+      }
+
+      .gallery-number {
+        left: 12px;
+        bottom: 12px;
+
+        font-size: 7px;
+      }
+
+      .gallery-number::before {
+        width: 13px;
+      }
+
+
+      /* Modal */
+
+      .modal {
+        padding: 12px 10px;
+      }
+
+      .modal-content {
+        width: 100%;
+        height: 86dvh;
+      }
+
+      .modal-image {
+        max-width: 100%;
+        max-height: 78dvh;
+
+        border-radius: 12px;
+      }
+
+      .modal-close,
+      .modal-nav {
+        width: 39px;
+        height: 39px;
+
+        font-size: 10px;
+      }
+
+      .modal-counter {
+        min-height: 39px;
+
+        padding: 0 10px;
+
+        font-size: 8px;
+      }
+
+      .modal-counter-current {
+        font-size: 10px;
+      }
+
+      .modal-prev {
+        left: 0;
+      }
+
+      .modal-next {
+        right: 0;
+      }
+
+      .modal-bottom {
+        display: none;
+      }
+
+
+      /* Footer */
+
+      .gallery-footer {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 7px;
+
+        margin-top: 22px;
+
+        font-size: 7px;
+      }
+
+    }
+
+
+    /* =========================================================
+       VERY SMALL PHONES
+    ========================================================= */
+
+    @media (max-width: 390px) {
+
+      .gallery-header,
+      .gallery-hero,
+      .gallery-section,
+      .gallery-footer {
+        width: calc(100% - 22px);
+      }
+
+      .gallery-brand-text {
+        display: none;
+      }
+
+      .back-link span {
+        display: none;
+      }
+
+      .back-link {
+        width: 40px;
+
+        padding: 0;
+
+        justify-content: center;
+      }
+
+      .gallery-hero {
+        margin-top: 25px;
+
+        padding:
+          30px
+          19px
+          27px;
+      }
+
+      .gallery-hero h1 {
+        font-size: 45px;
+      }
+
+      .gallery-section {
+        padding: 15px 9px 11px;
+      }
+
+      .gallery-grid {
+        column-gap: 7px;
+      }
+
+      .gallery-item {
+        margin-bottom: 7px;
+
+        padding: 5px;
+
+        border-radius: 14px;
+      }
+
+      .gallery-item img,
+      .gallery-item::before {
+        border-radius: 10px;
+      }
+
+      .gallery-open {
+        width: 28px;
+        height: 28px;
+
+        top: 10px;
+        right: 10px;
+      }
+
+    }
+
+
+    /* =========================================================
+       ACCESSIBILITY
+    ========================================================= */
+
+    .gallery-item:focus-visible,
+    .gallery-brand:focus-visible,
+    .back-link:focus-visible,
+    .modal-close:focus-visible,
+    .modal-nav:focus-visible {
+      outline:
+        3px solid
+        rgba(8,127,120,.28);
+
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <div class="page-decoration"></div>
+
+
+  <!-- =======================================================
+       HEADER
+  ======================================================== -->
+
+  <header class="gallery-header">
+
+    <a
+      href="index.html"
+      class="gallery-brand"
+      aria-label="Back to FAYAD portfolio"
+    >
+
+      <span class="brand-mark">A</span>
+
+      <span class="gallery-brand-text">
+        <strong>FAYAD</strong>
+        <small>VISUAL WORKS</small>
+      </span>
+
+    </a>
+
+
+    <a
+      href="index.html"
+      class="back-link"
+      aria-label="Back to portfolio"
+    >
+
+      <span>Back to portfolio</span>
+
+      <i class="fa-solid fa-arrow-left"></i>
+
+    </a>
+
+  </header>
+
+
+  <!-- =======================================================
+       MAIN
+  ======================================================== -->
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="gallery-hero">
+
+      <div class="hero-topline">
+        05 / VISUAL WORK
+      </div>
+
+      <h1>
+        Visual
+        <span>Gallery.</span>
+      </h1>
+
+      <p class="hero-description">
+        مجموعة مختارة من الأعمال والصور البصرية التي تعكس اهتمامي
+        بالتصوير، الـcomposition، التفاصيل، وطريقة تحويل اللحظات
+        البسيطة إلى صورة لها طابعها الخاص.
+      </p>
+
+      <div class="hero-meta">
+
+        <div class="gallery-count">
+
+          <strong>54</strong>
+
+          <span>
+            VISUAL WORKS
+          </span>
+
+        </div>
+
+        <div class="meta-divider"></div>
+
+        <div class="gallery-note">
+
+          <i class="fa-regular fa-images"></i>
+
+          <span>
+            Selected visual collection
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- GALLERY -->
+
+    <section class="gallery-section">
+
+      <div class="gallery-section-head">
+
+        <div class="gallery-section-label">
+
+          <span>FAYAD</span>
+          / SELECTED WORKS
+
+        </div>
+
+        <div class="gallery-hint">
+          CLICK ANY IMAGE TO EXPAND
+        </div>
+
+      </div>
+
+
+      <div
+        class="gallery-grid"
+        id="galleryGrid"
+      ></div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer class="gallery-footer">
+
+    <div>
+
+      <span class="footer-brand">
+        FAYAD
+      </span>
+
+      <span>
+        — VISUAL WORKS
+      </span>
+
+    </div>
+
+    <div>
+
+      <span>
+        CRAFTED WITH
+      </span>
+
+      <span class="footer-gold">
+        PRECISION
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =======================================================
+       LIGHTBOX
+  ======================================================== -->
+
+  <div
+    class="modal"
+    id="imageModal"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Image viewer"
+  >
+
+    <div class="modal-content">
+
+      <div class="modal-top">
+
+        <div class="modal-counter">
+
+          <span
+            class="modal-counter-current"
+            id="currentNumber"
+          >
+            01
+          </span>
+
+          <span class="modal-counter-divider">
+            /
+          </span>
+
+          <span
+            class="modal-counter-total"
+            id="totalNumber"
+          >
+            54
+          </span>
+
+        </div>
+
+
+        <button
+          class="modal-close"
+          id="modalClose"
+          type="button"
+          aria-label="Close image"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+      </div>
+
+
+      <button
+        class="modal-nav modal-prev"
+        id="modalPrev"
+        type="button"
+        aria-label="Previous image"
+      >
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+
+      <img
+        id="modalImage"
+        class="modal-image"
+        src=""
+        alt="Full visual work"
+      >
+
+
+      <button
+        class="modal-nav modal-next"
+        id="modalNext"
+        type="button"
+        aria-label="Next image"
+      >
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
+
+      <div class="modal-bottom">
+
+        <div class="modal-hint">
+
+          <kbd>ESC</kbd>
+          close
+
+          <kbd>←</kbd>
+          previous
+
+          <kbd>→</kbd>
+          next
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
+  <script>
+
+    const galleryGrid =
+      document.getElementById("galleryGrid");
+
+    const modal =
+      document.getElementById("imageModal");
+
+    const modalImage =
+      document.getElementById("modalImage");
+
+    const modalClose =
+      document.getElementById("modalClose");
+
+    const modalPrev =
+      document.getElementById("modalPrev");
+
+    const modalNext =
+      document.getElementById("modalNext");
+
+    const currentNumber =
+      document.getElementById("currentNumber");
+
+    const totalNumber =
+      document.getElementById("totalNumber");
+
+
+    /* =====================================================
+       IMAGES
+    ====================================================== */
+
+    const images = Array.from(
+      { length: 54 },
+      (_, index) =>
+        `assets/images/photo${index + 1}.jpg`
+    );
+
+
+    /* =====================================================
+       BUILD GALLERY
+    ====================================================== */
+
+    images.forEach((src, index) => {
+
+      const item =
+        document.createElement("a");
+
+      item.className = "gallery-item";
+
+      item.href = src;
+
+      item.dataset.index = index;
+
+
+      const number =
+        String(index + 1).padStart(2, "0");
+
+
+      item.innerHTML = `
+
+        <img
+          src="${src}"
+          alt="Visual work ${number}"
+          loading="${index < 6 ? "eager" : "lazy"}"
+        >
+
+        <span
+          class="gallery-open"
+          aria-hidden="true"
+        >
+          <i class="fa-solid fa-expand"></i>
+        </span>
+
+        <span class="gallery-number">
+          ${number}
+        </span>
+
+      `;
+
+
+      galleryGrid.appendChild(item);
+
+    });
+
+
+    const galleryItems =
+      Array.from(
+        document.querySelectorAll(".gallery-item")
+      );
+
+
+    totalNumber.textContent =
+      String(galleryItems.length).padStart(2, "0");
+
+
+    /* =====================================================
+       STATE
+    ====================================================== */
+
+    let currentIndex = 0;
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+
+    /* =====================================================
+       SHOW IMAGE
+    ====================================================== */
+
+    function showImage(index) {
+
+      if (!galleryItems.length) return;
+
+
+      if (index < 0) {
+        index = galleryItems.length - 1;
+      }
+
+
+      if (index >= galleryItems.length) {
+        index = 0;
+      }
+
+
+      currentIndex = index;
+
+
+      const item =
+        galleryItems[currentIndex];
+
+      const image =
+        item.querySelector("img");
+
+
+      if (!image) return;
+
+
+      modalImage.style.opacity = "0";
+
+
+      setTimeout(() => {
+
+        modalImage.src =
+          image.currentSrc || image.src;
+
+        modalImage.alt =
+          image.alt || "Visual work";
+
+
+        currentNumber.textContent =
+          String(currentIndex + 1)
+            .padStart(2, "0");
+
+
+        const reveal = () => {
+
+          requestAnimationFrame(() => {
+
+            modalImage.style.opacity = "1";
+
+          });
+
+        };
+
+
+        if (modalImage.complete) {
+
+          reveal();
+
+        } else {
+
+          modalImage.onload = reveal;
+
+        }
+
+      }, 90);
+
+    }
+
+
+    /* =====================================================
+       OPEN MODAL
+    ====================================================== */
+
+    function openModal(index) {
+
+      showImage(index);
+
+      modal.classList.add("open");
+
+      document.body.classList.add(
+        "modal-open"
+      );
+
+
+      setTimeout(() => {
+
+        modalClose.focus();
+
+      }, 100);
+
+    }
+
+
+    /* =====================================================
+       CLOSE MODAL
+    ====================================================== */
+
+    function closeModal() {
+
+      modal.classList.remove("open");
+
+      document.body.classList.remove(
+        "modal-open"
+      );
+
+
+      setTimeout(() => {
+
+        if (!modal.classList.contains("open")) {
+
+          modalImage.src = "";
+
+        }
+
+      }, 300);
+
+    }
+
+
+    /* =====================================================
+       NAVIGATION
+    ====================================================== */
+
+    function nextImage() {
+
+      showImage(
+        currentIndex + 1
+      );
+
+    }
+
+
+    function previousImage() {
+
+      showImage(
+        currentIndex - 1
+      );
+
+    }
+
+
+    /* =====================================================
+       GALLERY CLICK
+    ====================================================== */
+
+    galleryItems.forEach(
+      (item, index) => {
+
+        item.addEventListener(
+          "click",
+          (event) => {
+
+            event.preventDefault();
+
+            openModal(index);
+
+          }
+        );
+
+      }
+    );
+
+
+    /* =====================================================
+       BUTTONS
+    ====================================================== */
+
+    modalClose.addEventListener(
+      "click",
+      closeModal
+    );
+
+
+    modalNext.addEventListener(
+      "click",
+      (event) => {
+
+        event.stopPropagation();
+
+        nextImage();
+
+      }
+    );
+
+
+    modalPrev.addEventListener(
+      "click",
+      (event) => {
+
+        event.stopPropagation();
+
+        previousImage();
+
+      }
+    );
+
+
+    /* =====================================================
+       BACKDROP
+    ====================================================== */
+
+    modal.addEventListener(
+      "click",
+      (event) => {
+
+        if (event.target === modal) {
+
+          closeModal();
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       KEYBOARD
+    ====================================================== */
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (!modal.classList.contains("open")) {
+          return;
+        }
+
+
+        if (event.key === "Escape") {
+
+          closeModal();
+
+          return;
+
+        }
+
+
+        if (event.key === "ArrowRight") {
+
+          nextImage();
+
+          return;
+
+        }
+
+
+        if (event.key === "ArrowLeft") {
+
+          previousImage();
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       TOUCH SWIPE
+    ====================================================== */
+
+    modalImage.addEventListener(
+      "touchstart",
+      (event) => {
+
+        touchStartX =
+          event.changedTouches[0].screenX;
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    modalImage.addEventListener(
+      "touchend",
+      (event) => {
+
+        touchEndX =
+          event.changedTouches[0].screenX;
+
+
+        const difference =
+          touchStartX - touchEndX;
+
+
+        if (Math.abs(difference) < 45) {
+          return;
+        }
+
+
+        if (difference > 0) {
+
+          nextImage();
+
+        } else {
+
+          previousImage();
+
+        }
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    /* =====================================================
+       PAGE SHOW
+    ====================================================== */
+
+    window.addEventListener(
+      "pageshow",
+      () => {
+
+        document.body.classList.remove(
+          "modal-open"
+        );
+
+        modal.classList.remove("open");
+
+      }
+    );
+
+
+    /* =====================================================
+       PWA
+    ====================================================== */
+
+    if ("serviceWorker" in navigator) {
+
+      window.addEventListener(
+        "load",
+        () => {
+
+          navigator.serviceWorker
+            .register("/sw.js")
+            .catch((error) => {
+
+              console.warn(
+                "PWA registration failed:",
+                error
+              );
+
+            });
+
+        }
+      );
+
+    }
+
+  </script>
+
+</body>
+
+</html>
