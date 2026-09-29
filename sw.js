@@ -1,6 +1,6 @@
 /* =========================================================
    FAYAD PORTFOLIO — SERVICE WORKER
-   Fast / Safe / Cache-aware PWA
+   Fast / Safe / Update-aware / Cache-aware PWA
 ========================================================= */
 
 "use strict";
@@ -9,7 +9,14 @@
    CACHE VERSION
 ========================================================= */
 
-const CACHE_NAME = "fayad-portfolio-v3";
+/*
+   Increase this version whenever the Service Worker itself
+   changes significantly.
+
+   Old caches are automatically removed during activation.
+*/
+
+const CACHE_NAME = "fayad-portfolio-v4";
 
 /* =========================================================
    STATIC ASSETS
@@ -31,25 +38,15 @@ const CACHE_NAME = "fayad-portfolio-v3";
 
 const STATIC_ASSETS = [
   "/",
-
   "/index.html",
-
   "/style.css",
-
   "/script.js",
-
   "/gallery.html",
-
   "/manifest.json",
-
   "/profile.jpg",
-
   "/icons/favicon.svg",
-
   "/icons/icon-32.png",
-
   "/icons/icon-180.png",
-
   "/icons/icon-192.png",
 ];
 
@@ -59,15 +56,20 @@ const STATIC_ASSETS = [
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(STATIC_ASSETS);
-    }),
+    caches
+      .open(CACHE_NAME)
+      .then((cache) => cache.addAll(STATIC_ASSETS))
+      .catch((error) => {
+        console.error(
+          "[Service Worker] Failed to cache static assets:",
+          error,
+        );
+      }),
   );
 
   /*
-       Activate the new service worker
-       immediately.
-    */
+     Activate the new Service Worker immediately.
+  */
 
   self.skipWaiting();
 });
@@ -78,16 +80,17 @@ self.addEventListener("install", (event) => {
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(cacheNames.filter((name) => name !== CACHE_NAME).map((name) => caches.delete(name)));
-    }),
+    caches
+      .keys()
+      .then((cacheNames) => {
+        return Promise.all(
+          cacheNames
+            .filter((name) => name !== CACHE_NAME)
+            .map((name) => caches.delete(name)),
+        );
+      })
+      .then(() => self.clients.claim()),
   );
-
-  /*
-       Take control of open pages.
-    */
-
-  self.clients.claim();
 });
 
 /* =========================================================
@@ -98,8 +101,8 @@ self.addEventListener("fetch", (event) => {
   const request = event.request;
 
   /*
-       Only handle GET requests.
-    */
+     Only handle GET requests.
+  */
 
   if (request.method !== "GET") {
     return;
@@ -108,90 +111,145 @@ self.addEventListener("fetch", (event) => {
   const url = new URL(request.url);
 
   /*
-       Ignore external resources.
+     Ignore external resources.
 
-       This means Google Fonts,
-       Font Awesome CDN, analytics, etc.
-       are handled normally by the browser.
-    */
+     Google Fonts, Font Awesome, analytics, etc.
+     remain under normal browser/network handling.
+  */
 
   if (url.origin !== self.location.origin) {
     return;
   }
 
-  /* =====================================================
-       HTML NAVIGATION
-    ===================================================== */
+  /* =======================================================
+     HTML NAVIGATION
+  ======================================================= */
+
+  /*
+     NETWORK FIRST
+
+     Always try to get the newest HTML from the server.
+
+     If the network fails, use the cached version.
+  */
 
   if (request.mode === "navigate") {
     event.respondWith(
       fetch(request)
         .then((response) => {
-          /*
-                 Save fresh HTML.
-              */
+          if (response && response.ok) {
+            const clonedResponse = response.clone();
 
-          const cloned = response.clone();
+            caches
+              .open(CACHE_NAME)
+              .then((cache) => {
+                cache.put(request, clonedResponse);
+              })
+              .catch(() => {});
 
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(request, cloned);
-          });
+            return response;
+          }
 
-          return response;
+          throw new Error("Network response was not OK.");
         })
-
         .catch(() => {
-          /*
-                 Offline fallback.
-              */
-
-          return caches.match("/index.html");
+          return caches.match(request).then((cachedResponse) => {
+            return cachedResponse || caches.match("/index.html");
+          });
         }),
     );
 
     return;
   }
 
-  /* =====================================================
-       STATIC FILES
-    ===================================================== */
+  /* =======================================================
+     CSS / JS / MANIFEST
+  ======================================================= */
 
-  event.respondWith(
-    caches
-      .match(request)
+  /*
+     NETWORK FIRST
 
-      .then((cachedResponse) => {
-        /*
-               If cached, use it immediately.
-            */
+     These files change frequently during development.
 
-        if (cachedResponse) {
-          return cachedResponse;
-        }
+     This prevents an old CSS or JavaScript file from
+     being returned simply because it already exists
+     in the cache.
+  */
 
-        /*
-               Otherwise request it
-               from the network.
-            */
+  const isCSS = request.destination === "style";
+  const isJS = request.destination === "script";
+  const isManifest = request.destination === "manifest";
 
-        return fetch(request).then((response) => {
-          /*
-                     Don't cache failed
-                     responses.
-                  */
+  if (isCSS || isJS || isManifest) {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response && response.ok) {
+            const clonedResponse = response.clone();
 
-          if (!response || response.status !== 200 || response.type === "opaque") {
-            return response;
+            caches
+              .open(CACHE_NAME)
+              .then((cache) => {
+                cache.put(request, clonedResponse);
+              })
+              .catch(() => {});
           }
 
-          const cloned = response.clone();
-
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(request, cloned);
-          });
-
           return response;
-        });
-      }),
+        })
+        .catch(() => {
+          return caches.match(request);
+        }),
+    );
+
+    return;
+  }
+
+  /* =======================================================
+     IMAGES / ICONS / OTHER STATIC FILES
+  ======================================================= */
+
+  /*
+     CACHE FIRST
+
+     Images and icons usually do not need to be downloaded
+     every time.
+
+     If they are cached, use them immediately.
+
+     If they are not cached, download and store them.
+  */
+
+  event.respondWith(
+    caches.match(request).then((cachedResponse) => {
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+
+      return fetch(request).then((response) => {
+        /*
+           Don't cache failed responses.
+        */
+
+        if (
+          !response ||
+          response.status !== 200 ||
+          response.type === "opaque"
+        ) {
+          return response;
+        }
+
+        const clonedResponse = response.clone();
+
+        caches
+          .open(CACHE_NAME)
+          .then((cache) => {
+            cache.put(request, clonedResponse);
+          })
+          .catch(() => {});
+
+        return response;
+      });
+    }),
   );
 });

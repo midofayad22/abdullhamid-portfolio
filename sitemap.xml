@@ -8,4 +8,10 @@
     <priority>1.0</priority>
   </url>
 
+  <url>
+    <loc>https://abdullhamid-fayad-portfolio.vercel.app/gallery.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
