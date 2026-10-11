@@ -180,12 +180,17 @@ html.gallery-page {
   display: block;
 }
 
+.frame-img {
+  display: block;
+  overflow: hidden;
+  background: var(--paper-2);
+}
+
 .frame img {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
-  background: var(--paper-2);
-  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  transition: transform 0.6s var(--ease);
 }
 
 .frame-no {
@@ -196,15 +201,22 @@ html.gallery-page {
   transition: color 0.2s var(--ease);
 }
 
-.frame:hover img,
 .frame:focus-visible img {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+  transform: scale(1.04);
 }
 
-.frame:hover .frame-no,
 .frame:focus-visible .frame-no {
   color: var(--gold);
+}
+
+@media (hover: hover) {
+  .frame:hover img {
+    transform: scale(1.04);
+  }
+
+  .frame:hover .frame-no {
+    color: var(--gold);
+  }
 }
 
 /* ---------- Footer ---------- */
@@ -373,9 +385,77 @@ html.viewer-open {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .frame:hover img,
-  .frame:focus-visible img {
-    transform: none;
+/* ==========================================================================
+   Motion — transform/opacity only; the page is complete without any of it.
+   Keyframe motion sits behind no-preference; hover transitions above are
+   collapsed to ~0ms by the global reduced-motion rule in base.css.
+   ========================================================================== */
+
+.viewer:not([open]) {
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* ---------- Page entrance (plays on load, needs no JS) ---------- */
+
+  .g-kicker,
+  .g-hero h1,
+  .g-lede,
+  .g-stats {
+    animation: rise 0.7s var(--ease) backwards;
+  }
+
+  .g-hero h1 { animation-delay: 0.05s; }
+  .g-lede { animation-delay: 0.1s; }
+  .g-stats { animation-delay: 0.15s; }
+
+  .g-bar {
+    animation: fade 0.7s ease 0.25s backwards;
+  }
+
+  /* First two rows of frames settle in; later rows are simply there.
+     The delay follows the column, so a row reads as one gentle sweep. */
+
+  .frames li:nth-child(-n + 12) {
+    animation: rise 0.6s var(--ease) 0.3s backwards;
+  }
+
+  .frames li:nth-child(6n + 2) { animation-delay: 0.35s; }
+  .frames li:nth-child(6n + 3) { animation-delay: 0.4s; }
+  .frames li:nth-child(6n + 4) { animation-delay: 0.45s; }
+  .frames li:nth-child(6n + 5) { animation-delay: 0.5s; }
+  .frames li:nth-child(6n + 6) { animation-delay: 0.55s; }
+
+  /* ---------- Lightbox ----------
+     Opening: the existing keyframe fade plus a small settle on the photo.
+     Closing: a fade, using the dialog's discrete display/overlay transition
+     so it stays in the top layer until the fade ends. Browsers without
+     that feature close instantly; behaviour and focus handling are the same. */
+
+  .viewer {
+    opacity: 0;
+    transition: opacity 0.2s var(--ease);
+  }
+
+  .viewer[open] {
+    opacity: 1;
+  }
+
+  .viewer[open] .viewer-stage {
+    animation: zoom-in 0.3s var(--ease) backwards;
+  }
+
+  @supports (transition-behavior: allow-discrete) {
+    .viewer {
+      transition: opacity 0.2s var(--ease), display 0.2s allow-discrete,
+        overlay 0.2s allow-discrete;
+    }
+
+    /* The dialog itself covers the viewport, so it carries the dark
+       background; a transparent backdrop avoids a flash when it leaves. */
+    .viewer::backdrop {
+      background: transparent;
+    }
   }
 }

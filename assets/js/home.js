@@ -71,7 +71,8 @@
 
   /* ---------- Scroll reveal ----------
      Only blocks that start below the fold are hidden (never anything the
-     visitor can already see), and never when reduced motion is requested. */
+     visitor can already see), and never when reduced motion is requested.
+     Siblings get a small stagger through --d. */
 
   if (!reduceMotion.matches && "IntersectionObserver" in window) {
     const reveal = new IntersectionObserver(
@@ -79,6 +80,7 @@
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           entry.target.classList.remove("is-pending");
+          entry.target.classList.add("is-in");
           reveal.unobserve(entry.target);
         });
       },
@@ -89,7 +91,9 @@
       .querySelectorAll(".section-head, .project, .cap, .steps li, .strip, .cta, .channels li")
       .forEach((el) => {
         if (el.getBoundingClientRect().top <= window.innerHeight) return;
-        el.classList.add("reveal-ready", "is-pending");
+        const position = el.parentElement ? [...el.parentElement.children].indexOf(el) : 0;
+        el.style.setProperty("--d", `${Math.min(position, 4) * 70}ms`);
+        el.classList.add("is-pending");
         reveal.observe(el);
       });
   }

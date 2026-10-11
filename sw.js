@@ -5,7 +5,7 @@
 
 "use strict";
 
-const CACHE_NAME = "fayad-portfolio-v5";
+const CACHE_NAME = "fayad-portfolio-v6";
 
 /* Every file listed here must exist, or install fails. */
 const PRECACHE = [

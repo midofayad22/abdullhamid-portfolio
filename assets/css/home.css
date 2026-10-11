@@ -866,8 +866,9 @@
   color: var(--gold);
 }
 
-.channels a:hover .icon {
-  transform: translate(-3px, -3px);
+.channels a:hover .icon,
+.channels a:focus-visible .icon {
+  transform: translate(3px, -3px);
 }
 
 /* ---------- Footer ---------- */
@@ -913,19 +914,6 @@
   color: var(--gold);
 }
 
-/* ---------- Scroll reveal (applied by JS to below-the-fold blocks only) ---------- */
-
-@media (prefers-reduced-motion: no-preference) {
-  .is-pending {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-
-  .reveal-ready {
-    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
-  }
-}
-
 /* ---------- Small screens ---------- */
 
 @media (max-width: 39.99rem) {
@@ -940,5 +928,159 @@
 
   .cta {
     padding: 1.25rem;
+  }
+}
+
+/* ==========================================================================
+   Motion
+   Rules: transform and opacity only (no layout movement), nothing is hidden
+   unless its animation can run, and all keyframe motion lives behind
+   no-preference. Hover/focus parity (below) is plain transitions, which the
+   global reduced-motion rule in base.css collapses to ~0ms.
+   ========================================================================== */
+
+/* ---------- Hover and focus parity ---------- */
+
+.nav a:not(.nav-cta):focus-visible {
+  color: var(--ink);
+}
+
+.nav a:not(.nav-cta):focus-visible::after {
+  transform: scaleX(1);
+}
+
+.nav-cta:focus-visible {
+  background: var(--teal-ink);
+}
+
+.project:focus-within .plate {
+  transform: translateY(-3px);
+  border-color: var(--teal);
+}
+
+.project:focus-within .project-link {
+  color: var(--teal-ink);
+}
+
+.cta:focus-visible {
+  background: rgba(199, 165, 87, 0.12);
+}
+
+.channels a:focus-visible {
+  color: var(--gold);
+}
+
+.foot-link:focus-visible {
+  color: var(--teal-ink);
+}
+
+.site-footer .foot-link:focus-visible {
+  color: var(--gold);
+}
+
+/* Arrow nudges: the external arrow points up-right, so it travels up-right */
+.project-link .icon,
+.cta .icon,
+.nav-cta .icon,
+.foot-link .icon {
+  transition: transform 0.2s var(--ease);
+}
+
+.project:hover .project-link .icon,
+.project-link:focus-visible .icon,
+.nav-cta:hover .icon,
+.nav-cta:focus-visible .icon {
+  transform: translate(2px, -2px);
+}
+
+.cta:hover .icon,
+.cta:focus-visible .icon {
+  transform: translate(3px, -3px);
+}
+
+.foot-link:hover .icon,
+.foot-link:focus-visible .icon {
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* ---------- Hero entrance: CSS only, plays on load, needs no JS ----------
+     The portrait itself is never faded: it is the largest paint on the page. */
+
+  .hero-copy > * {
+    animation: rise 0.7s var(--ease) backwards;
+  }
+
+  .hero-copy > :nth-child(2) { animation-delay: 0.05s; }
+  .hero-copy > :nth-child(3) { animation-delay: 0.1s; }
+  .hero-copy > :nth-child(4) { animation-delay: 0.15s; }
+  .hero-copy > :nth-child(5) { animation-delay: 0.2s; }
+  .hero-copy > :nth-child(6) { animation-delay: 0.25s; }
+
+  .portrait::before {
+    transform-origin: right center;
+    animation: draw 0.6s var(--ease) 0.3s backwards;
+  }
+
+  .portrait figcaption,
+  .hero-foot {
+    animation: fade 0.8s ease 0.4s backwards;
+  }
+
+  /* ---------- Scroll reveal ----------
+     home.js adds .is-pending only to blocks that start below the fold, then
+     swaps it for .is-in when they arrive. No JS = nothing is ever hidden. */
+
+  .is-pending {
+    opacity: 0;
+  }
+
+  .is-in {
+    animation: rise 0.6s var(--ease) var(--d, 0ms) backwards;
+  }
+
+  .section-head.is-pending > .label::before {
+    transform: scaleX(0);
+  }
+
+  .section-head.is-in > .label::before {
+    transform-origin: right center;
+    animation: draw 0.6s var(--ease) calc(var(--d, 0ms) + 0.2s) backwards;
+  }
+
+  /* ---------- Mobile menu: short fade + drop ---------- */
+
+  @media (max-width: 55.99rem) {
+    .js .nav {
+      opacity: 0;
+      transform: translateY(-8px);
+      transition: opacity 0.22s var(--ease), transform 0.22s var(--ease);
+    }
+
+    .js .nav[data-open] {
+      opacity: 1;
+      transform: none;
+    }
+
+    @supports (transition-behavior: allow-discrete) {
+      .js .nav {
+        transition: opacity 0.22s var(--ease), transform 0.22s var(--ease),
+          display 0.22s allow-discrete;
+      }
+
+      @starting-style {
+        .js .nav[data-open] {
+          opacity: 0;
+          transform: translateY(-8px);
+        }
+      }
+    }
+  }
+}
+
+@media print {
+  .is-pending {
+    opacity: 1;
   }
 }
