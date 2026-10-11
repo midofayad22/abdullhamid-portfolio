@@ -1,0 +1,381 @@
+/* ==========================================================================
+   gallery.css — the visual gallery
+   A dark "contact sheet": uniform frames, mono frame numbers, one lightbox.
+   Shares fonts and the gold/teal accents with the portfolio, but the room
+   itself is dark so the photographs carry the colour.
+   ========================================================================== */
+
+html.gallery-page {
+  color-scheme: dark;
+  --paper: #0b1110;
+  --paper-2: #131c1a;
+  --ink: #eaf1ef;
+  --ink-soft: #c3d1cd;
+  --muted: #93a9a3;
+  --rule: #22302d;
+  --rule-strong: #35483f;
+  --teal-ink: #4fd8c7;
+  --gap: clamp(0.6rem, 1.6vw, 1.1rem);
+}
+
+.gallery-page :focus-visible {
+  outline-color: var(--gold);
+}
+
+.gallery-page ::selection {
+  background: var(--gold);
+  color: #0b1110;
+}
+
+.g-wrap {
+  width: min(90rem, 100% - var(--gutter) * 2);
+  margin-inline: auto;
+}
+
+/* ---------- Header ---------- */
+
+.g-header {
+  border-bottom: 1px solid var(--rule);
+}
+
+.g-header .g-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: var(--header-h);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand img {
+  border-radius: 9px;
+}
+
+.brand-name {
+  display: block;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+}
+
+.brand-role {
+  display: block;
+  margin-block-start: 0.2rem;
+  font-size: 0.6875rem;
+  line-height: 1.1;
+}
+
+.back-link,
+.foot-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: color 0.18s var(--ease);
+}
+
+.back-link:hover,
+.foot-link:hover {
+  color: var(--gold);
+}
+
+/* ---------- Intro ---------- */
+
+.g-hero {
+  display: grid;
+  gap: 2rem;
+  padding-block: clamp(3rem, 8vw, 6.5rem) clamp(2rem, 5vw, 3.5rem);
+}
+
+@media (min-width: 56rem) {
+  .g-hero {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 4rem;
+  }
+}
+
+.g-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-block-end: 1.25rem;
+}
+
+.g-kicker::before {
+  content: "";
+  width: 2.5rem;
+  height: 3px;
+  background: var(--gold);
+}
+
+.g-hero h1 {
+  font-size: clamp(2.6rem, 1.6rem + 4.6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.g-hero h1 span {
+  color: var(--teal-ink);
+}
+
+.g-lede {
+  max-width: 38rem;
+  margin-block-start: 1.5rem;
+  font-size: 1.125rem;
+  color: var(--ink-soft);
+}
+
+.g-stats {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.g-count {
+  font-size: clamp(3.25rem, 2.4rem + 3.4vw, 4.75rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ink);
+  direction: ltr;
+}
+
+.g-stats .label {
+  max-width: 9rem;
+}
+
+.g-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-block: 0.9rem;
+  border-block: 1px solid var(--rule);
+}
+
+.g-bar .label:first-child b {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ---------- Contact sheet ---------- */
+
+.frames {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(9rem, 14vw, 14rem), 1fr));
+  gap: clamp(1.1rem, 2.4vw, 1.75rem) var(--gap);
+  padding-block: clamp(1.5rem, 3vw, 2.25rem) clamp(4rem, 8vw, 6rem);
+}
+
+.frame {
+  display: block;
+}
+
+.frame img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  background: var(--paper-2);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+
+.frame-no {
+  display: block;
+  margin-block-start: 0.55rem;
+  direction: ltr;
+  text-align: right;
+  transition: color 0.2s var(--ease);
+}
+
+.frame:hover img,
+.frame:focus-visible img {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+}
+
+.frame:hover .frame-no,
+.frame:focus-visible .frame-no {
+  color: var(--gold);
+}
+
+/* ---------- Footer ---------- */
+
+.g-footer {
+  border-top: 1px solid var(--rule);
+}
+
+.g-footer .g-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-block: 1.25rem;
+}
+
+/* ---------- Lightbox (native <dialog>) ---------- */
+
+html.viewer-open {
+  overflow: hidden;
+}
+
+.viewer {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: rgba(5, 9, 8, 0.97);
+  color: var(--ink);
+}
+
+.viewer::backdrop {
+  background: #050908;
+}
+
+.viewer[open] {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-areas:
+    "bar bar bar"
+    "prev stage next";
+  animation: viewer-in 0.18s var(--ease);
+}
+
+@keyframes viewer-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.viewer-bar {
+  grid-area: bar;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem clamp(0.75rem, 2vw, 1.5rem);
+}
+
+.viewer-count {
+  display: flex;
+  gap: 0.5rem;
+  color: var(--ink-soft);
+}
+
+.viewer-count #viewer-current {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.viewer button {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  color: var(--ink);
+  transition: background-color 0.18s var(--ease), color 0.18s var(--ease);
+}
+
+.viewer button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--gold);
+}
+
+.viewer-prev {
+  grid-area: prev;
+  align-self: center;
+  margin-inline: clamp(0.25rem, 1.5vw, 1.25rem);
+}
+
+.viewer-next {
+  grid-area: next;
+  align-self: center;
+  margin-inline: clamp(0.25rem, 1.5vw, 1.25rem);
+}
+
+.viewer-stage {
+  grid-area: stage;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  min-height: 0;
+  padding-block-end: 1rem;
+}
+
+.viewer-stage img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  min-height: 0;
+  flex: 0 1 auto;
+  max-height: calc(100dvh - 9.5rem);
+  object-fit: contain;
+  touch-action: pan-y;
+  transition: opacity 0.2s var(--ease);
+}
+
+.viewer-stage img.is-loading {
+  opacity: 0.25;
+}
+
+.viewer-stage figcaption {
+  max-width: 40rem;
+  padding-inline: 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--muted);
+}
+
+@media (max-width: 47.99rem) {
+  /* Phones: the image takes the full width, arrows float over its edges */
+  .viewer[open] {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "bar"
+      "stage";
+  }
+
+  .viewer-prev,
+  .viewer-next {
+    grid-area: stage;
+    z-index: 1;
+    margin: 0 0.5rem;
+    background: rgba(5, 9, 8, 0.6);
+  }
+
+  .viewer-prev {
+    justify-self: start;
+  }
+
+  .viewer-next {
+    justify-self: end;
+  }
+
+  .viewer-stage img {
+    max-height: calc(100dvh - 11rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frame:hover img,
+  .frame:focus-visible img {
+    transform: none;
+  }
+}
