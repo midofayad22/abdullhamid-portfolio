@@ -1,42 +1,167 @@
 /* ==========================================================================
-   base.css — tokens, reset, typography and utilities shared by both pages
+   base.css — "Horizon Line" design system, shared by the portfolio and gallery
    --------------------------------------------------------------------------
-   Palette is taken from the "A" mark: deep teal-green, bright teal and a
-   gold crossbar. Gold is used sparingly, always as a rule or a marker.
-   All spacing/alignment uses logical properties so the RTL layout is native.
+   Concept: the horizon is the one line that holds a photograph together and
+   the one line a layout hangs from. Deep field-teal is the ground, gold is the
+   sun, and thin wires/rules are the connective tissue between code and light.
+
+   Everything directional uses logical properties, so Arabic (RTL) and English
+   (LTR) share one stylesheet. Themes are driven by <html data-theme="light|dark">.
    ========================================================================== */
 
+/* ---------- Tokens: shared ---------- */
+
 :root {
-  --paper: #f4f8f7;
-  --paper-2: #eaf2f0;
-  --surface: #ffffff;
+  /* Type */
+  --f-latin: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --f-arabic: "IBM Plex Sans Arabic", "Plus Jakarta Sans", "Segoe UI", Tahoma, system-ui, sans-serif;
+  --f-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
 
-  --ink: #10211e;
-  --ink-soft: #35504a;
-  --muted: #566a65;
+  --font: var(--f-latin);
+  --display: var(--f-serif);
+  --display-weight: 560;
+  --display-lh: 1.04;
+  --display-track: -0.02em;
 
-  --rule: #d3e1dd;
-  --rule-strong: #b5cbc5;
+  /* Layout */
+  --wrap: 78rem;
+  --gutter: clamp(1.25rem, 4.5vw, 3rem);
+  --header-h: 4.5rem;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --radius-lg: 18px;
 
-  --teal: #07998d;       /* fills, rules, large display only */
-  --teal-ink: #05726a;   /* teal that is safe for text on paper */
-  --deep: #082b27;
+  /* Section rhythm */
+  --section-y: clamp(4.5rem, 10vw, 8.5rem);
+
+  /* Motion language: one set of curves + durations */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);       /* arrive: quick start, soft landing */
+  --ease-io: cubic-bezier(0.65, 0, 0.35, 1);    /* move between states */
+  --t-1: 160ms;   /* hover, press */
+  --t-2: 300ms;   /* small reveals, theme */
+  --t-3: 560ms;   /* section reveals */
+  --t-4: 1000ms;  /* hero choreography */
+
+  /* Brand constants (identical in both themes) */
+  --deep: #0a2a26;
   --deep-2: #0e3d38;
+  --sun: #e2b04a;
+  --mint: #46d9c6;
 
-  --gold: #c7a557;
-  --gold-ink: #7a5c1c;   /* gold that is safe for text on paper */
+  /* Project identities */
+  --p-learning: #0aa395;
+  --p-tnu: #5b7cf0;
+  --p-code: #ef6a43;
+}
 
-  --font: "Plus Jakarta Sans", "Noto Kufi Arabic", system-ui, -apple-system,
-    "Segoe UI", Tahoma, sans-serif;
-  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas,
-    "Liberation Mono", monospace;
+/* Arabic uses its own display face and tighter-tracking is turned off:
+   negative tracking would break the joins between Arabic letters. */
+html[lang="ar"] {
+  --font: var(--f-arabic);
+  --display: var(--f-arabic);
+  --display-weight: 700;
+  --display-lh: 1.28;
+  --display-track: 0;
+}
 
-  --wrap: 72.5rem;
-  --gutter: clamp(1.25rem, 4vw, 2.5rem);
-  --header-h: 4rem;
+/* ---------- Tokens: light — "Dawn paper" ---------- */
 
-  --radius: 6px;
-  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: #f5f2ea;
+  --bg-2: #ece7da;
+  --surface: #fbf9f4;
+  --surface-2: #ffffff;
+  --sunk: #e7e2d3;
+
+  --ink: #0f1f1c;
+  --ink-2: #2e4540;
+  --muted: #53655f;
+
+  --line: #d9d3c1;
+  --line-strong: #b6af98;
+
+  --brand: #066d64;          /* teal that is safe for text on --bg */
+  --brand-fill: #0a9b8d;     /* teal for fills, rules and large display */
+  --brand-strong: #045149;
+  --gold: #c58f2f;           /* fills and rules */
+  --gold-ink: #7a5710;       /* gold that is safe for text */
+
+  --on-brand: #ffffff;
+  --btn-bg: #0f1f1c;
+  --btn-fg: #f5f2ea;
+  --btn-hover: #066d64;
+
+  --shadow-1: 0 1px 2px rgba(15, 31, 28, 0.06), 0 6px 18px -8px rgba(15, 31, 28, 0.14);
+  --shadow-2: 0 2px 4px rgba(15, 31, 28, 0.06), 0 22px 44px -18px rgba(15, 31, 28, 0.28);
+
+  --glow-a: rgba(10, 155, 141, 0.1);
+  --glow-b: rgba(197, 143, 47, 0.12);
+  --focus: #066d64;
+
+  /* project accents that are safe as small text on --surface */
+  --p-learning-ink: #07776c;
+  --p-tnu-ink: #4560d6;
+  --p-code-ink: #c0431a;
+
+  --header-bg: rgba(245, 242, 234, 0.84);
+
+  /* Contact band stays deep in both themes: the page ends on a dusk-coloured field */
+  --band-bg: #0a2a26;
+  --band-ink: #eaf3ef;
+  --band-muted: #9bbdb4;
+  --band-line: #1f4a43;
+}
+
+/* ---------- Tokens: dark — "Night field" ---------- */
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #07130f;
+  --bg-2: #0b1c17;
+  --surface: #0f241e;
+  --surface-2: #143029;
+  --sunk: #050e0b;
+
+  --ink: #eaf3ef;
+  --ink-2: #bcd0c9;
+  --muted: #8ea8a0;
+
+  --line: #1c3a32;
+  --line-strong: #2d5247;
+
+  --brand: #4fd8c6;
+  --brand-fill: #1db5a3;
+  --brand-strong: #86eadc;
+  --gold: #e2b04a;
+  --gold-ink: #e8bb5c;
+
+  --on-brand: #04201c;
+  --btn-bg: #eaf3ef;
+  --btn-fg: #07130f;
+  --btn-hover: #4fd8c6;
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 22px -10px rgba(0, 0, 0, 0.6);
+  --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.4), 0 26px 50px -20px rgba(0, 0, 0, 0.75);
+
+  --glow-a: rgba(29, 181, 163, 0.16);
+  --glow-b: rgba(226, 176, 74, 0.1);
+  --focus: #4fd8c6;
+
+  --p-learning-ink: #2fd0bf;
+  --p-tnu-ink: #8aa4ff;
+  --p-code-ink: #ff8a66;
+
+  --header-bg: rgba(7, 19, 15, 0.8);
+
+  --band-bg: #04100d;
+  --band-ink: #eaf3ef;
+  --band-muted: #8ea8a0;
+  --band-line: #17352d;
 }
 
 /* ---------- Reset ---------- */
@@ -51,6 +176,7 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   scroll-padding-top: calc(var(--header-h) + 1rem);
+  scrollbar-gutter: stable;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -63,6 +189,7 @@ body,
 h1,
 h2,
 h3,
+h4,
 p,
 ul,
 ol,
@@ -80,12 +207,17 @@ ol {
 
 body {
   min-width: 20rem;
-  background: var(--paper);
+  background: var(--bg);
   color: var(--ink);
   font-family: var(--font);
   font-size: 1.0625rem;
-  line-height: 1.85;
+  line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html[lang="en"] body {
+  line-height: 1.7;
 }
 
 img,
@@ -124,19 +256,36 @@ p {
 }
 
 :focus-visible {
-  outline: 2px solid var(--teal-ink);
+  outline: 2px solid var(--focus);
   outline-offset: 3px;
+  border-radius: 3px;
 }
 
 ::selection {
-  background: var(--teal);
+  background: var(--brand-fill);
   color: #fff;
+}
+
+/* Returning English visitors: keep the page hidden for the few ms it takes to
+   swap the text, with a hard fallback so content can never stay hidden. */
+.i18n-wait body {
+  visibility: hidden;
+  animation: i18n-fallback 0s 1.5s forwards;
+}
+
+@keyframes i18n-fallback {
+  to {
+    visibility: visible;
+  }
 }
 
 /* ---------- Utilities ---------- */
 
 .wrap {
-  width: min(var(--wrap), 100% - var(--gutter) * 2);
+  width: min(
+    var(--wrap),
+    100% - max(var(--gutter), env(safe-area-inset-left)) - max(var(--gutter), env(safe-area-inset-right))
+  );
   margin-inline: auto;
 }
 
@@ -160,30 +309,23 @@ p {
   position: fixed;
   inset-block-start: 0.75rem;
   inset-inline-start: 0.75rem;
-  z-index: 100;
-  padding: 0.65rem 1rem;
-  border-radius: var(--radius);
-  background: var(--ink);
-  color: var(--paper);
+  z-index: 200;
+  padding: 0.7rem 1.1rem;
+  border-radius: var(--radius-sm);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
   font-weight: 600;
-  transform: translateY(-200%);
+  transform: translateY(-220%);
 }
 
 .skip-link:focus {
   transform: none;
 }
 
-/* English text inside the Arabic page: isolate direction so punctuation
-   stays attached to the right word, keep the right-hand edge aligned. */
-.en {
-  direction: ltr;
-  unicode-bidi: isolate;
-  text-align: right;
-}
-
-/* Small technical label (Latin, monospaced) */
+/* Small technical label (mono, Latin). Arabic labels drop the tracking and
+   uppercase so letters stay joined. */
 .label {
-  font-family: var(--mono);
+  font-family: var(--f-mono);
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 1.4;
@@ -192,7 +334,49 @@ p {
   color: var(--muted);
 }
 
-/* Icons come from the inline sprite; one arrow shape, flipped per direction */
+html[lang="ar"] .label {
+  font-family: var(--f-arabic);
+  font-size: 0.8125rem;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 500;
+}
+
+/* Tokens that are always Latin (version numbers, tech names) keep the mono look */
+html[lang="ar"] .label.keep {
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.display {
+  font-family: var(--display);
+  font-weight: var(--display-weight);
+  line-height: var(--display-lh);
+  letter-spacing: var(--display-track);
+  font-variation-settings: "opsz" 96;
+}
+
+html[lang="ar"] .display {
+  font-variation-settings: normal;
+}
+
+/* The gold full stop that signs the headings */
+.dot {
+  color: var(--gold);
+}
+
+.accent {
+  color: var(--brand);
+}
+
+html[lang="en"] .accent {
+  font-style: italic;
+  font-weight: 480;
+}
+
+/* Icons come from the inline sprite; the arrow is flipped per direction */
 .icon {
   width: 1.15em;
   height: 1.15em;
@@ -202,6 +386,11 @@ p {
   stroke-width: 1.75;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.icon-fill {
+  fill: currentColor;
+  stroke: none;
 }
 
 [dir="rtl"] .icon-fwd {
@@ -222,34 +411,36 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.65rem;
-  min-height: 3rem;
-  padding: 0.7rem 1.35rem;
-  border: 1px solid var(--ink);
-  border-radius: var(--radius);
+  gap: 0.7rem;
+  min-height: 3.1rem;
+  padding: 0.7rem 1.4rem;
+  border: 1px solid var(--btn-bg);
+  border-radius: 999px;
   font-weight: 600;
   line-height: 1.3;
-  transition: background-color 0.18s var(--ease), color 0.18s var(--ease),
-    border-color 0.18s var(--ease), transform 0.12s var(--ease);
+  transition: background-color var(--t-1) var(--ease), color var(--t-1) var(--ease),
+    border-color var(--t-1) var(--ease), transform var(--t-1) var(--ease);
 }
 
 .btn:active {
-  transform: translateY(1px);
+  transform: scale(0.98);
 }
 
 .btn--solid {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
 }
 
 .btn--solid:hover,
 .btn--solid:focus-visible {
-  border-color: var(--teal-ink);
-  background: var(--teal-ink);
+  border-color: var(--btn-hover);
+  background: var(--btn-hover);
+  color: var(--on-brand);
 }
 
 .btn--line {
-  border-color: var(--rule-strong);
+  border-color: var(--line-strong);
+  color: var(--ink);
 }
 
 .btn--line:hover,
@@ -258,20 +449,210 @@ p {
 }
 
 .btn .icon {
-  transition: transform 0.2s var(--ease);
+  transition: transform var(--t-2) var(--ease);
 }
 
-.btn:hover .icon-fwd,
-.btn:focus-visible .icon-fwd {
-  transform: translateX(-3px) scaleX(-1);
+[dir="rtl"] .btn:hover .icon-fwd,
+[dir="rtl"] .btn:focus-visible .icon-fwd {
+  transform: translateX(-4px) scaleX(-1);
 }
 
-/* ---------- Motion primitives (transform/opacity only) ---------- */
+[dir="ltr"] .btn:hover .icon-fwd,
+[dir="ltr"] .btn:focus-visible .icon-fwd {
+  transform: translateX(4px);
+}
+
+/* ---------- Brand lockup ---------- */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  view-transition-name: brand;
+}
+
+.brand img {
+  border-radius: 10px;
+  transition: transform var(--t-2) var(--ease);
+}
+
+.brand:hover img {
+  transform: rotate(-6deg) scale(1.04);
+}
+
+.brand-text {
+  display: grid;
+  line-height: 1.2;
+}
+
+.brand-name {
+  font-family: var(--f-latin);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.brand-role {
+  font-size: 0.6875rem;
+}
+
+/* ---------- Header controls (theme / language) ---------- */
+
+.tools {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.tool {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding-inline: 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  transition: border-color var(--t-1) var(--ease), background-color var(--t-1) var(--ease);
+}
+
+.tool:hover,
+.tool:focus-visible {
+  border-color: var(--ink-2);
+  background: color-mix(in srgb, var(--ink) 5%, transparent);
+}
+
+.tool--theme {
+  padding-inline: 0;
+  width: 2.75rem;
+}
+
+.tool .icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+/* Sun shows in dark mode (click → light); moon shows in light mode (click → dark) */
+.tool--theme .i-sun {
+  display: none;
+}
+
+[data-theme="dark"] .tool--theme .i-sun {
+  display: block;
+}
+
+[data-theme="dark"] .tool--theme .i-moon {
+  display: none;
+}
+
+.tool--theme svg {
+  transition: transform var(--t-3) var(--ease);
+}
+
+.tool--theme:active svg {
+  transform: rotate(40deg) scale(0.9);
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  border-block-start: 1px solid var(--line);
+  background: var(--bg);
+  padding-block: 2.25rem calc(2.25rem + env(safe-area-inset-bottom));
+}
+
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+}
+
+.footer-roles {
+  text-align: center;
+}
+
+.footer-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.foot-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.foot-link .icon {
+  transition: transform var(--t-2) var(--ease);
+}
+
+.foot-link:hover .icon-up {
+  transform: translateY(-3px);
+}
+
+/* ---------- Theme / language switch feedback ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  html.theme-anim *,
+  html.theme-anim *::before,
+  html.theme-anim *::after {
+    transition: background-color var(--t-2) var(--ease), color var(--t-2) var(--ease),
+      border-color var(--t-2) var(--ease), fill var(--t-2) var(--ease),
+      stroke var(--t-2) var(--ease) !important;
+  }
+
+  html.lang-anim main,
+  html.lang-anim .site-footer {
+    animation: lang-swap var(--t-2) var(--ease);
+  }
+}
+
+@keyframes lang-swap {
+  from {
+    opacity: 0.35;
+    transform: translateY(4px);
+  }
+}
+
+/* ---------- Page-to-page transition (portfolio ⇄ gallery) ---------- */
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 380ms;
+  animation-timing-function: var(--ease-io);
+}
+
+.site-header,
+.g-header {
+  view-transition-name: site-header;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}
+
+/* ---------- Motion primitives (transform / opacity only) ---------- */
 
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(18px);
   }
 }
 
@@ -287,19 +668,14 @@ p {
   }
 }
 
-@keyframes zoom-in {
-  from {
-    opacity: 0;
-    transform: scale(0.97);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

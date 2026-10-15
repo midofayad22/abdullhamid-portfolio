@@ -1,44 +1,66 @@
 /* ==========================================================================
-   gallery.css — the visual gallery
-   A dark "contact sheet": uniform frames, mono frame numbers, one lightbox.
-   Shares fonts and the gold/teal accents with the portfolio, but the room
-   itself is dark so the photographs carry the colour.
+   gallery.css — the photography gallery
+   An exhibition, not a thumbnail grid. Every photograph is a 3:4 portrait, so
+   variety comes from scale and rhythm instead of crops: lead frames at three
+   sizes, staggered rows, and runs that alternate their weight left and right.
+   The room itself is neutral so the photographs carry all of the colour:
+   near-black in dark mode, a warm gallery wall in light mode.
    ========================================================================== */
 
-html.gallery-page {
-  color-scheme: dark;
-  --paper: #0b1110;
-  --paper-2: #131c1a;
-  --ink: #eaf1ef;
-  --ink-soft: #c3d1cd;
-  --muted: #93a9a3;
-  --rule: #22302d;
-  --rule-strong: #35483f;
-  --teal-ink: #4fd8c7;
-  --gap: clamp(0.6rem, 1.6vw, 1.1rem);
+[dir="rtl"] {
+  --origin: right;
 }
 
-.gallery-page :focus-visible {
-  outline-color: var(--gold);
+[dir="ltr"] {
+  --origin: left;
 }
 
-.gallery-page ::selection {
-  background: var(--gold);
-  color: #0b1110;
+/* The gallery's own atmosphere (shares gold + teal accents with the portfolio) */
+:root[data-theme="dark"].gallery-page {
+  --bg: #090c0b;
+  --bg-2: #0e1311;
+  --surface: #0e1311;
+  --sunk: #121816;
+  --line: #1c2623;
+  --line-strong: #2c3a36;
+  --header-bg: rgba(9, 12, 11, 0.82);
+  --v-bg: #050706;
+  --v-ink: #eef4f1;
+  --v-line: rgba(255, 255, 255, 0.18);
 }
 
-.g-wrap {
-  width: min(90rem, 100% - var(--gutter) * 2);
-  margin-inline: auto;
+:root[data-theme="light"].gallery-page {
+  --bg: #eeebe3;
+  --bg-2: #e6e2d8;
+  --surface: #f4f1ea;
+  --sunk: #ddd8cb;
+  --line: #d6d1c3;
+  --line-strong: #b9b3a1;
+  --header-bg: rgba(238, 235, 227, 0.86);
+  --v-bg: #f0ede5;
+  --v-ink: #101a17;
+  --v-line: rgba(16, 26, 23, 0.22);
+}
+
+.gallery-page {
+  --g: clamp(0.5rem, 1.3vw, 1rem);
+  --run-gap: clamp(2.75rem, 7.5vw, 6.5rem);
 }
 
 /* ---------- Header ---------- */
 
 .g-header {
-  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 50;
+  padding-block-start: env(safe-area-inset-top);
+  background: var(--header-bg);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  backdrop-filter: blur(14px) saturate(1.2);
+  border-block-end: 1px solid var(--line);
 }
 
-.g-header .g-wrap {
+.g-header-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -46,58 +68,76 @@ html.gallery-page {
   min-height: var(--header-h);
 }
 
-.brand {
-  display: inline-flex;
+.g-header-end {
+  display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
-.brand img {
-  border-radius: 9px;
-}
-
-.brand-name {
-  display: block;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  line-height: 1.1;
-}
-
-.brand-role {
-  display: block;
-  margin-block-start: 0.2rem;
-  font-size: 0.6875rem;
-  line-height: 1.1;
-}
-
-.back-link,
-.foot-link {
+.back-link {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
   min-height: 2.75rem;
+  padding-inline: 0.5rem;
   font-size: 0.9375rem;
   font-weight: 600;
-  transition: color 0.18s var(--ease);
+  color: var(--ink-2);
+  transition: color var(--t-1) var(--ease);
 }
 
 .back-link:hover,
-.foot-link:hover {
-  color: var(--gold);
+.back-link:focus-visible {
+  color: var(--ink);
+}
+
+.back-link .icon {
+  transition: transform var(--t-2) var(--ease);
+}
+
+[dir="rtl"] .back-link:hover .icon-back {
+  transform: translateX(3px);
+}
+
+[dir="ltr"] .back-link:hover .icon-back {
+  transform: translateX(-3px) scaleX(-1);
+}
+
+@media (max-width: 34rem) {
+  .back-link span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .back-link {
+    min-width: 2.75rem;
+    justify-content: center;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0;
+  }
+
+  .brand-role {
+    display: none;
+  }
 }
 
 /* ---------- Intro ---------- */
 
 .g-hero {
+  position: relative;
   display: grid;
   gap: 2rem;
-  padding-block: clamp(3rem, 8vw, 6.5rem) clamp(2rem, 5vw, 3.5rem);
+  align-items: end;
+  padding-block: clamp(3rem, 8vw, 6.5rem) clamp(2rem, 4vw, 3rem);
 }
 
-@media (min-width: 56rem) {
+@media (min-width: 48rem) {
   .g-hero {
     grid-template-columns: minmax(0, 1fr) auto;
-    align-items: end;
     gap: 4rem;
   }
 }
@@ -105,156 +145,275 @@ html.gallery-page {
 .g-kicker {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-block-end: 1.25rem;
+  gap: 0.85rem;
+  margin-block-end: 1.5rem;
 }
 
 .g-kicker::before {
   content: "";
-  width: 2.5rem;
-  height: 3px;
+  width: 3rem;
+  height: 1px;
   background: var(--gold);
+  transform-origin: var(--origin);
+  animation: draw var(--t-4) var(--ease) 0.2s both;
 }
 
 .g-hero h1 {
-  font-size: clamp(2.6rem, 1.6rem + 4.6vw, 4.5rem);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-size: clamp(3.2rem, 10vw, 7.5rem);
+  animation: rise var(--t-4) var(--ease) 0.08s both;
 }
 
 .g-hero h1 span {
-  color: var(--teal-ink);
+  color: var(--gold);
+}
+
+html[lang="en"] .g-hero h1 span {
+  font-style: italic;
+  font-weight: 480;
 }
 
 .g-lede {
-  max-width: 38rem;
+  max-width: 34rem;
   margin-block-start: 1.5rem;
-  font-size: 1.125rem;
-  color: var(--ink-soft);
+  color: var(--ink-2);
+  font-size: clamp(1.02rem, 1.5vw, 1.15rem);
+  animation: rise var(--t-4) var(--ease) 0.25s both;
 }
 
 .g-stats {
   display: flex;
-  align-items: center;
-  gap: 1.1rem;
+  align-items: baseline;
+  gap: 0.75rem;
+  animation: rise var(--t-4) var(--ease) 0.35s both;
 }
 
 .g-count {
-  font-size: clamp(3.25rem, 2.4rem + 3.4vw, 4.75rem);
-  font-weight: 800;
-  line-height: 1;
-  color: var(--ink);
-  direction: ltr;
-}
-
-.g-stats .label {
-  max-width: 9rem;
+  color: var(--gold);
+  font-size: clamp(4.5rem, 12vw, 9rem);
+  line-height: 0.9;
 }
 
 .g-bar {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: space-between;
-  gap: 0.5rem 1.5rem;
-  padding-block: 0.9rem;
-  border-block: 1px solid var(--rule);
+  gap: 0.35rem 1.5rem;
+  padding-block: 1rem;
+  margin-block-end: clamp(1.75rem, 4vw, 3rem);
+  border-block-start: 1px solid var(--line-strong);
 }
 
-.g-bar .label:first-child b {
-  color: var(--gold);
+.g-bar b {
+  color: var(--ink);
   font-weight: 700;
 }
 
-/* ---------- Contact sheet ---------- */
+/* ---------- Runs ---------- */
 
-.frames {
+.runs {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(clamp(9rem, 14vw, 14rem), 1fr));
-  gap: clamp(1.1rem, 2.4vw, 1.75rem) var(--gap);
-  padding-block: clamp(1.5rem, 3vw, 2.25rem) clamp(4rem, 8vw, 6rem);
+  gap: var(--run-gap);
+  padding-block-end: var(--run-gap);
+}
+
+.run {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--g);
+}
+
+.run > li {
+  min-width: 0;
 }
 
 .frame {
   display: block;
-}
-
-.frame-img {
-  display: block;
+  height: 100%;
   overflow: hidden;
-  background: var(--paper-2);
+  background: var(--sunk);
+  border-radius: 2px;
+  transition: opacity var(--t-3) var(--ease);
 }
 
 .frame img {
   width: 100%;
+  height: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
-  transition: transform 0.6s var(--ease);
+  transition: transform 1.1s var(--ease);
 }
 
-.frame-no {
-  display: block;
-  margin-block-start: 0.55rem;
-  direction: ltr;
-  text-align: right;
-  transition: color 0.2s var(--ease);
-}
-
-.frame:focus-visible img {
-  transform: scale(1.04);
-}
-
-.frame:focus-visible .frame-no {
-  color: var(--gold);
+.frame:focus-visible {
+  outline-offset: 4px;
 }
 
 @media (hover: hover) {
   .frame:hover img {
-    transform: scale(1.04);
+    transform: scale(1.03);
   }
 
-  .frame:hover .frame-no {
-    color: var(--gold);
+  /* Visual focus: the frame under the pointer stays, its neighbours step back */
+  .runs:has(.frame:hover) .frame:not(:hover) {
+    opacity: 0.55;
   }
+}
+
+/* Phones: two columns; lead frames run the full width, the rest stagger */
+@media (max-width: 47.99rem) {
+  .run--a > li:first-child,
+  .run--b > li:first-child,
+  .run--d > li:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .run--a > li:nth-child(odd):not(:first-child),
+  .run--b > li:nth-child(odd):not(:first-child),
+  .run--d > li:nth-child(odd):not(:first-child),
+  .run--c > li:nth-child(even) {
+    margin-block-start: 1.75rem;
+  }
+}
+
+/* Tablet and up: the 12-column exhibition layout */
+@media (min-width: 48rem) {
+  .run {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .run > li {
+    margin-block-start: 0 !important;
+  }
+
+  .run--a > li,
+  .run--b > li {
+    align-self: stretch;
+  }
+
+  /* A — one large frame (6 cols) + two stacked columns of small frames.
+     Large = 6 cols wide / 8 high; each small = 3 wide / 4 high, so two stacked
+     match it to within a few pixels. */
+  .run--a > li:nth-child(1) {
+    grid-column: 1 / span 6;
+    grid-row: 1 / span 2;
+  }
+
+  .run--a > li:nth-child(2) {
+    grid-column: 7 / span 3;
+    grid-row: 1;
+  }
+
+  .run--a > li:nth-child(3) {
+    grid-column: 7 / span 3;
+    grid-row: 2;
+  }
+
+  .run--a > li:nth-child(4) {
+    grid-column: 10 / span 3;
+    grid-row: 1;
+  }
+
+  .run--a > li:nth-child(5) {
+    grid-column: 10 / span 3;
+    grid-row: 2;
+  }
+
+  /* B — the mirror of A */
+  .run--b > li:nth-child(1) {
+    grid-column: 7 / span 6;
+    grid-row: 1 / span 2;
+  }
+
+  .run--b > li:nth-child(2) {
+    grid-column: 1 / span 3;
+    grid-row: 1;
+  }
+
+  .run--b > li:nth-child(3) {
+    grid-column: 1 / span 3;
+    grid-row: 2;
+  }
+
+  .run--b > li:nth-child(4) {
+    grid-column: 4 / span 3;
+    grid-row: 1;
+  }
+
+  .run--b > li:nth-child(5) {
+    grid-column: 4 / span 3;
+    grid-row: 2;
+  }
+
+  /* C — four across, staggered like a skyline */
+  .run--c > li {
+    grid-column: span 3;
+  }
+
+  .run--c > li:nth-child(4n + 2) {
+    margin-block-start: clamp(2rem, 6vw, 5.5rem) !important;
+  }
+
+  .run--c > li:nth-child(4n + 3) {
+    margin-block-start: clamp(1rem, 3vw, 2.75rem) !important;
+  }
+
+  .run--c > li:nth-child(4n + 4) {
+    margin-block-start: clamp(3rem, 9vw, 8rem) !important;
+  }
+
+  /* D — three across, wider, with a lifted middle frame */
+  .run--d > li {
+    grid-column: span 4;
+  }
+
+  .run--d > li:nth-child(3n + 2) {
+    margin-block-start: clamp(2.5rem, 8vw, 7rem) !important;
+  }
+
+  .run--d > li:nth-child(3n + 3) {
+    margin-block-start: clamp(1rem, 3vw, 2.5rem) !important;
+  }
+}
+
+/* The frames fade up as they arrive (only those below the fold; never with reduced motion) */
+.js .run > li.is-pending {
+  opacity: 0;
+  transform: translateY(26px);
+}
+
+.run > li.is-pending,
+.run > li.is-in {
+  transition: opacity var(--t-3) var(--ease) var(--d, 0ms), transform var(--t-3) var(--ease) var(--d, 0ms);
 }
 
 /* ---------- Footer ---------- */
 
 .g-footer {
-  border-top: 1px solid var(--rule);
+  background: var(--bg);
 }
 
-.g-footer .g-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem 1.5rem;
-  padding-block: 1.25rem;
-}
-
-/* ---------- Lightbox (native <dialog>) ---------- */
+/* ---------- Lightbox ---------- */
 
 html.viewer-open {
   overflow: hidden;
 }
 
 .viewer {
+  --chrome: calc(4.75rem + env(safe-area-inset-top));
   width: 100%;
-  max-width: none;
   height: 100%;
+  max-width: none;
   max-height: none;
   margin: 0;
   padding: 0;
   border: 0;
+  background: var(--v-bg);
+  color: var(--v-ink);
   overflow: hidden;
-  background: rgba(5, 9, 8, 0.97);
-  color: var(--ink);
-}
-
-.viewer::backdrop {
-  background: #050908;
+  overscroll-behavior: contain;
+  opacity: 0;
+  transition: opacity var(--t-2) var(--ease), display var(--t-2) allow-discrete,
+    overlay var(--t-2) allow-discrete;
 }
 
 .viewer[open] {
@@ -264,13 +423,18 @@ html.viewer-open {
   grid-template-areas:
     "bar bar bar"
     "prev stage next";
-  animation: viewer-in 0.18s var(--ease);
+  align-items: center;
+  opacity: 1;
 }
 
-@keyframes viewer-in {
-  from {
+@starting-style {
+  .viewer[open] {
     opacity: 0;
   }
+}
+
+.viewer::backdrop {
+  background: transparent;
 }
 
 .viewer-bar {
@@ -278,98 +442,140 @@ html.viewer-open {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem clamp(0.75rem, 2vw, 1.5rem);
+  gap: 1rem;
+  padding: calc(0.75rem + env(safe-area-inset-top)) calc(1rem + env(safe-area-inset-right)) 0.5rem
+    calc(1rem + env(safe-area-inset-left));
 }
 
 .viewer-count {
   display: flex;
   gap: 0.5rem;
-  color: var(--ink-soft);
+  color: var(--v-ink);
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
 }
 
-.viewer-count #viewer-current {
-  color: var(--gold);
-  font-weight: 700;
+.viewer-count span:nth-child(2) {
+  opacity: 0.45;
 }
 
-.viewer button {
-  display: grid;
+.viewer-count span:last-child {
+  opacity: 0.6;
+}
+
+.viewer-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.viewer-original {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding-inline: 0.75rem;
+  border-radius: 999px;
+  color: var(--v-ink);
+  opacity: 0.7;
+  transition: opacity var(--t-1) var(--ease);
+}
+
+.viewer-original:hover,
+.viewer-original:focus-visible {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.viewer-btn {
+  display: inline-grid;
   place-items: center;
-  width: 3rem;
-  height: 3rem;
+  width: 2.9rem;
+  height: 2.9rem;
+  border: 1px solid var(--v-line);
   border-radius: 50%;
-  color: var(--ink);
-  transition: background-color 0.18s var(--ease), color 0.18s var(--ease);
+  color: var(--v-ink);
+  transition: border-color var(--t-1) var(--ease), background-color var(--t-1) var(--ease),
+    transform var(--t-1) var(--ease);
 }
 
-.viewer button:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: var(--gold);
+.viewer-btn:hover,
+.viewer-btn:focus-visible {
+  border-color: var(--v-ink);
+  background: color-mix(in srgb, var(--v-ink) 8%, transparent);
+}
+
+.viewer-btn:active {
+  transform: scale(0.94);
 }
 
 .viewer-prev {
   grid-area: prev;
-  align-self: center;
-  margin-inline: clamp(0.25rem, 1.5vw, 1.25rem);
+  margin-inline-start: calc(1rem + env(safe-area-inset-left));
 }
 
 .viewer-next {
   grid-area: next;
-  align-self: center;
-  margin-inline: clamp(0.25rem, 1.5vw, 1.25rem);
+  margin-inline-end: calc(1rem + env(safe-area-inset-right));
 }
 
 .viewer-stage {
   grid-area: stage;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.9rem;
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 100%;
   min-height: 0;
-  padding-block-end: 1rem;
+  padding: 0.5rem;
+  touch-action: pan-y;
 }
 
 .viewer-stage img {
+  max-width: 100%;
+  max-height: calc(100vh - var(--chrome) - 1.5rem);
+  max-height: calc(100dvh - var(--chrome) - 1.5rem);
   width: auto;
   height: auto;
-  max-width: 100%;
-  min-height: 0;
-  flex: 0 1 auto;
-  max-height: calc(100dvh - 9.5rem);
   object-fit: contain;
-  touch-action: pan-y;
-  transition: opacity 0.2s var(--ease);
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: opacity var(--t-2) var(--ease), transform var(--t-3) var(--ease);
 }
 
 .viewer-stage img.is-loading {
-  opacity: 0.25;
+  opacity: 0;
+  transform: scale(0.985);
 }
 
-.viewer-stage figcaption {
-  max-width: 40rem;
-  padding-inline: 1rem;
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  text-align: center;
-  color: var(--muted);
+/* A hairline sweep while the next photograph loads */
+.viewer-stage[data-loading]::after {
+  content: "";
+  position: absolute;
+  inset-block-end: 0.5rem;
+  inset-inline: 30%;
+  height: 1px;
+  background: var(--gold);
+  transform-origin: var(--origin);
+  animation: draw 1s var(--ease) infinite alternate;
 }
 
 @media (max-width: 47.99rem) {
-  /* Phones: the image takes the full width, arrows float over its edges */
+  .viewer {
+    --chrome: calc(4.75rem + 4.75rem + env(safe-area-inset-top) + env(safe-area-inset-bottom));
+  }
+
   .viewer[open] {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
-      "bar"
-      "stage";
+      "bar bar"
+      "stage stage"
+      "prev next";
+    grid-template-rows: auto minmax(0, 1fr) auto;
   }
 
   .viewer-prev,
   .viewer-next {
-    grid-area: stage;
-    z-index: 1;
-    margin: 0 0.5rem;
-    background: rgba(5, 9, 8, 0.6);
+    margin-block: 0.5rem calc(0.9rem + env(safe-area-inset-bottom));
   }
 
   .viewer-prev {
@@ -380,82 +586,18 @@ html.viewer-open {
     justify-self: end;
   }
 
+  .viewer-stage {
+    padding-inline: 0.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viewer,
   .viewer-stage img {
-    max-height: calc(100dvh - 11rem);
-  }
-}
-
-/* ==========================================================================
-   Motion — transform/opacity only; the page is complete without any of it.
-   Keyframe motion sits behind no-preference; hover transitions above are
-   collapsed to ~0ms by the global reduced-motion rule in base.css.
-   ========================================================================== */
-
-.viewer:not([open]) {
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-
-  /* ---------- Page entrance (plays on load, needs no JS) ---------- */
-
-  .g-kicker,
-  .g-hero h1,
-  .g-lede,
-  .g-stats {
-    animation: rise 0.7s var(--ease) backwards;
+    transition: none;
   }
 
-  .g-hero h1 { animation-delay: 0.05s; }
-  .g-lede { animation-delay: 0.1s; }
-  .g-stats { animation-delay: 0.15s; }
-
-  .g-bar {
-    animation: fade 0.7s ease 0.25s backwards;
-  }
-
-  /* First two rows of frames settle in; later rows are simply there.
-     The delay follows the column, so a row reads as one gentle sweep. */
-
-  .frames li:nth-child(-n + 12) {
-    animation: rise 0.6s var(--ease) 0.3s backwards;
-  }
-
-  .frames li:nth-child(6n + 2) { animation-delay: 0.35s; }
-  .frames li:nth-child(6n + 3) { animation-delay: 0.4s; }
-  .frames li:nth-child(6n + 4) { animation-delay: 0.45s; }
-  .frames li:nth-child(6n + 5) { animation-delay: 0.5s; }
-  .frames li:nth-child(6n + 6) { animation-delay: 0.55s; }
-
-  /* ---------- Lightbox ----------
-     Opening: the existing keyframe fade plus a small settle on the photo.
-     Closing: a fade, using the dialog's discrete display/overlay transition
-     so it stays in the top layer until the fade ends. Browsers without
-     that feature close instantly; behaviour and focus handling are the same. */
-
-  .viewer {
-    opacity: 0;
-    transition: opacity 0.2s var(--ease);
-  }
-
-  .viewer[open] {
-    opacity: 1;
-  }
-
-  .viewer[open] .viewer-stage {
-    animation: zoom-in 0.3s var(--ease) backwards;
-  }
-
-  @supports (transition-behavior: allow-discrete) {
-    .viewer {
-      transition: opacity 0.2s var(--ease), display 0.2s allow-discrete,
-        overlay 0.2s allow-discrete;
-    }
-
-    /* The dialog itself covers the viewport, so it carries the dark
-       background; a transparent backdrop avoids a flash when it leaves. */
-    .viewer::backdrop {
-      background: transparent;
-    }
+  .viewer-stage[data-loading]::after {
+    animation: none;
   }
 }
