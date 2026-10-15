@@ -4,39 +4,52 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <title>المعرض البصري | عبد الحميد فياض</title>
-  <meta name="description" content="عبد الحميد فياض — معرض الأعمال البصرية والتصويرية: ٥٤ صورة تعكس الاهتمام بالتكوين والتفاصيل.">
+  <title data-i18n="g.meta.title">معرض التصوير | عبد الحميد فياض</title>
+  <meta name="description" content="تصوير عبد الحميد فياض — ٥٤ صورة للحقول وأبراج الكهرباء والمداخن والنهر والسماء عند الغروب والغسق، بعين تهتم بالتكوين والتفاصيل." data-i18n-attr="content:g.meta.desc">
   <meta name="author" content="Abdullhamid Fayad">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://abdullhamid-fayad-portfolio.vercel.app/gallery.html">
 
-  <meta name="theme-color" content="#0b1110">
-  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#eeebe3" data-light="#eeebe3" data-dark="#090c0b">
+  <meta name="color-scheme" content="light dark">
   <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg?v=2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png?v=2">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Abdullhamid Fayad Portfolio">
   <meta property="og:locale" content="ar_EG">
   <meta property="og:url" content="https://abdullhamid-fayad-portfolio.vercel.app/gallery.html">
-  <meta property="og:title" content="Visual Gallery — Abdullhamid Fayad">
-  <meta property="og:description" content="A curated collection of 54 visual works by Abdullhamid Fayad.">
+  <meta property="og:title" content="معرض التصوير — عبد الحميد فياض" data-i18n-attr="content:g.meta.ogtitle">
+  <meta property="og:description" content="مجموعة مختارة من ٥٤ صورة لعبد الحميد فياض." data-i18n-attr="content:g.meta.ogdesc">
   <meta property="og:image" content="https://abdullhamid-fayad-portfolio.vercel.app/og-gallery.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Visual Gallery — photographs by Abdullhamid Fayad">
+  <meta property="og:image:alt" content="Photography Gallery — photographs by Abdullhamid Fayad">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Visual Gallery — Abdullhamid Fayad">
-  <meta name="twitter:description" content="A curated collection of 54 visual works by Abdullhamid Fayad.">
+  <meta name="twitter:title" content="معرض التصوير — عبد الحميد فياض" data-i18n-attr="content:g.meta.ogtitle">
+  <meta name="twitter:description" content="مجموعة مختارة من ٥٤ صورة لعبد الحميد فياض." data-i18n-attr="content:g.meta.ogdesc">
   <meta name="twitter:image" content="https://abdullhamid-fayad-portfolio.vercel.app/og-gallery.jpg">
+
+  <script>
+    (function () {
+      var d = document.documentElement, t, l;
+      d.classList.add("js");
+      try { t = localStorage.getItem("fayad-theme"); l = localStorage.getItem("fayad-lang"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      d.setAttribute("data-theme", t);
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.content = t === "dark" ? "#090c0b" : "#eeebe3";
+      if (l === "en") { d.lang = "en"; d.dir = "ltr"; d.classList.add("i18n-wait"); }
+    })();
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400..700&family=Plus+Jakarta+Sans:wght@400..800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400..700&family=Plus+Jakarta+Sans:wght@400..800&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400..800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400..800&display=swap"></noscript>
 
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/gallery.css">
@@ -45,7 +58,7 @@
   {
     "@context": "https://schema.org",
     "@type": "ImageGallery",
-    "name": "Visual Gallery — Abdullhamid Fayad",
+    "name": "Photography Gallery — Abdullhamid Fayad",
     "url": "https://abdullhamid-fayad-portfolio.vercel.app/gallery.html",
     "inLanguage": "ar-EG",
     "image": "https://abdullhamid-fayad-portfolio.vercel.app/og-gallery.jpg",
@@ -59,410 +72,187 @@
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
 
-<body>
-  <a class="skip-link" href="#main">تخطي إلى المعرض</a>
+<body id="top">
+  <a class="skip-link" href="#main" data-i18n="g.skip">تخطي إلى المعرض</a>
 
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
-    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
-    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 20V4M6 10l6-6 6 6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 20V4M6 10l6-6 6 6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
   </svg>
 
   <header class="g-header">
-    <div class="g-wrap">
-      <a class="brand" href="/" aria-label="FAYAD — العودة إلى الموقع الرئيسي">
-        <img src="/icons/favicon.svg" alt="" width="36" height="36">
-        <span>
+    <div class="wrap g-header-row">
+      <a class="brand" href="/" data-i18n-attr="aria-label:brand.home" aria-label="FAYAD — الصفحة الرئيسية">
+        <img src="/icons/favicon.svg?v=2" alt="" width="40" height="40">
+        <span class="brand-text">
           <span class="brand-name">FAYAD</span>
-          <span class="brand-role label">Visual works</span>
+          <span class="brand-role label" data-i18n="g.brand.role">معرض التصوير</span>
         </span>
       </a>
-      <a class="back-link" href="/">
-        <span lang="en">Back to portfolio</span>
-        <svg class="icon icon-back" aria-hidden="true"><use href="#i-arrow"/></svg>
-      </a>
+
+      <div class="g-header-end">
+        <a class="back-link" href="/">
+          <span data-i18n="g.back">العودة إلى الموقع</span>
+          <svg class="icon icon-back" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a>
+        <div class="tools">
+          <button class="tool tool--lang" type="button" id="lang-toggle" data-i18n-attr="aria-label:ui.lang.aria" aria-label="التبديل إلى الإنجليزية">
+            <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg>
+            <span data-i18n="ui.lang.label" lang="en">EN</span>
+          </button>
+          <button class="tool tool--theme" type="button" id="theme-toggle" aria-label="التبديل إلى الوضع الداكن">
+            <svg class="icon i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+            <svg class="icon i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 
   <main id="main">
-    <div class="g-wrap">
+    <div class="wrap">
       <section class="g-hero" aria-labelledby="g-title">
-        <div>
-          <p class="g-kicker label">Visual work</p>
-          <h1 class="en" id="g-title">Visual <span>Gallery.</span></h1>
-          <p class="g-lede">مجموعة مختارة من الأعمال والصور البصرية التي تعكس اهتمامي بالتصوير، الـcomposition، التفاصيل، وطريقة تحويل اللحظات البسيطة إلى صورة لها طابعها الخاص.</p>
+        <div class="g-hero-copy">
+          <p class="g-kicker label" data-i18n="g.kicker">أعمال بصرية</p>
+          <h1 class="display" id="g-title" data-i18n="g.title">معرض <span>التصوير.</span></h1>
+          <p class="g-lede" data-i18n="g.lede">مجموعة مختارة من صوري، تعكس اهتمامي بالتكوين والتفاصيل وبتحويل اللحظات البسيطة إلى صورة لها طابعها الخاص.</p>
         </div>
         <p class="g-stats">
-          <span class="g-count">54</span>
-          <span class="label">Visual<br>works</span>
+          <span class="g-count display">54</span>
+          <span class="label" data-i18n="g.count">صورة</span>
         </p>
       </section>
 
       <div class="g-bar">
-        <p class="label" lang="en"><b>FAYAD</b> / Selected works</p>
-        <p class="label" lang="en">Click any frame to enlarge</p>
+        <p class="label"><b>FAYAD</b> <span aria-hidden="true">/</span> <span data-i18n="g.bar.left">مختارات</span></p>
+        <p class="label" data-i18n="g.bar.right">اضغط على أي صورة لتكبيرها</p>
       </div>
 
-      <h2 class="vh">الصور</h2>
-      <ul class="frames">
-        <li>
-          <a class="frame" href="/assets/images/full/photo1.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo1.webp" srcset="/assets/images/thumb/photo1.webp 480w, /assets/images/full/photo1.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="حقل أخضر وشجرة وحيدة بجوار مياه عند الغروب" decoding="async"></span>
-            <span class="frame-no label">01</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo2.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo2.webp" srcset="/assets/images/thumb/photo2.webp 480w, /assets/images/full/photo2.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="طريق ترابي تحت أشجار كبيرة بجوار كوخ طيني" decoding="async"></span>
-            <span class="frame-no label">02</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo3.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo3.webp" srcset="/assets/images/thumb/photo3.webp 480w, /assets/images/full/photo3.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="برج كهرباء ومدخنة طوب فوق حقل أخضر" decoding="async"></span>
-            <span class="frame-no label">03</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo4.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo4.webp" srcset="/assets/images/thumb/photo4.webp 480w, /assets/images/full/photo4.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="سيارة حمراء على طريق ترابي وقت الغروب تحت أغصان شجرة" decoding="async"></span>
-            <span class="frame-no label">04</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo5.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo5.webp" srcset="/assets/images/thumb/photo5.webp 480w, /assets/images/full/photo5.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="أغصان عارية أمام سماء زرقاء داكنة وغيوم برتقالية" decoding="async"></span>
-            <span class="frame-no label">05</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo6.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo6.webp" srcset="/assets/images/thumb/photo6.webp 480w, /assets/images/full/photo6.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="الشمس تغرب خلف شجرة وبرج كهرباء فوق حقل وسور حجري" decoding="async"></span>
-            <span class="frame-no label">06</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo7.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo7.webp" srcset="/assets/images/thumb/photo7.webp 480w, /assets/images/full/photo7.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="قصب على حافة بركة مياه عند الغسق" decoding="async"></span>
-            <span class="frame-no label">07</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo8.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo8.webp" srcset="/assets/images/thumb/photo8.webp 480w, /assets/images/full/photo8.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="برج كهرباء من الأسفل أمام سماء زرقاء" decoding="async"></span>
-            <span class="frame-no label">08</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo9.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo9.webp" srcset="/assets/images/thumb/photo9.webp 480w, /assets/images/full/photo9.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="أبراج كهرباء ومدخنة طوب فوق حقل ذرة" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">09</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo10.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo10.webp" srcset="/assets/images/thumb/photo10.webp 480w, /assets/images/full/photo10.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="الشمس منخفضة فوق حقل قمح أخضر وأسلاك كهرباء" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">10</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo11.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo11.webp" srcset="/assets/images/thumb/photo11.webp 480w, /assets/images/full/photo11.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="شجرة بجوار برج كهرباء فوق حقل أخضر" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">11</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo12.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo12.webp" srcset="/assets/images/thumb/photo12.webp 480w, /assets/images/full/photo12.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="الشمس تغرب خلف مدخنة وبرج كهرباء وأسلاك" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">12</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo13.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo13.webp" srcset="/assets/images/thumb/photo13.webp 480w, /assets/images/full/photo13.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="قناة مياه صغيرة بين الحقول وقت الغروب" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">13</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo14.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo14.webp" srcset="/assets/images/thumb/photo14.webp 480w, /assets/images/full/photo14.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="شجرة وحيدة ومبنى خرساني صغير وسط حقل ذرة تحت سماء زرقاء" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">14</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo15.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo15.webp" srcset="/assets/images/thumb/photo15.webp 480w, /assets/images/full/photo15.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="غروب برتقالي وبنفسجي فوق صفحة النهر" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">15</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo16.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo16.webp" srcset="/assets/images/thumb/photo16.webp 480w, /assets/images/full/photo16.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="الشمس منخفضة خلف سنابل عشب" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">16</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo17.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo17.webp" srcset="/assets/images/thumb/photo17.webp 480w, /assets/images/full/photo17.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="الشمس تظهر خلف ورقة خضراء بعروق حمراء" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">17</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo18.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo18.webp" srcset="/assets/images/thumb/photo18.webp 480w, /assets/images/full/photo18.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="شجرة كبيرة على الأفق بجوار الماء وحقل أرز" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">18</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo19.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo19.webp" srcset="/assets/images/thumb/photo19.webp 480w, /assets/images/full/photo19.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="الشمس بين سعف النخيل مع وهج عدسة فوق الحقل" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">19</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo20.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo20.webp" srcset="/assets/images/thumb/photo20.webp 480w, /assets/images/full/photo20.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="شجرة على ضفة النهر تحت سماء زرقاء ووردية" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">20</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo21.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo21.webp" srcset="/assets/images/thumb/photo21.webp 480w, /assets/images/full/photo21.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="طريق ترابي بين الحقول تحت سماء غائمة" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">21</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo22.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo22.webp" srcset="/assets/images/thumb/photo22.webp 480w, /assets/images/full/photo22.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="شجرة بجوار أرض محروثة تحت سماء غائمة" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">22</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo23.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo23.webp" srcset="/assets/images/thumb/photo23.webp 480w, /assets/images/full/photo23.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="الشمس منخفضة فوق صفوف نباتات صغيرة" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">23</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo24.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo24.webp" srcset="/assets/images/thumb/photo24.webp 480w, /assets/images/full/photo24.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="الغروب بين أوراق الشجر" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">24</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo25.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo25.webp" srcset="/assets/images/thumb/photo25.webp 480w, /assets/images/full/photo25.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="مجموعة أشجار وقت الغروب بجوار الماء" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">25</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo26.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo26.webp" srcset="/assets/images/thumb/photo26.webp 480w, /assets/images/full/photo26.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="غروب وردي وأحمر خلف الأشجار وطريق ترابي وأسلاك كهرباء" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">26</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo27.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo27.webp" srcset="/assets/images/thumb/photo27.webp 480w, /assets/images/full/photo27.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="عربة بظل أسود أمام الشمس على طريق ترابي" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">27</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo28.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo28.webp" srcset="/assets/images/thumb/photo28.webp 480w, /assets/images/full/photo28.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="أشجار طويلة في ضوء المساء بجوار حقل" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">28</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo29.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo29.webp" srcset="/assets/images/thumb/photo29.webp 480w, /assets/images/full/photo29.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="الشمس خلف سعف النخيل وكوخ وأسلاك كهرباء" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">29</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo30.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo30.webp" srcset="/assets/images/thumb/photo30.webp 480w, /assets/images/full/photo30.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="شجرة عارية وبرج كهرباء ينعكسان على قناة مياه" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">30</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo31.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo31.webp" srcset="/assets/images/thumb/photo31.webp 480w, /assets/images/full/photo31.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="شجرة ومبنى صغير تحت سماء غائمة" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">31</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo32.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo32.webp" srcset="/assets/images/thumb/photo32.webp 480w, /assets/images/full/photo32.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="شجرة فوق صخور وعشب تحت سماء غائمة" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">32</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo33.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo33.webp" srcset="/assets/images/thumb/photo33.webp 480w, /assets/images/full/photo33.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="أوراق مضاءة من الخلف بضوء الشمس الغاربة" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">33</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo34.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo34.webp" srcset="/assets/images/thumb/photo34.webp 480w, /assets/images/full/photo34.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="ورقة موز أمام النهر وقت الغسق" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">34</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo35.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo35.webp" srcset="/assets/images/thumb/photo35.webp 480w, /assets/images/full/photo35.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="نباتات بطاطس وغروب برتقالي" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">35</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo36.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo36.webp" srcset="/assets/images/thumb/photo36.webp 480w, /assets/images/full/photo36.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="شجرة وأبراج كهرباء في وهج ضبابي فوق حقل أرز" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">36</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo37.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo37.webp" srcset="/assets/images/thumb/photo37.webp 480w, /assets/images/full/photo37.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="أشجار كبيرة بجذور متدلية في حديقة" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">37</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo38.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo38.webp" srcset="/assets/images/thumb/photo38.webp 480w, /assets/images/full/photo38.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="مدخنة طوب تحت سماء زرقاء وغيوم فوق حقل أخضر" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">38</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo39.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo39.webp" srcset="/assets/images/thumb/photo39.webp 480w, /assets/images/full/photo39.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="قمر مكتمل فوق مبنى طوب غير مكتمل" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">39</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo40.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo40.webp" srcset="/assets/images/thumb/photo40.webp 480w, /assets/images/full/photo40.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="القمر بين أوراق شجرة داكنة" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">40</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo41.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo41.webp" srcset="/assets/images/thumb/photo41.webp 480w, /assets/images/full/photo41.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="القمر خلف أغصان غير واضحة" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">41</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo42.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo42.webp" srcset="/assets/images/thumb/photo42.webp 480w, /assets/images/full/photo42.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="ظل مدخنة وقت الغروب البرتقالي" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">42</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo43.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo43.webp" srcset="/assets/images/thumb/photo43.webp 480w, /assets/images/full/photo43.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="قمة شجرة أمام سماء زرقاء مسائية" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">43</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo44.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo44.webp" srcset="/assets/images/thumb/photo44.webp 480w, /assets/images/full/photo44.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="قمر صغير في سماء مظلمة" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">44</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo45.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo45.webp" srcset="/assets/images/thumb/photo45.webp 480w, /assets/images/full/photo45.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="شجرة بظل أسود أمام غروب أحمر خلف مبنى" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">45</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo46.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo46.webp" srcset="/assets/images/thumb/photo46.webp 480w, /assets/images/full/photo46.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="مبنى ومظلة خشبية خلف أغصان تحت سماء زرقاء" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">46</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo47.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo47.webp" srcset="/assets/images/thumb/photo47.webp 480w, /assets/images/full/photo47.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="نصف قمر فوق مدخنة وقت الغسق" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">47</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo48.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo48.webp" srcset="/assets/images/thumb/photo48.webp 480w, /assets/images/full/photo48.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="قمر أحمر خلف الأشجار" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">48</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo49.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo49.webp" srcset="/assets/images/thumb/photo49.webp 480w, /assets/images/full/photo49.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="أوراق شجر غير واضحة بتركيز ناعم" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">49</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo50.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo50.webp" srcset="/assets/images/thumb/photo50.webp 480w, /assets/images/full/photo50.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="غروب برتقالي فوق حقل أخضر ومدخنة" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">50</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo51.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo51.webp" srcset="/assets/images/thumb/photo51.webp 480w, /assets/images/full/photo51.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="هلال خلف غصن داكن مائل" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">51</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo52.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo52.webp" srcset="/assets/images/thumb/photo52.webp 480w, /assets/images/full/photo52.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="هلال ونجمة خافتة فوق أضواء المدينة عند الغسق" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">52</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo53.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo53.webp" srcset="/assets/images/thumb/photo53.webp 480w, /assets/images/full/photo53.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="هلال بجوار أعمدة داكنة" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">53</span>
-          </a>
-        </li>
-        <li>
-          <a class="frame" href="/assets/images/full/photo54.webp">
-            <span class="frame-img"><img src="/assets/images/thumb/photo54.webp" srcset="/assets/images/thumb/photo54.webp 480w, /assets/images/full/photo54.webp 960w" sizes="(min-width: 48rem) 15vw, 46vw" width="480" height="640" alt="شجرة وحقل أخضر وأسلاك كهرباء تحت سماء زرقاء" loading="lazy" decoding="async"></span>
-            <span class="frame-no label">54</span>
-          </a>
-        </li>
-      </ul>
+      <h2 class="vh" data-i18n="g.list">الصور</h2>
+      <div class="runs">
+        <ul class="run run--a">
+          <li><a class="frame" href="/assets/images/full/photo1.webp"><img src="/assets/images/thumb/photo1.webp" srcset="/assets/images/thumb/photo1.webp 480w, /assets/images/full/photo1.webp 960w" sizes="(min-width: 48rem) 48vw, 92vw" width="480" height="640" alt="حقل أخضر وشجرة وحيدة بجوار مياه عند الغروب" data-i18n-attr="alt:a1" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo2.webp"><img src="/assets/images/thumb/photo2.webp" srcset="/assets/images/thumb/photo2.webp 480w, /assets/images/full/photo2.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="طريق ترابي تحت أشجار كبيرة بجوار كوخ طيني" data-i18n-attr="alt:a2" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo3.webp"><img src="/assets/images/thumb/photo3.webp" srcset="/assets/images/thumb/photo3.webp 480w, /assets/images/full/photo3.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="برج كهرباء ومدخنة طوب فوق حقل أخضر" data-i18n-attr="alt:a3" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo4.webp"><img src="/assets/images/thumb/photo4.webp" srcset="/assets/images/thumb/photo4.webp 480w, /assets/images/full/photo4.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="سيارة حمراء على طريق ترابي وقت الغروب تحت أغصان شجرة" data-i18n-attr="alt:a4" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo5.webp"><img src="/assets/images/thumb/photo5.webp" srcset="/assets/images/thumb/photo5.webp 480w, /assets/images/full/photo5.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="أغصان عارية أمام سماء زرقاء داكنة وغيوم برتقالية" data-i18n-attr="alt:a5" decoding="async"></a></li>
+        </ul>
+        <ul class="run run--d">
+          <li><a class="frame" href="/assets/images/full/photo6.webp"><img src="/assets/images/thumb/photo6.webp" srcset="/assets/images/thumb/photo6.webp 480w, /assets/images/full/photo6.webp 960w" sizes="(min-width: 48rem) 32vw, 92vw" width="480" height="640" alt="الشمس تغرب خلف شجرة وبرج كهرباء فوق حقل وسور حجري" data-i18n-attr="alt:a6" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo7.webp"><img src="/assets/images/thumb/photo7.webp" srcset="/assets/images/thumb/photo7.webp 480w, /assets/images/full/photo7.webp 960w" sizes="(min-width: 48rem) 32vw, 46vw" width="480" height="640" alt="قصب على حافة بركة مياه عند الغسق" data-i18n-attr="alt:a7" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo8.webp"><img src="/assets/images/thumb/photo8.webp" srcset="/assets/images/thumb/photo8.webp 480w, /assets/images/full/photo8.webp 960w" sizes="(min-width: 48rem) 32vw, 46vw" width="480" height="640" alt="برج كهرباء من الأسفل أمام سماء زرقاء" data-i18n-attr="alt:a8" loading="lazy" decoding="async"></a></li>
+        </ul>
+        <ul class="run run--b">
+          <li><a class="frame" href="/assets/images/full/photo9.webp"><img src="/assets/images/thumb/photo9.webp" srcset="/assets/images/thumb/photo9.webp 480w, /assets/images/full/photo9.webp 960w" sizes="(min-width: 48rem) 48vw, 92vw" width="480" height="640" alt="أبراج كهرباء ومدخنة طوب فوق حقل ذرة" data-i18n-attr="alt:a9" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo10.webp"><img src="/assets/images/thumb/photo10.webp" srcset="/assets/images/thumb/photo10.webp 480w, /assets/images/full/photo10.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="الشمس منخفضة فوق حقل قمح أخضر وأسلاك كهرباء" data-i18n-attr="alt:a10" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo11.webp"><img src="/assets/images/thumb/photo11.webp" srcset="/assets/images/thumb/photo11.webp 480w, /assets/images/full/photo11.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="شجرة بجوار برج كهرباء فوق حقل أخضر" data-i18n-attr="alt:a11" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo12.webp"><img src="/assets/images/thumb/photo12.webp" srcset="/assets/images/thumb/photo12.webp 480w, /assets/images/full/photo12.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="الشمس تغرب خلف مدخنة وبرج كهرباء وأسلاك" data-i18n-attr="alt:a12" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo13.webp"><img src="/assets/images/thumb/photo13.webp" srcset="/assets/images/thumb/photo13.webp 480w, /assets/images/full/photo13.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="قناة مياه صغيرة بين الحقول وقت الغروب" data-i18n-attr="alt:a13" loading="lazy" decoding="async"></a></li>
+        </ul>
+        <ul class="run run--c">
+          <li><a class="frame" href="/assets/images/full/photo14.webp"><img src="/assets/images/thumb/photo14.webp" srcset="/assets/images/thumb/photo14.webp 480w, /assets/images/full/photo14.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="شجرة وحيدة ومبنى خرساني صغير وسط حقل ذرة تحت سماء زرقاء" data-i18n-attr="alt:a14" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo15.webp"><img src="/assets/images/thumb/photo15.webp" srcset="/assets/images/thumb/photo15.webp 480w, /assets/images/full/photo15.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="غروب برتقالي وبنفسجي فوق صفحة النهر" data-i18n-attr="alt:a15" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo16.webp"><img src="/assets/images/thumb/photo16.webp" srcset="/assets/images/thumb/photo16.webp 480w, /assets/images/full/photo16.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="الشمس منخفضة خلف سنابل عشب" data-i18n-attr="alt:a16" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo17.webp"><img src="/assets/images/thumb/photo17.webp" srcset="/assets/images/thumb/photo17.webp 480w, /assets/images/full/photo17.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="الشمس تظهر خلف ورقة خضراء بعروق حمراء" data-i18n-attr="alt:a17" loading="lazy" decoding="async"></a></li>
+        </ul>
+        <ul class="run run--a">
+          <li><a class="frame" href="/assets/images/full/photo18.webp"><img src="/assets/images/thumb/photo18.webp" srcset="/assets/images/thumb/photo18.webp 480w, /assets/images/full/photo18.webp 960w" sizes="(min-width: 48rem) 48vw, 92vw" width="480" height="640" alt="شجرة كبيرة على الأفق بجوار الماء وحقل أرز" data-i18n-attr="alt:a18" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo19.webp"><img src="/assets/images/thumb/photo19.webp" srcset="/assets/images/thumb/photo19.webp 480w, /assets/images/full/photo19.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="الشمس بين سعف النخيل مع وهج عدسة فوق الحقل" data-i18n-attr="alt:a19" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo20.webp"><img src="/assets/images/thumb/photo20.webp" srcset="/assets/images/thumb/photo20.webp 480w, /assets/images/full/photo20.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="شجرة على ضفة النهر تحت سماء زرقاء ووردية" data-i18n-attr="alt:a20" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo21.webp"><img src="/assets/images/thumb/photo21.webp" srcset="/assets/images/thumb/photo21.webp 480w, /assets/images/full/photo21.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="طريق ترابي بين الحقول تحت سماء غائمة" data-i18n-attr="alt:a21" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo22.webp"><img src="/assets/images/thumb/photo22.webp" srcset="/assets/images/thumb/photo22.webp 480w, /assets/images/full/photo22.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="شجرة بجوار أرض محروثة تحت سماء غائمة" data-i18n-attr="alt:a22" loading="lazy" decoding="async"></a></li>
+        </ul>
+        <ul class="run run--d">
+          <li><a class="frame" href="/assets/images/full/photo23.webp"><img src="/assets/images/thumb/photo23.webp" srcset="/assets/images/thumb/photo23.webp 480w, /assets/images/full/photo23.webp 960w" sizes="(min-width: 48rem) 32vw, 92vw" width="480" height="640" alt="الشمس منخفضة فوق صفوف نباتات صغيرة" data-i18n-attr="alt:a23" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo24.webp"><img src="/assets/images/thumb/photo24.webp" srcset="/assets/images/thumb/photo24.webp 480w, /assets/images/full/photo24.webp 960w" sizes="(min-width: 48rem) 32vw, 46vw" width="480" height="640" alt="الغروب بين أوراق الشجر" data-i18n-attr="alt:a24" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo25.webp"><img src="/assets/images/thumb/photo25.webp" srcset="/assets/images/thumb/photo25.webp 480w, /assets/images/full/photo25.webp 960w" sizes="(min-width: 48rem) 32vw, 46vw" width="480" height="640" alt="مجموعة أشجار وقت الغروب بجوار الماء" data-i18n-attr="alt:a25" loading="lazy" decoding="async"></a></li>
+        </ul>
+        <ul class="run run--b">
+          <li><a class="frame" href="/assets/images/full/photo26.webp"><img src="/assets/images/thumb/photo26.webp" srcset="/assets/images/thumb/photo26.webp 480w, /assets/images/full/photo26.webp 960w" sizes="(min-width: 48rem) 48vw, 92vw" width="480" height="640" alt="غروب وردي وأحمر خلف الأشجار وطريق ترابي وأسلاك كهرباء" data-i18n-attr="alt:a26" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo27.webp"><img src="/assets/images/thumb/photo27.webp" srcset="/assets/images/thumb/photo27.webp 480w, /assets/images/full/photo27.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="عربة بظل أسود أمام الشمس على طريق ترابي" data-i18n-attr="alt:a27" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo28.webp"><img src="/assets/images/thumb/photo28.webp" srcset="/assets/images/thumb/photo28.webp 480w, /assets/images/full/photo28.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="أشجار طويلة في ضوء المساء بجوار حقل" data-i18n-attr="alt:a28" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo29.webp"><img src="/assets/images/thumb/photo29.webp" srcset="/assets/images/thumb/photo29.webp 480w, /assets/images/full/photo29.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="الشمس خلف سعف النخيل وكوخ وأسلاك كهرباء" data-i18n-attr="alt:a29" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo30.webp"><img src="/assets/images/thumb/photo30.webp" srcset="/assets/images/thumb/photo30.webp 480w, /assets/images/full/photo30.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="شجرة عارية وبرج كهرباء ينعكسان على قناة مياه" data-i18n-attr="alt:a30" loading="lazy" decoding="async"></a></li>
+        </ul>
+        <ul class="run run--c">
+          <li><a class="frame" href="/assets/images/full/photo31.webp"><img src="/assets/images/thumb/photo31.webp" srcset="/assets/images/thumb/photo31.webp 480w, /assets/images/full/photo31.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="شجرة ومبنى صغير تحت سماء غائمة" data-i18n-attr="alt:a31" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo32.webp"><img src="/assets/images/thumb/photo32.webp" srcset="/assets/images/thumb/photo32.webp 480w, /assets/images/full/photo32.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="شجرة فوق صخور وعشب تحت سماء غائمة" data-i18n-attr="alt:a32" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo33.webp"><img src="/assets/images/thumb/photo33.webp" srcset="/assets/images/thumb/photo33.webp 480w, /assets/images/full/photo33.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="أوراق مضاءة من الخلف بضوء الشمس الغاربة" data-i18n-attr="alt:a33" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo34.webp"><img src="/assets/images/thumb/photo34.webp" srcset="/assets/images/thumb/photo34.webp 480w, /assets/images/full/photo34.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="ورقة موز أمام النهر وقت الغسق" data-i18n-attr="alt:a34" loading="lazy" decoding="async"></a></li>
+        </ul>
+        <ul class="run run--a">
+          <li><a class="frame" href="/assets/images/full/photo35.webp"><img src="/assets/images/thumb/photo35.webp" srcset="/assets/images/thumb/photo35.webp 480w, /assets/images/full/photo35.webp 960w" sizes="(min-width: 48rem) 48vw, 92vw" width="480" height="640" alt="نباتات بطاطس وغروب برتقالي" data-i18n-attr="alt:a35" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo36.webp"><img src="/assets/images/thumb/photo36.webp" srcset="/assets/images/thumb/photo36.webp 480w, /assets/images/full/photo36.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="شجرة وأبراج كهرباء في وهج ضبابي فوق حقل أرز" data-i18n-attr="alt:a36" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo37.webp"><img src="/assets/images/thumb/photo37.webp" srcset="/assets/images/thumb/photo37.webp 480w, /assets/images/full/photo37.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="أشجار كبيرة بجذور متدلية في حديقة" data-i18n-attr="alt:a37" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo38.webp"><img src="/assets/images/thumb/photo38.webp" srcset="/assets/images/thumb/photo38.webp 480w, /assets/images/full/photo38.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="مدخنة طوب تحت سماء زرقاء وغيوم فوق حقل أخضر" data-i18n-attr="alt:a38" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo39.webp"><img src="/assets/images/thumb/photo39.webp" srcset="/assets/images/thumb/photo39.webp 480w, /assets/images/full/photo39.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="قمر مكتمل فوق مبنى طوب غير مكتمل" data-i18n-attr="alt:a39" loading="lazy" decoding="async"></a></li>
+        </ul>
+        <ul class="run run--d">
+          <li><a class="frame" href="/assets/images/full/photo40.webp"><img src="/assets/images/thumb/photo40.webp" srcset="/assets/images/thumb/photo40.webp 480w, /assets/images/full/photo40.webp 960w" sizes="(min-width: 48rem) 32vw, 92vw" width="480" height="640" alt="القمر بين أوراق شجرة داكنة" data-i18n-attr="alt:a40" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo41.webp"><img src="/assets/images/thumb/photo41.webp" srcset="/assets/images/thumb/photo41.webp 480w, /assets/images/full/photo41.webp 960w" sizes="(min-width: 48rem) 32vw, 46vw" width="480" height="640" alt="القمر خلف أغصان غير واضحة" data-i18n-attr="alt:a41" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo42.webp"><img src="/assets/images/thumb/photo42.webp" srcset="/assets/images/thumb/photo42.webp 480w, /assets/images/full/photo42.webp 960w" sizes="(min-width: 48rem) 32vw, 46vw" width="480" height="640" alt="ظل مدخنة وقت الغروب البرتقالي" data-i18n-attr="alt:a42" loading="lazy" decoding="async"></a></li>
+        </ul>
+        <ul class="run run--b">
+          <li><a class="frame" href="/assets/images/full/photo43.webp"><img src="/assets/images/thumb/photo43.webp" srcset="/assets/images/thumb/photo43.webp 480w, /assets/images/full/photo43.webp 960w" sizes="(min-width: 48rem) 48vw, 92vw" width="480" height="640" alt="قمة شجرة أمام سماء زرقاء مسائية" data-i18n-attr="alt:a43" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo44.webp"><img src="/assets/images/thumb/photo44.webp" srcset="/assets/images/thumb/photo44.webp 480w, /assets/images/full/photo44.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="قمر صغير في سماء مظلمة" data-i18n-attr="alt:a44" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo45.webp"><img src="/assets/images/thumb/photo45.webp" srcset="/assets/images/thumb/photo45.webp 480w, /assets/images/full/photo45.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="شجرة بظل أسود أمام غروب أحمر خلف مبنى" data-i18n-attr="alt:a45" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo46.webp"><img src="/assets/images/thumb/photo46.webp" srcset="/assets/images/thumb/photo46.webp 480w, /assets/images/full/photo46.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="مبنى ومظلة خشبية خلف أغصان تحت سماء زرقاء" data-i18n-attr="alt:a46" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo47.webp"><img src="/assets/images/thumb/photo47.webp" srcset="/assets/images/thumb/photo47.webp 480w, /assets/images/full/photo47.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="نصف قمر فوق مدخنة وقت الغسق" data-i18n-attr="alt:a47" loading="lazy" decoding="async"></a></li>
+        </ul>
+        <ul class="run run--c">
+          <li><a class="frame" href="/assets/images/full/photo48.webp"><img src="/assets/images/thumb/photo48.webp" srcset="/assets/images/thumb/photo48.webp 480w, /assets/images/full/photo48.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="قمر أحمر خلف الأشجار" data-i18n-attr="alt:a48" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo49.webp"><img src="/assets/images/thumb/photo49.webp" srcset="/assets/images/thumb/photo49.webp 480w, /assets/images/full/photo49.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="أوراق شجر غير واضحة بتركيز ناعم" data-i18n-attr="alt:a49" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo50.webp"><img src="/assets/images/thumb/photo50.webp" srcset="/assets/images/thumb/photo50.webp 480w, /assets/images/full/photo50.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="غروب برتقالي فوق حقل أخضر ومدخنة" data-i18n-attr="alt:a50" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo51.webp"><img src="/assets/images/thumb/photo51.webp" srcset="/assets/images/thumb/photo51.webp 480w, /assets/images/full/photo51.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="هلال خلف غصن داكن مائل" data-i18n-attr="alt:a51" loading="lazy" decoding="async"></a></li>
+        </ul>
+        <ul class="run run--d">
+          <li><a class="frame" href="/assets/images/full/photo52.webp"><img src="/assets/images/thumb/photo52.webp" srcset="/assets/images/thumb/photo52.webp 480w, /assets/images/full/photo52.webp 960w" sizes="(min-width: 48rem) 32vw, 92vw" width="480" height="640" alt="هلال ونجمة خافتة فوق أضواء المدينة عند الغسق" data-i18n-attr="alt:a52" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo53.webp"><img src="/assets/images/thumb/photo53.webp" srcset="/assets/images/thumb/photo53.webp 480w, /assets/images/full/photo53.webp 960w" sizes="(min-width: 48rem) 32vw, 46vw" width="480" height="640" alt="هلال بجوار أعمدة داكنة" data-i18n-attr="alt:a53" loading="lazy" decoding="async"></a></li>
+          <li><a class="frame" href="/assets/images/full/photo54.webp"><img src="/assets/images/thumb/photo54.webp" srcset="/assets/images/thumb/photo54.webp 480w, /assets/images/full/photo54.webp 960w" sizes="(min-width: 48rem) 32vw, 46vw" width="480" height="640" alt="شجرة وحقل أخضر وأسلاك كهرباء تحت سماء زرقاء" data-i18n-attr="alt:a54" loading="lazy" decoding="async"></a></li>
+        </ul>
+      </div>
     </div>
   </main>
 
-  <footer class="g-footer">
-    <div class="g-wrap">
-      <p class="label" lang="en">© 2026 FAYAD — Visual works</p>
-      <a class="foot-link" href="#main">
-        <span lang="en">Back to top</span>
-        <svg class="icon" aria-hidden="true"><use href="#i-up"/></svg>
+  <footer class="site-footer g-footer">
+    <div class="wrap footer-row">
+      <p class="label" data-i18n="g.footer">© 2026 FAYAD — معرض التصوير</p>
+      <a class="foot-link" href="#top">
+        <span data-i18n="g.top">العودة للأعلى</span>
+        <svg class="icon icon-up" aria-hidden="true"><use href="#i-up"/></svg>
       </a>
     </div>
   </footer>
 
-  <dialog class="viewer" id="viewer" dir="ltr" aria-label="عارض الصور">
+  <dialog class="viewer" id="viewer" dir="ltr" aria-label="عارض الصور" data-i18n-attr="aria-label:viewer.aria">
     <div class="viewer-bar">
       <p class="viewer-count label"><span id="viewer-current">01</span><span aria-hidden="true">/</span><span id="viewer-total">54</span></p>
-      <button type="button" id="viewer-close" aria-label="إغلاق">
-        <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
-      </button>
+      <div class="viewer-actions">
+        <a class="viewer-original label" id="viewer-original" href="/assets/images/photo1.jpg" target="_blank" rel="noopener" data-i18n="viewer.original">فتح الأصل</a>
+        <button type="button" class="viewer-btn" id="viewer-close" autofocus aria-label="إغلاق" data-i18n-attr="aria-label:viewer.close">
+          <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+        </button>
+      </div>
     </div>
-    <button type="button" class="viewer-prev" id="viewer-prev" aria-label="الصورة السابقة">
+    <button type="button" class="viewer-btn viewer-prev" id="viewer-prev" aria-label="الصورة السابقة" data-i18n-attr="aria-label:viewer.prev">
       <svg class="icon icon-back" aria-hidden="true"><use href="#i-arrow"/></svg>
     </button>
     <figure class="viewer-stage">
       <img id="viewer-image" alt="" decoding="async">
-      <figcaption id="viewer-caption" dir="auto"></figcaption>
     </figure>
-    <button type="button" class="viewer-next" id="viewer-next" aria-label="الصورة التالية">
+    <button type="button" class="viewer-btn viewer-next" id="viewer-next" aria-label="الصورة التالية" data-i18n-attr="aria-label:viewer.next">
       <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
     </button>
     <p class="vh" id="viewer-status" role="status" aria-live="polite"></p>
   </dialog>
 
+  <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/site.js" defer></script>
   <script src="/assets/js/gallery.js" defer></script>
   <script src="/assets/js/sw-register.js" defer></script>
 </body>

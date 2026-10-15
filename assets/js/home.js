@@ -1,13 +1,35 @@
-/* home.js — mobile menu, active-section highlight, scroll reveal.
+/* home.js — mobile menu, header state, active-section highlight, scroll reveal.
    Everything here is an enhancement: the page is fully usable without it. */
 
 (() => {
   "use strict";
 
+  const header = document.querySelector(".site-header");
   const button = document.querySelector(".menu-btn");
   const nav = document.getElementById("site-nav");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const desktop = window.matchMedia("(min-width: 56rem)");
+
+  /* ---------- Header gets a hairline once the page has scrolled ---------- */
+
+  if (header) {
+    let ticking = false;
+    const update = () => {
+      header.classList.toggle("is-scrolled", window.scrollY > 8);
+      ticking = false;
+    };
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      },
+      { passive: true }
+    );
+    update();
+  }
 
   /* ---------- Mobile menu ---------- */
 
@@ -32,7 +54,7 @@
 
   document.addEventListener("pointerdown", (event) => {
     if (!menuIsOpen() || !(event.target instanceof Node)) return;
-    if (!nav.contains(event.target) && !button.contains(event.target)) setMenu(false);
+    if (!nav.contains(event.target) && !button.contains(event.target) && !event.target.closest?.(".tools")) setMenu(false);
   });
 
   desktop.addEventListener("change", () => {
@@ -42,7 +64,7 @@
   /* ---------- Active section in the nav ---------- */
 
   if (nav && "IntersectionObserver" in window) {
-    // Sections that have no nav item of their own highlight their neighbour.
+    // Sections without a nav item of their own highlight their neighbour.
     const alias = { education: "about", approach: "capabilities" };
 
     const links = new Map(
@@ -88,11 +110,11 @@
     );
 
     document
-      .querySelectorAll(".section-head, .project, .cap, .steps li, .strip, .cta, .channels li")
+      .querySelectorAll(".section-head, .education > *, .project, .cap, .steps, .steps li, .strip li, .cta, .channels li")
       .forEach((el) => {
         if (el.getBoundingClientRect().top <= window.innerHeight) return;
         const position = el.parentElement ? [...el.parentElement.children].indexOf(el) : 0;
-        el.style.setProperty("--d", `${Math.min(position, 4) * 70}ms`);
+        el.style.setProperty("--d", `${Math.min(position, 4) * 80}ms`);
         el.classList.add("is-pending");
         reveal.observe(el);
       });

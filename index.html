@@ -4,49 +4,61 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <title>عبد الحميد فياض | Front-End Developer</title>
-  <meta name="description" content="عبد الحميد فياض — Front-End Developer وطالب هندسة حاسبات، أطور واجهات ويب حديثة ومتجاوبة باستخدام HTML وCSS وJavaScript وReact وTypeScript.">
+  <title data-i18n="meta.title">عبد الحميد فياض | مطوّر Front-End ومصوّر</title>
+  <meta name="description" content="عبد الحميد فياض — مطوّر Front-End وطالب هندسة حاسبات ومصوّر. أبني واجهات ويب حديثة ومتجاوبة باستخدام HTML وCSS وJavaScript وReact وTypeScript." data-i18n-attr="content:meta.desc">
   <meta name="author" content="Abdullhamid Fayad">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="google-site-verification" content="-KKKrq6tWT2X8e4lTiyPqId2uZ-04j1mJ9rr4sTsofA">
   <link rel="canonical" href="https://abdullhamid-fayad-portfolio.vercel.app/">
 
-  <meta name="theme-color" content="#f4f8f7">
-  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f5f2ea" data-light="#f5f2ea" data-dark="#07130f">
+  <meta name="color-scheme" content="light dark">
   <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg?v=2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png?v=2">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Abdullhamid Fayad Portfolio">
   <meta property="og:locale" content="ar_EG">
   <meta property="og:url" content="https://abdullhamid-fayad-portfolio.vercel.app/">
-  <meta property="og:title" content="عبد الحميد فياض | Front-End Developer">
-  <meta property="og:description" content="Portfolio of Abdullhamid Fayad — Front-End Developer and Computer Engineering Student.">
+  <meta property="og:title" content="عبد الحميد فياض | مطوّر Front-End ومصوّر" data-i18n-attr="content:meta.title">
+  <meta property="og:description" content="الملف الشخصي لعبد الحميد فياض — مطوّر Front-End وطالب هندسة حاسبات ومصوّر." data-i18n-attr="content:meta.ogdesc">
   <meta property="og:image" content="https://abdullhamid-fayad-portfolio.vercel.app/og-image.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Abdullhamid Fayad — Front-End Developer">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="عبد الحميد فياض | Front-End Developer">
-  <meta name="twitter:description" content="Front-End Developer and Computer Engineering Student.">
+  <meta name="twitter:title" content="عبد الحميد فياض | مطوّر Front-End ومصوّر" data-i18n-attr="content:meta.title">
+  <meta name="twitter:description" content="مطوّر Front-End وطالب هندسة حاسبات ومصوّر." data-i18n-attr="content:meta.twdesc">
   <meta name="twitter:image" content="https://abdullhamid-fayad-portfolio.vercel.app/og-image.jpg">
   <meta name="twitter:image:alt" content="Abdullhamid Fayad — Front-End Developer">
 
-  <!-- Fonts: same families as before, one request, loaded without blocking first paint -->
+  <!-- Theme + language are resolved before first paint so there is no flash of the wrong one -->
+  <script>
+    (function () {
+      var d = document.documentElement, t, l;
+      d.classList.add("js");
+      try { t = localStorage.getItem("fayad-theme"); l = localStorage.getItem("fayad-lang"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      d.setAttribute("data-theme", t);
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.content = t === "dark" ? "#07130f" : "#f5f2ea";
+      if (l === "en") { d.lang = "en"; d.dir = "ltr"; d.classList.add("i18n-wait"); }
+    })();
+  </script>
+
+  <!-- Fonts: Fraunces (Latin display), Plus Jakarta Sans (Latin UI), IBM Plex Sans Arabic — one non-blocking request -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400..700&family=Plus+Jakarta+Sans:wght@400..800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400..700&family=Plus+Jakarta+Sans:wght@400..800&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400..800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400..800&display=swap"></noscript>
 
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/home.css">
 
-  <link rel="preload" as="image" href="/assets/images/profile-640.webp" imagesrcset="/assets/images/profile-640.webp 640w, /assets/images/profile-960.webp 960w" imagesizes="(min-width: 56rem) 28rem, 100vw" fetchpriority="high">
-
-  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preload" as="image" href="/assets/images/profile-640.webp" imagesrcset="/assets/images/profile-640.webp 640w, /assets/images/profile-960.webp 960w" imagesizes="(min-width: 56rem) 26rem, 80vw" fetchpriority="high">
 
   <script type="application/ld+json">
   {
@@ -58,7 +70,8 @@
     "url": "https://abdullhamid-fayad-portfolio.vercel.app/",
     "image": "https://abdullhamid-fayad-portfolio.vercel.app/profile.jpg",
     "jobTitle": "Front-End Developer",
-    "description": "Front-End Developer and Computer Engineering Student focused on modern responsive web development.",
+    "description": "Front-End Developer, photographer and Computer Engineering student focused on modern responsive web development.",
+    "affiliation": { "@type": "CollegeOrUniversity", "name": "Tanta National University" },
     "sameAs": [
       "https://github.com/midofayad22",
       "https://www.linkedin.com/in/abdullhamid-f-800bb5379",
@@ -66,7 +79,7 @@
       "https://youtube.com/@abdullhamid-mido22",
       "https://www.tiktok.com/@abdullhamid_fayad"
     ],
-    "knowsAbout": ["HTML", "CSS", "JavaScript", "React", "TypeScript", "Supabase", "Responsive Web Design", "Progressive Web Apps", "Git", "GitHub", "Frontend Development"],
+    "knowsAbout": ["HTML", "CSS", "JavaScript", "React", "TypeScript", "Supabase", "Responsive Web Design", "Progressive Web Apps", "Git", "GitHub", "Frontend Development", "Photography"],
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://abdullhamid-fayad-portfolio.vercel.app/" }
   }
   </script>
@@ -87,41 +100,59 @@
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
 
-<body>
-  <a class="skip-link" href="#main">تخطي إلى المحتوى</a>
+<body id="top">
+  <a class="skip-link" href="#main" data-i18n="skip">تخطي إلى المحتوى</a>
 
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
-    <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
-    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 20V4M6 10l6-6 6 6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 20V4M6 10l6-6 6 6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></symbol>
+  <symbol id="b-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+  <symbol id="b-linkedin" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M5 2h14a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3zM7.3 5.9a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM5.9 10.2h2.8V18H5.9zM10.4 10.2h2.7v1.1c.4-.7 1.3-1.3 2.6-1.3 2.5 0 3.1 1.6 3.1 3.7V18h-2.8v-3.9c0-1-.1-2-1.4-2s-1.5.9-1.5 1.9V18h-2.7z"/></symbol>
+  <symbol id="b-instagram" viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></symbol>
+  <symbol id="b-youtube" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
+  <symbol id="b-tiktok" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol>
+  <symbol id="b-whatsapp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
   </svg>
 
   <header class="site-header">
     <div class="wrap header-row">
-      <a class="brand" href="#top" aria-label="FAYAD — الصفحة الرئيسية">
-        <img src="/icons/favicon.svg" alt="" width="36" height="36">
-        <span>
+      <a class="brand" href="#top" data-i18n-attr="aria-label:brand.home" aria-label="FAYAD — الصفحة الرئيسية">
+        <img src="/icons/favicon.svg?v=2" alt="" width="40" height="40">
+        <span class="brand-text">
           <span class="brand-name">FAYAD</span>
-          <span class="brand-role label">Front-End Developer</span>
+          <span class="brand-role label" data-i18n="brand.role">مطوّر Front-End ومصوّر</span>
         </span>
       </a>
 
-      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">
-        <span class="label">Menu</span>
-        <span class="menu-icon" aria-hidden="true"></span>
-      </button>
-
-      <nav class="nav" id="site-nav" lang="en" aria-label="التنقل الرئيسي">
-        <a href="#about">Home</a>
-        <a href="#projects">Work</a>
-        <a href="#capabilities">Capabilities</a>
-        <a href="#visual">Gallery</a>
-        <a href="#contact">Contact</a>
+      <nav class="nav" id="site-nav" data-i18n-attr="aria-label:nav.aria" aria-label="التنقل الرئيسي">
+        <a href="#about" data-i18n="nav.home">الرئيسية</a>
+        <a href="#projects" data-i18n="nav.work">الأعمال</a>
+        <a href="#capabilities" data-i18n="nav.skills">المهارات</a>
+        <a href="#visual" data-i18n="nav.gallery">المعرض</a>
+        <a href="#contact" data-i18n="nav.contact">التواصل</a>
         <a class="nav-cta" href="https://wa.me/201091573063" target="_blank" rel="noopener noreferrer">
-          Let's talk
+          <span data-i18n="nav.talk">لنتحدث</span>
           <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>
         </a>
       </nav>
+
+      <div class="tools">
+        <button class="tool tool--lang" type="button" id="lang-toggle" data-i18n-attr="aria-label:ui.lang.aria" aria-label="التبديل إلى الإنجليزية">
+          <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg>
+          <span data-i18n="ui.lang.label" lang="en">EN</span>
+        </button>
+        <button class="tool tool--theme" type="button" id="theme-toggle" aria-label="التبديل إلى الوضع الداكن">
+          <svg class="icon i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="icon i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        </button>
+        <button class="tool menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" data-i18n-attr="aria-label:ui.menu" aria-label="القائمة">
+          <span class="menu-icon" aria-hidden="true"></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -129,40 +160,46 @@
 
     <!-- ==================== HERO ==================== -->
     <section class="hero" id="about" aria-labelledby="hero-title">
-      <div class="wrap hero-grid">
+      <div class="hero-art" aria-hidden="true">
+        <svg class="wires" viewBox="0 0 1200 420" preserveAspectRatio="none" focusable="false">
+          <path pathLength="1" d="M-20 150 C 260 250, 560 250, 820 120 S 1160 40, 1230 110"/>
+          <path pathLength="1" d="M-20 190 C 280 290, 580 290, 840 160 S 1170 80, 1230 150"/>
+          <path pathLength="1" d="M-20 230 C 300 330, 600 330, 860 200 S 1180 120, 1230 190"/>
+        </svg>
+      </div>
 
+      <div class="wrap hero-grid">
         <div class="hero-copy">
           <p class="label hero-index">
-            <span>01</span>
+            <span class="keep">01</span>
             <span class="rule" aria-hidden="true"></span>
-            <span>Portfolio / 2026</span>
+            <span data-i18n="hero.kicker">معرض أعمال / 2026</span>
           </p>
 
-          <h1 id="hero-title">
-            <span class="h1-intro">أنا عبد الحميد</span>
-            <span class="h1-name">فياض<span class="dot">.</span></span>
+          <h1 class="display" id="hero-title">
+            <span class="h1-intro" data-i18n="hero.intro">أنا عبد الحميد</span>
+            <span class="h1-name"><span data-i18n="hero.name">فياض</span><span class="dot">.</span></span>
           </h1>
 
           <p class="hero-role">
-            <span class="label">I build</span>
-            <strong class="en">Front-End Experiences</strong>
+            <strong data-i18n="hero.role.dev">مطوّر <span class="nw">Front-End</span></strong>
+            <span class="role-sep" aria-hidden="true"></span>
+            <strong data-i18n="hero.role.photo">مصوّر</strong>
           </p>
 
-          <p class="hero-lede">
-            أطور واجهات ويب حديثة ومتجاوبة، وأحوّل الأفكار إلى تجارب واضحة وقابلة للاستخدام باستخدام تقنيات <span class="nw">Front-End</span> الحديثة.
-          </p>
+          <p class="hero-lede" data-i18n="hero.lede">أطوّر واجهات ويب حديثة ومتجاوبة، وأحوّل الأفكار إلى تجارب واضحة وقابلة للاستخدام باستخدام تقنيات <span class="nw">Front-End</span> الحديثة. وبعيدًا عن الشاشة، أصوّر الضوء وتفاصيل الحقول والسماء من حولي.</p>
 
           <div class="hero-actions">
             <a class="btn btn--solid" href="#projects">
-              <span>استكشف مشاريعي</span>
+              <span data-i18n="hero.cta.work">استكشف مشاريعي</span>
               <svg class="icon icon-fwd" aria-hidden="true"><use href="#i-arrow"/></svg>
             </a>
-            <a class="btn btn--line" href="#visual">
-              <span>المعرض البصري</span>
+            <a class="btn btn--line" href="/gallery.html">
+              <span data-i18n="hero.cta.gallery">معرض التصوير</span>
             </a>
           </div>
 
-          <ul class="stack label" aria-label="التقنيات">
+          <ul class="stack label keep" data-i18n-attr="aria-label:aria.tech" aria-label="التقنيات">
             <li>HTML</li>
             <li>CSS</li>
             <li>JavaScript</li>
@@ -172,24 +209,31 @@
           </ul>
         </div>
 
-        <figure class="portrait">
-          <img
-            src="/assets/images/profile-640.webp"
-            srcset="/assets/images/profile-640.webp 640w, /assets/images/profile-960.webp 960w"
-            sizes="(min-width: 56rem) 28rem, 100vw"
-            width="640" height="721"
-            alt="عبد الحميد فياض يرتدي بدلة رمادية ويستند إلى عمود إنارة أسود"
-            fetchpriority="high"
-            decoding="async">
-          <figcaption class="label">Abdullhamid Fayad — Front-End Developer</figcaption>
-        </figure>
-
+        <div class="hero-media">
+          <div class="sun" aria-hidden="true"></div>
+          <figure class="portrait">
+            <img
+              src="/assets/images/profile-640.webp"
+              srcset="/assets/images/profile-640.webp 640w, /assets/images/profile-960.webp 960w"
+              sizes="(min-width: 56rem) 26rem, 80vw"
+              width="640" height="721"
+              alt="عبد الحميد فياض يرتدي بدلة رمادية ويستند إلى عمود إنارة أسود"
+              data-i18n-attr="alt:hero.portrait.alt"
+              fetchpriority="high"
+              decoding="async">
+          </figure>
+          <a class="inset" href="/gallery.html#15">
+            <img src="/assets/images/thumb/photo15.webp" width="480" height="640"
+              alt="غروب برتقالي وبنفسجي فوق صفحة النهر" data-i18n-attr="alt:a15" decoding="async">
+            <span class="inset-label label"><span data-i18n="hero.inset">من المعرض</span><svg class="icon icon-fwd" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </a>
+        </div>
       </div>
 
       <div class="wrap hero-foot">
-        <p><span class="label">Selected work</span> <span class="en">Projects built to learn and ship.</span></p>
+        <p><span class="label" data-i18n="hero.foot.label">أعمال مختارة</span> <span data-i18n="hero.foot.text">مشاريع أبنيها لأتعلم وأطلقها فعليًا.</span></p>
         <a class="foot-link" href="#projects">
-          <span lang="en">Explore work</span>
+          <span data-i18n="hero.foot.link">تصفح الأعمال</span>
           <svg class="icon icon-fwd" aria-hidden="true"><use href="#i-arrow"/></svg>
         </a>
       </div>
@@ -199,16 +243,16 @@
     <section class="section" id="education" aria-labelledby="education-title">
       <div class="wrap section-grid">
         <header class="section-head">
-          <p class="label"><span class="no">02</span> Education / Current direction</p>
-          <h2 class="en" id="education-title">Computer <span class="accent">Engineering.</span></h2>
+          <p class="label"><span class="no keep">02</span> <span data-i18n="edu.label">التعليم / المسار الحالي</span></p>
+          <h2 class="display" id="education-title" data-i18n="edu.title">هندسة <span class="accent">الحاسبات.</span></h2>
         </header>
 
         <div class="section-body education">
-          <h3 class="en">Tanta National University</h3>
-          <p>طالب هندسة حاسبات أركز حاليًا على <span class="nw">Front-End</span> Development وبناء مشاريع عملية أطبق من خلالها ما أتعلمه.</p>
+          <h3 class="display" data-i18n="edu.uni">جامعة طنطا الأهلية</h3>
+          <p data-i18n="edu.text">طالب هندسة حاسبات أركّز حاليًا على تطوير <span class="nw">Front-End</span> وبناء مشاريع عملية أطبّق من خلالها ما أتعلمه.</p>
           <dl class="focus">
-            <dt class="label">Current focus</dt>
-            <dd class="en"><strong>Front-End</strong> Web Development</dd>
+            <dt class="label" data-i18n="edu.focus">التركيز الحالي</dt>
+            <dd data-i18n="edu.focus.value"><strong>تطوير الويب</strong> <span class="nw">Front-End</span></dd>
           </dl>
         </div>
       </div>
@@ -218,42 +262,43 @@
     <section class="section" id="projects" aria-labelledby="projects-title">
       <div class="wrap section-grid">
         <header class="section-head">
-          <p class="label"><span class="no">03</span> Selected work</p>
-          <h2 class="en" id="projects-title">Projects I've <span class="accent">built.</span></h2>
-          <p class="section-intro">ثلاثة مشاريع تمثل ما أعمل عليه حاليًا، من منصات <span class="nw">Front-End</span> إلى تطبيقات React ومشاريع تعليمية متخصصة.</p>
+          <p class="label"><span class="no keep">03</span> <span data-i18n="projects.label">أعمال مختارة</span></p>
+          <h2 class="display" id="projects-title" data-i18n="projects.title">مشاريع <span class="accent">بنيتها.</span></h2>
+          <p class="section-intro" data-i18n="projects.intro">ثلاثة مشاريع تمثل ما أعمل عليه حاليًا، من منصات <span class="nw">Front-End</span> إلى تطبيقات React ومشاريع تعليمية متخصصة.</p>
         </header>
 
         <ol class="section-body projects">
 
           <li>
-            <article class="project" aria-labelledby="project-learning">
+            <article class="project" style="--p: var(--p-learning); --p-ink: var(--p-learning-ink)" aria-labelledby="project-learning">
               <header class="project-head label">
-                <span class="project-no">01</span>
-                <span>Educational web platform</span>
-                <time datetime="2026">2026</time>
+                <span class="project-no keep">01</span>
+                <span data-i18n="p1.type">منصة ويب تعليمية</span>
+                <time datetime="2026" class="keep">2026</time>
               </header>
 
               <div class="project-grid">
                 <div class="project-text">
-                  <h3 class="en" id="project-learning">FAYAD Learning <span class="project-sub">Learn. Practice. Build.</span></h3>
-                  <p>منصة تعليمية تجمع الدروس والممارسة والاختبارات في تجربة <span class="nw">Front-End</span> واحدة، مع التركيز على الاستجابة وسهولة الاستخدام.</p>
-                  <ul class="features" lang="en">
-                    <li>Interactive lessons</li>
-                    <li>Practice &amp; quizzes</li>
-                    <li>Responsive PWA</li>
-                    <li>Performance-focused UI</li>
+                  <h3 class="display" id="project-learning" lang="en">FAYAD Learning</h3>
+                  <p class="project-sub" data-i18n="p1.sub">تعلّم. تدرّب. ابنِ.</p>
+                  <p data-i18n="p1.text">منصة تعليمية تجمع الدروس والممارسة والاختبارات في تجربة <span class="nw">Front-End</span> واحدة، مع التركيز على الاستجابة وسهولة الاستخدام.</p>
+                  <ul class="features">
+                    <li data-i18n="p1.f1">دروس تفاعلية</li>
+                    <li data-i18n="p1.f2">تدريب واختبارات</li>
+                    <li data-i18n="p1.f3">PWA متجاوب</li>
+                    <li data-i18n="p1.f4">واجهة تركّز على الأداء</li>
                   </ul>
-                  <ul class="tags label" aria-label="التقنيات">
+                  <ul class="tags label keep" data-i18n-attr="aria-label:aria.tech" aria-label="التقنيات">
                     <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PWA</li><li>UI</li>
                   </ul>
                   <a class="project-link" href="https://fayad-learning.vercel.app/" target="_blank" rel="noopener noreferrer">
-                    <span lang="en">View project<span class="vh">: FAYAD Learning</span></span>
+                    <span><span data-i18n="project.view">عرض المشروع</span><span class="vh">: FAYAD Learning</span></span>
                     <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>
                   </a>
                 </div>
 
-                <div class="plate" aria-hidden="true">
-                  <p class="plate-bar label">fayad-learning.vercel.app</p>
+                <div class="plate plate--learning" aria-hidden="true" dir="ltr">
+                  <p class="plate-bar label"><i></i><i></i><i></i><span>fayad-learning.vercel.app</span></p>
                   <div class="plate-body">
                     <p class="label">Fayad / Learning</p>
                     <p class="plate-title">Learn. <em>Practice.</em> Build.</p>
@@ -269,35 +314,36 @@
           </li>
 
           <li>
-            <article class="project" aria-labelledby="project-tnu">
+            <article class="project" style="--p: var(--p-tnu); --p-ink: var(--p-tnu-ink)" aria-labelledby="project-tnu">
               <header class="project-head label">
-                <span class="project-no">02</span>
-                <span>React / Supabase / PWA</span>
-                <time datetime="2026">2026</time>
+                <span class="project-no keep">02</span>
+                <span class="keep">React / Supabase / PWA</span>
+                <time datetime="2026" class="keep">2026</time>
               </header>
 
               <div class="project-grid">
                 <div class="project-text">
-                  <h3 class="en" id="project-tnu">TNU Hub <span class="project-sub">Student Platform.</span></h3>
-                  <p>منصة طلابية تجمع الإعلانات والفعاليات والموارد والطلبات والخدمات داخل تجربة واحدة، مع نظام إدارة وصلاحيات متعدد المستويات.</p>
-                  <ul class="features" lang="en">
+                  <h3 class="display" id="project-tnu" lang="en">TNU Hub</h3>
+                  <p class="project-sub" data-i18n="p2.sub">منصة الطلاب.</p>
+                  <p data-i18n="p2.text">منصة طلابية تجمع الإعلانات والفعاليات والموارد والطلبات والخدمات داخل تجربة واحدة، مع نظام إدارة وصلاحيات متعدد المستويات.</p>
+                  <ul class="features">
                     <li>React + TypeScript</li>
-                    <li>Supabase backend</li>
-                    <li>Role-based administration</li>
-                    <li>RLS &amp; permissions</li>
-                    <li>PWA &amp; responsive UI</li>
+                    <li data-i18n="p2.f2">Supabase كـ backend</li>
+                    <li data-i18n="p2.f3">إدارة بصلاحيات حسب الدور</li>
+                    <li data-i18n="p2.f4">RLS وإدارة الصلاحيات</li>
+                    <li data-i18n="p2.f5">PWA وواجهة متجاوبة</li>
                   </ul>
-                  <ul class="tags label" aria-label="التقنيات">
+                  <ul class="tags label keep" data-i18n-attr="aria-label:aria.tech" aria-label="التقنيات">
                     <li>React</li><li>TypeScript</li><li>Vite</li><li>Supabase</li><li>PWA</li>
                   </ul>
                   <a class="project-link" href="https://tnu-hub.vercel.app/" target="_blank" rel="noopener noreferrer">
-                    <span lang="en">View project<span class="vh">: TNU Hub</span></span>
+                    <span><span data-i18n="project.view">عرض المشروع</span><span class="vh">: TNU Hub</span></span>
                     <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>
                   </a>
                 </div>
 
-                <div class="plate" aria-hidden="true">
-                  <p class="plate-bar label">tnu-hub.vercel.app</p>
+                <div class="plate plate--tnu" aria-hidden="true" dir="ltr">
+                  <p class="plate-bar label"><i></i><i></i><i></i><span>tnu-hub.vercel.app</span></p>
                   <div class="plate-body">
                     <p class="label">Student space / TNU Hub</p>
                     <p class="plate-title">Everything <em>in one place.</em></p>
@@ -313,35 +359,36 @@
           </li>
 
           <li>
-            <article class="project" aria-labelledby="project-code">
+            <article class="project" style="--p: var(--p-code); --p-ink: var(--p-code-ink)" aria-labelledby="project-code">
               <header class="project-head label">
-                <span class="project-no">03</span>
-                <span>Git / GitHub learning platform</span>
-                <time datetime="2026">2026</time>
+                <span class="project-no keep">03</span>
+                <span data-i18n="p3.type">منصة تعلّم Git وGitHub</span>
+                <time datetime="2026" class="keep">2026</time>
               </header>
 
               <div class="project-grid">
                 <div class="project-text">
-                  <h3 class="en" id="project-code">FAYAD Code <span class="project-sub">Git &amp; GitHub.</span></h3>
-                  <p>منصة تعليمية عربية تركز على Git وGitHub، وتغطي أساسيات Version Control ثم Branching وMerging وPull Requests والـWorkflow العملي.</p>
-                  <ul class="features" lang="en">
-                    <li>30+ lessons</li>
-                    <li>6 learning stages</li>
-                    <li>Practical learning</li>
-                    <li>Git &amp; GitHub workflow</li>
-                    <li>Quizzes &amp; practice</li>
+                  <h3 class="display" id="project-code" lang="en">FAYAD Code</h3>
+                  <p class="project-sub" data-i18n="p3.sub">Git وGitHub.</p>
+                  <p data-i18n="p3.text">منصة تعليمية عربية تركّز على Git وGitHub، وتغطي أساسيات Version Control ثم Branching وMerging وPull Requests والـWorkflow العملي.</p>
+                  <ul class="features">
+                    <li data-i18n="p3.f1">أكثر من 30 درسًا</li>
+                    <li data-i18n="p3.f2">6 مراحل تعليمية</li>
+                    <li data-i18n="p3.f3">تعلّم عملي</li>
+                    <li data-i18n="p3.f4">Workflow مع Git وGitHub</li>
+                    <li data-i18n="p3.f5">اختبارات وتمارين</li>
                   </ul>
-                  <ul class="tags label" aria-label="التقنيات">
+                  <ul class="tags label keep" data-i18n-attr="aria-label:aria.tech" aria-label="التقنيات">
                     <li>Git</li><li>GitHub</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>PWA</li>
                   </ul>
                   <a class="project-link" href="https://fayad-code.vercel.app/" target="_blank" rel="noopener noreferrer">
-                    <span lang="en">View project<span class="vh">: FAYAD Code</span></span>
+                    <span><span data-i18n="project.view">عرض المشروع</span><span class="vh">: FAYAD Code</span></span>
                     <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>
                   </a>
                 </div>
 
-                <div class="plate plate--terminal" aria-hidden="true">
-                  <p class="plate-bar label">fayad-code / project</p>
+                <div class="plate plate--terminal" aria-hidden="true" dir="ltr">
+                  <p class="plate-bar label"><i></i><i></i><i></i><span>fayad-code / project</span></p>
                   <div class="plate-body">
                     <p><span class="prompt">$</span> git init</p>
                     <p class="out">Initialized empty Git repository</p>
@@ -364,49 +411,49 @@
     <section class="section" id="capabilities" aria-labelledby="capabilities-title">
       <div class="wrap section-grid">
         <header class="section-head">
-          <p class="label"><span class="no">04</span> Capabilities</p>
-          <h2 class="en" id="capabilities-title">What I <span class="accent">build.</span></h2>
-          <p class="section-intro">المهارات التي أستخدمها فعليًا في مشاريعي الحالية، من بناء الواجهات إلى التعامل مع البيانات والتطبيقات المتجاوبة.</p>
+          <p class="label"><span class="no keep">04</span> <span data-i18n="caps.label">المهارات</span></p>
+          <h2 class="display" id="capabilities-title" data-i18n="caps.title">ما <span class="accent">أبنيه.</span></h2>
+          <p class="section-intro" data-i18n="caps.intro">المهارات التي أستخدمها فعليًا في مشاريعي الحالية، من بناء الواجهات إلى التعامل مع البيانات والتطبيقات المتجاوبة.</p>
         </header>
 
         <ol class="section-body caps">
           <li class="cap cap--lead">
-            <span class="cap-no label">01</span>
+            <span class="cap-no label keep">01</span>
             <div>
-              <p class="label">Front-End</p>
-              <h3 class="en">Interfaces that <span class="accent">feel intentional.</span></h3>
-              <p>بناء واجهات متجاوبة باستخدام HTML وCSS وJavaScript، مع اهتمام بالـTypography والـSpacing والتفاعل وسهولة الاستخدام.</p>
-              <ul class="tags label" aria-label="التقنيات">
-                <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Responsive UI</li>
+              <p class="label keep">Front-End</p>
+              <h3 class="display" data-i18n="cap1.title">واجهات مدروسة <span class="accent">في كل تفصيلة.</span></h3>
+              <p data-i18n="cap1.text">بناء واجهات متجاوبة باستخدام HTML وCSS وJavaScript، مع اهتمام بالـTypography والـSpacing والتفاعل وسهولة الاستخدام.</p>
+              <ul class="tags label" data-i18n-attr="aria-label:aria.tech" aria-label="التقنيات">
+                <li class="keep">HTML</li><li class="keep">CSS</li><li class="keep">JavaScript</li><li data-i18n="cap1.tag">واجهات متجاوبة</li>
               </ul>
             </div>
           </li>
           <li class="cap">
-            <span class="cap-no label">02</span>
+            <span class="cap-no label keep">02</span>
             <div>
-              <h3 class="en">React Applications</h3>
-              <p>بناء واجهات component-based باستخدام React وTypeScript وتنظيم الـroutes والـUI.</p>
+              <h3 class="display" data-i18n="cap2.title">تطبيقات React</h3>
+              <p data-i18n="cap2.text">بناء واجهات قائمة على المكوّنات باستخدام React وTypeScript، مع تنظيم الـroutes والـUI.</p>
             </div>
           </li>
           <li class="cap">
-            <span class="cap-no label">03</span>
+            <span class="cap-no label keep">03</span>
             <div>
-              <h3 class="en">Real Data</h3>
-              <p>التعامل مع Supabase والبيانات الحقيقية داخل تطبيقات فعلية.</p>
+              <h3 class="display" data-i18n="cap3.title">بيانات حقيقية</h3>
+              <p data-i18n="cap3.text">التعامل مع Supabase والبيانات الحقيقية داخل تطبيقات فعلية.</p>
             </div>
           </li>
           <li class="cap">
-            <span class="cap-no label">04</span>
+            <span class="cap-no label keep">04</span>
             <div>
-              <h3 class="en">Responsive Experiences</h3>
-              <p>بناء تجربة متناسقة للهاتف والتابلت والـDesktop مع الاهتمام بسلوك الواجهة.</p>
+              <h3 class="display" data-i18n="cap4.title">تجارب متجاوبة</h3>
+              <p data-i18n="cap4.text">بناء تجربة متناسقة للهاتف والتابلت والـDesktop مع الاهتمام بسلوك الواجهة.</p>
             </div>
           </li>
           <li class="cap">
-            <span class="cap-no label">05</span>
+            <span class="cap-no label keep">05</span>
             <div>
-              <h3 class="en">Performance &amp; Quality</h3>
-              <p>اهتمام بالأداء، التحميل، SEO والـaccessibility داخل المشاريع.</p>
+              <h3 class="display" data-i18n="cap5.title">الأداء والجودة</h3>
+              <p data-i18n="cap5.text">اهتمام بالأداء وسرعة التحميل وSEO وإمكانية الوصول (Accessibility) داخل المشاريع.</p>
             </div>
           </li>
         </ol>
@@ -417,26 +464,26 @@
     <section class="section section--band" id="approach" aria-labelledby="approach-title">
       <div class="wrap section-grid">
         <header class="section-head">
-          <p class="label"><span class="no">05</span> How I build</p>
-          <h2 class="en" id="approach-title">Learn. <span class="accent">Build.</span> Refine.</h2>
-          <p class="section-intro">أتعلم من خلال بناء مشاريع فعلية، ثم أراجع ما بنيته وأحسنه مع كل تجربة جديدة.</p>
+          <p class="label"><span class="no keep">05</span> <span data-i18n="approach.label">أسلوب عملي</span></p>
+          <h2 class="display" id="approach-title" data-i18n="approach.title">أتعلّم. <span class="accent">أبني.</span> أحسّن.</h2>
+          <p class="section-intro" data-i18n="approach.intro">أتعلم من خلال بناء مشاريع فعلية، ثم أراجع ما بنيته وأحسّنه مع كل تجربة جديدة.</p>
         </header>
 
         <ol class="section-body steps">
           <li>
-            <span class="label">01</span>
-            <h3 class="en">Learn</h3>
-            <p>أفهم التقنية والمشكلة قبل التنفيذ.</p>
+            <span class="label keep">01</span>
+            <h3 class="display" data-i18n="step1.title">تعلّم</h3>
+            <p data-i18n="step1.text">أفهم التقنية والمشكلة قبل التنفيذ.</p>
           </li>
           <li>
-            <span class="label">02</span>
-            <h3 class="en">Build</h3>
-            <p>أحول الفكرة إلى تجربة قابلة للاستخدام.</p>
+            <span class="label keep">02</span>
+            <h3 class="display" data-i18n="step2.title">ابنِ</h3>
+            <p data-i18n="step2.text">أحوّل الفكرة إلى تجربة قابلة للاستخدام.</p>
           </li>
           <li>
-            <span class="label">03</span>
-            <h3 class="en">Refine</h3>
-            <p>أراجع الاستجابة والأداء والتفاصيل.</p>
+            <span class="label keep">03</span>
+            <h3 class="display" data-i18n="step3.title">حسّن</h3>
+            <p data-i18n="step3.text">أراجع الاستجابة والأداء والتفاصيل.</p>
           </li>
         </ol>
       </div>
@@ -446,21 +493,22 @@
     <section class="section" id="visual" aria-labelledby="visual-title">
       <div class="wrap section-grid">
         <header class="section-head">
-          <p class="label"><span class="no">06</span> Visual work</p>
-          <h2 class="en" id="visual-title">Beyond <span class="accent">code.</span></h2>
-          <p class="section-intro">أعمال بصرية أستخدمها لتطوير إحساسي بالتكوين والألوان والتفاصيل.</p>
-          <p class="count"><strong>54</strong> <span class="label">Visual<br>works</span></p>
+          <p class="label"><span class="no keep">06</span> <span data-i18n="visual.label">التصوير</span></p>
+          <h2 class="display" id="visual-title" data-i18n="visual.title">ما وراء <span class="accent">الكود.</span></h2>
+          <p class="section-intro" data-i18n="visual.intro">تصوير أنمّي به إحساسي بالتكوين والألوان والتفاصيل.</p>
+          <p class="count"><strong class="display">54</strong> <span class="label" data-i18n="visual.count">صورة</span></p>
           <a class="btn btn--line" href="/gallery.html">
-            <span>Explore the gallery</span>
+            <span data-i18n="visual.cta">تصفّح المعرض</span>
             <svg class="icon icon-fwd" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
         </header>
 
-        <a class="section-body strip" href="/gallery.html" aria-label="فتح المعرض البصري">
-          <img src="/assets/images/thumb/photo3.webp" srcset="/assets/images/thumb/photo3.webp 480w, /assets/images/full/photo3.webp 960w" sizes="(min-width: 56rem) 15rem, 30vw" width="480" height="640" alt="" loading="lazy" decoding="async">
-          <img src="/assets/images/thumb/photo15.webp" srcset="/assets/images/thumb/photo15.webp 480w, /assets/images/full/photo15.webp 960w" sizes="(min-width: 56rem) 15rem, 30vw" width="480" height="640" alt="" loading="lazy" decoding="async">
-          <img src="/assets/images/thumb/photo12.webp" srcset="/assets/images/thumb/photo12.webp 480w, /assets/images/full/photo12.webp 960w" sizes="(min-width: 56rem) 15rem, 30vw" width="480" height="640" alt="" loading="lazy" decoding="async">
-        </a>
+        <ul class="section-body strip">
+          <li><a href="/gallery.html#15"><img src="/assets/images/thumb/photo15.webp" srcset="/assets/images/thumb/photo15.webp 480w, /assets/images/full/photo15.webp 960w" sizes="(min-width: 56rem) 14rem, 40vw" width="480" height="640" alt="غروب برتقالي وبنفسجي فوق صفحة النهر" data-i18n-attr="alt:a15" loading="lazy" decoding="async"></a></li>
+          <li><a href="/gallery.html#3"><img src="/assets/images/thumb/photo3.webp" srcset="/assets/images/thumb/photo3.webp 480w, /assets/images/full/photo3.webp 960w" sizes="(min-width: 56rem) 14rem, 40vw" width="480" height="640" alt="برج كهرباء ومدخنة طوب فوق حقل أخضر" data-i18n-attr="alt:a3" loading="lazy" decoding="async"></a></li>
+          <li><a href="/gallery.html#12"><img src="/assets/images/thumb/photo12.webp" srcset="/assets/images/thumb/photo12.webp 480w, /assets/images/full/photo12.webp 960w" sizes="(min-width: 56rem) 14rem, 40vw" width="480" height="640" alt="الشمس تغرب خلف مدخنة وبرج كهرباء وأسلاك" data-i18n-attr="alt:a12" loading="lazy" decoding="async"></a></li>
+          <li><a href="/gallery.html#26"><img src="/assets/images/thumb/photo26.webp" srcset="/assets/images/thumb/photo26.webp 480w, /assets/images/full/photo26.webp 960w" sizes="(min-width: 56rem) 14rem, 40vw" width="480" height="640" alt="غروب وردي وأحمر خلف الأشجار وطريق ترابي وأسلاك كهرباء" data-i18n-attr="alt:a26" loading="lazy" decoding="async"></a></li>
+        </ul>
       </div>
     </section>
 
@@ -468,26 +516,27 @@
     <section class="section section--dark" id="contact" aria-labelledby="contact-title">
       <div class="wrap section-grid">
         <header class="section-head">
-          <p class="label"><span class="no">07</span> Contact</p>
-          <h2 class="en" id="contact-title">Have an idea? <span class="accent">Let's build.</span></h2>
-          <p class="section-intro">لمشروع، تعاون، أو أي استفسار متعلق بالـWeb Development، يمكنك التواصل معي من خلال أي من المنصات التالية.</p>
+          <p class="label"><span class="no keep">07</span> <span data-i18n="contact.label">التواصل</span></p>
+          <h2 class="display" id="contact-title" data-i18n="contact.title">لديك فكرة؟ <span class="accent">لنبنِها.</span></h2>
+          <p class="section-intro" data-i18n="contact.intro">لمشروع، تعاون، أو أي استفسار متعلق بالـWeb Development، يمكنك التواصل معي من خلال أي من المنصات التالية.</p>
         </header>
 
         <div class="section-body">
           <a class="cta" href="https://wa.me/201091573063" target="_blank" rel="noopener noreferrer">
-            <span>
-              <span class="label en">Prefer WhatsApp?</span>
-              <strong class="en">Start a conversation</strong>
+            <span class="chip chip--wa"><svg class="icon icon-fill" aria-hidden="true"><use href="#b-whatsapp"/></svg></span>
+            <span class="cta-text">
+              <span class="label" data-i18n="contact.wa.label">تفضّل واتساب؟</span>
+              <strong data-i18n="contact.wa.title">ابدأ محادثة</strong>
             </span>
             <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>
           </a>
 
           <ul class="channels">
-            <li><a href="https://github.com/midofayad22" target="_blank" rel="noopener noreferrer"><span class="label">Code</span><strong lang="en">GitHub</strong><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
-            <li><a href="https://www.linkedin.com/in/abdullhamid-f-800bb5379" target="_blank" rel="noopener noreferrer"><span class="label">Professional</span><strong lang="en">LinkedIn</strong><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
-            <li><a href="https://www.instagram.com/abdullhamid_fayad22" target="_blank" rel="noopener noreferrer"><span class="label">Visual</span><strong lang="en">Instagram</strong><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
-            <li><a href="https://youtube.com/@abdullhamid-mido22" target="_blank" rel="noopener noreferrer"><span class="label">Content</span><strong lang="en">YouTube</strong><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
-            <li><a href="https://www.tiktok.com/@abdullhamid_fayad" target="_blank" rel="noopener noreferrer"><span class="label">Short form</span><strong lang="en">TikTok</strong><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+            <li><a href="https://github.com/midofayad22" target="_blank" rel="noopener noreferrer"><span class="chip chip--gh"><svg class="icon icon-fill" aria-hidden="true"><use href="#b-github"/></svg></span><span class="chan-text"><span class="label" data-i18n="chan.code">الكود</span><strong lang="en" dir="ltr">GitHub</strong></span><svg class="icon chan-go" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+            <li><a href="https://www.linkedin.com/in/abdullhamid-f-800bb5379" target="_blank" rel="noopener noreferrer"><span class="chip chip--in"><svg class="icon icon-fill" aria-hidden="true"><use href="#b-linkedin"/></svg></span><span class="chan-text"><span class="label" data-i18n="chan.pro">احترافي</span><strong lang="en" dir="ltr">LinkedIn</strong></span><svg class="icon chan-go" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+            <li><a href="https://www.instagram.com/abdullhamid_fayad22" target="_blank" rel="noopener noreferrer"><span class="chip chip--ig"><svg class="icon icon-fill" aria-hidden="true"><use href="#b-instagram"/></svg></span><span class="chan-text"><span class="label" data-i18n="chan.visual">بصري</span><strong lang="en" dir="ltr">Instagram</strong></span><svg class="icon chan-go" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+            <li><a href="https://youtube.com/@abdullhamid-mido22" target="_blank" rel="noopener noreferrer"><span class="chip chip--yt"><svg class="icon icon-fill" aria-hidden="true"><use href="#b-youtube"/></svg></span><span class="chan-text"><span class="label" data-i18n="chan.content">محتوى</span><strong lang="en" dir="ltr">YouTube</strong></span><svg class="icon chan-go" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+            <li><a href="https://www.tiktok.com/@abdullhamid_fayad" target="_blank" rel="noopener noreferrer"><span class="chip chip--tt"><svg class="icon icon-fill" aria-hidden="true"><use href="#b-tiktok"/></svg></span><span class="chan-text"><span class="label" data-i18n="chan.short">فيديو قصير</span><strong lang="en" dir="ltr">TikTok</strong></span><svg class="icon chan-go" aria-hidden="true"><use href="#i-external"/></svg></a></li>
           </ul>
         </div>
       </div>
@@ -497,24 +546,26 @@
 
   <footer class="site-footer">
     <div class="wrap footer-row">
-      <a class="brand" href="#top" aria-label="FAYAD — العودة إلى الأعلى">
-        <img src="/icons/favicon.svg" alt="" width="32" height="32">
-        <span>
+      <a class="brand" href="#top" data-i18n-attr="aria-label:brand.top" aria-label="FAYAD — العودة إلى الأعلى">
+        <img src="/icons/favicon.svg?v=2" alt="" width="36" height="36">
+        <span class="brand-text">
           <span class="brand-name">FAYAD</span>
-          <span class="brand-role label">Abdullhamid Fayad</span>
+          <span class="brand-role label" data-i18n="footer.name">عبد الحميد فياض</span>
         </span>
       </a>
-      <p class="footer-roles label">Front-End Developer <span aria-hidden="true">/</span> Computer Engineering Student</p>
+      <p class="footer-roles label" data-i18n="footer.roles">مطوّر Front-End / مصوّر / طالب هندسة حاسبات</p>
       <p class="footer-meta">
-        <span class="label en">© 2026 FAYAD</span>
+        <span class="label keep">© 2026 FAYAD</span>
         <a class="foot-link" href="#top">
-          <span lang="en">Back to top</span>
-          <svg class="icon" aria-hidden="true"><use href="#i-up"/></svg>
+          <span data-i18n="footer.top">العودة للأعلى</span>
+          <svg class="icon icon-up" aria-hidden="true"><use href="#i-up"/></svg>
         </a>
       </p>
     </div>
   </footer>
 
+  <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/site.js" defer></script>
   <script src="/assets/js/home.js" defer></script>
   <script src="/assets/js/sw-register.js" defer></script>
 </body>

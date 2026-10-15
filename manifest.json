@@ -1,19 +1,38 @@
 {
-  "name": "Abdullhamid Fayad — Front-End Developer",
+  "name": "Abdullhamid Fayad — Front-End Developer & Photographer",
   "short_name": "FAYAD",
-  "description": "Abdullhamid Fayad — Front-End Developer, Visual Creator and creator of FAYAD Learning.",
+  "description": "Abdullhamid Fayad — Front-End Developer, photographer and creator of FAYAD Learning.",
   "id": "/",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "lang": "ar",
   "dir": "rtl",
-  "background_color": "#f4f8f7",
-  "theme_color": "#f4f8f7",
-  "categories": ["portfolio", "developer", "education"],
+  "background_color": "#07130f",
+  "theme_color": "#0a2a26",
+  "categories": [
+    "portfolio",
+    "developer",
+    "photography"
+  ],
   "icons": [
-    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "/icons/icon-192.png?v=2",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png?v=2",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png?v=2",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ]
 }
