@@ -5,7 +5,7 @@
 
 "use strict";
 
-const CACHE_NAME = "fayad-portfolio-v7";
+const CACHE_NAME = "fayad-portfolio-v8";
 
 /* Every file listed here must exist, or install fails. */
 const PRECACHE = [
@@ -22,11 +22,11 @@ const PRECACHE = [
   "/assets/js/sw-register.js",
   "/assets/images/profile-640.webp",
   "/assets/images/profile-960.webp",
-  "/icons/favicon.svg?v=2",
-  "/icons/icon-32.png?v=2",
-  "/icons/icon-180.png?v=2",
-  "/icons/icon-192.png?v=2",
-  "/icons/icon-512.png?v=2",
+  "/icons/favicon.svg?v=3",
+  "/icons/icon-32.png?v=3",
+  "/icons/icon-180.png?v=3",
+  "/icons/icon-192.png?v=3",
+  "/icons/icon-512.png?v=3",
 ];
 
 self.addEventListener("install", (event) => {

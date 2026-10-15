@@ -10,12 +10,12 @@
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://abdullhamid-fayad-portfolio.vercel.app/gallery.html">
 
-  <meta name="theme-color" content="#eeebe3" data-light="#eeebe3" data-dark="#090c0b">
+  <meta name="theme-color" content="#f5f2ea" data-light="#f5f2ea" data-dark="#07130f">
   <meta name="color-scheme" content="light dark">
   <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg?v=2">
-  <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png?v=2">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png?v=2">
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg?v=3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png?v=3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png?v=3">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Abdullhamid Fayad Portfolio">
@@ -41,7 +41,7 @@
       if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
       d.setAttribute("data-theme", t);
       var m = document.querySelector('meta[name="theme-color"]');
-      if (m) m.content = t === "dark" ? "#090c0b" : "#eeebe3";
+      if (m) m.content = t === "dark" ? "#07130f" : "#f5f2ea";
       if (l === "en") { d.lang = "en"; d.dir = "ltr"; d.classList.add("i18n-wait"); }
     })();
   </script>
@@ -77,155 +77,534 @@
 
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
-  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
   <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 20V4M6 10l6-6 6 6"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
   <symbol id="i-sun" viewBox="0 0 24 24"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
   <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
   <symbol id="i-globe" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></symbol>
-  <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></symbol>
+  <symbol id="i-expand" viewBox="0 0 24 24"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></symbol>
+  <symbol id="i-retry" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="b-instagram" viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></symbol>
+  <symbol id="b-whatsapp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
   </svg>
 
-  <header class="g-header">
-    <div class="wrap g-header-row">
+  <header class="site-header">
+    <div class="wrap header-row">
       <a class="brand" href="/" data-i18n-attr="aria-label:brand.home" aria-label="FAYAD — الصفحة الرئيسية">
-        <img src="/icons/favicon.svg?v=2" alt="" width="40" height="40">
+        <img src="/icons/favicon.svg?v=3" alt="" width="40" height="40">
         <span class="brand-text">
           <span class="brand-name">FAYAD</span>
           <span class="brand-role label" data-i18n="g.brand.role">معرض التصوير</span>
         </span>
       </a>
 
-      <div class="g-header-end">
-        <a class="back-link" href="/">
-          <span data-i18n="g.back">العودة إلى الموقع</span>
-          <svg class="icon icon-back" aria-hidden="true"><use href="#i-arrow"/></svg>
+      <nav class="nav" id="site-nav" data-i18n-attr="aria-label:nav.aria" aria-label="التنقل الرئيسي">
+        <a href="/#about" data-i18n="nav.home">الرئيسية</a>
+        <a href="/#projects" data-i18n="nav.work">الأعمال</a>
+        <a href="/#capabilities" data-i18n="nav.skills">المهارات</a>
+        <a href="/gallery.html" aria-current="page" data-i18n="nav.gallery">المعرض</a>
+        <a href="/#contact" data-i18n="nav.contact">التواصل</a>
+        <a class="nav-cta" href="https://wa.me/201091573063" target="_blank" rel="noopener noreferrer">
+          <span data-i18n="nav.talk">لنتحدث</span>
+          <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>
         </a>
-        <div class="tools">
-          <button class="tool tool--lang" type="button" id="lang-toggle" data-i18n-attr="aria-label:ui.lang.aria" aria-label="التبديل إلى الإنجليزية">
-            <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg>
-            <span data-i18n="ui.lang.label" lang="en">EN</span>
-          </button>
-          <button class="tool tool--theme" type="button" id="theme-toggle" aria-label="التبديل إلى الوضع الداكن">
-            <svg class="icon i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
-            <svg class="icon i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
-          </button>
-        </div>
+      </nav>
+
+      <div class="tools">
+        <button class="tool tool--lang" type="button" id="lang-toggle" data-i18n-attr="aria-label:ui.lang.aria" aria-label="التبديل إلى الإنجليزية">
+          <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg>
+          <span data-i18n="ui.lang.label" lang="en">EN</span>
+        </button>
+        <button class="tool tool--theme" type="button" id="theme-toggle" aria-label="التبديل إلى الوضع الداكن">
+          <svg class="icon i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="icon i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        </button>
+        <button class="tool menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" data-i18n-attr="aria-label:ui.menu" aria-label="القائمة">
+          <span class="menu-icon" aria-hidden="true"></span>
+        </button>
       </div>
     </div>
   </header>
 
+  <div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
+
   <main id="main">
-    <div class="wrap">
-      <section class="g-hero" aria-labelledby="g-title">
+
+    <section class="g-hero" aria-labelledby="g-title">
+      <div class="wrap g-hero-grid">
         <div class="g-hero-copy">
-          <p class="g-kicker label" data-i18n="g.kicker">أعمال بصرية</p>
+          <p class="g-kicker label" data-i18n="g.kicker">التصوير</p>
           <h1 class="display" id="g-title" data-i18n="g.title">معرض <span>التصوير.</span></h1>
-          <p class="g-lede" data-i18n="g.lede">مجموعة مختارة من صوري، تعكس اهتمامي بالتكوين والتفاصيل وبتحويل اللحظات البسيطة إلى صورة لها طابعها الخاص.</p>
+          <p class="g-lede" data-i18n="g.lede">صور التقطتها للحقول والنهر وأبراج الكهرباء، وللشمس وهي تغرب وللقمر في السماء.</p>
+          <p class="g-stats">
+            <span class="g-count display" id="g-count" data-to="54">54</span>
+            <span class="label" data-i18n="g.count">صورة</span>
+          </p>
         </div>
-        <p class="g-stats">
-          <span class="g-count display">54</span>
-          <span class="label" data-i18n="g.count">صورة</span>
-        </p>
-      </section>
-
-      <div class="g-bar">
-        <p class="label"><b>FAYAD</b> <span aria-hidden="true">/</span> <span data-i18n="g.bar.left">مختارات</span></p>
-        <p class="label" data-i18n="g.bar.right">اضغط على أي صورة لتكبيرها</p>
+        <div class="rails" aria-hidden="true">
+          <div class="rail" style="--dur:62s"><div class="rail-track"><img src="/assets/images/thumb/photo26.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo1.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo12.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo39.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo18.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo26.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo1.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo12.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo39.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo18.webp" width="480" height="640" alt="" decoding="async"></div></div>
+          <div class="rail" style="--dur:78s" data-rev><div class="rail-track"><img src="/assets/images/thumb/photo15.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo6.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo33.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo45.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo3.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo15.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo6.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo33.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo45.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo3.webp" width="480" height="640" alt="" decoding="async"></div></div>
+          <div class="rail" style="--dur:68s"><div class="rail-track"><img src="/assets/images/thumb/photo34.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo50.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo29.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo8.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo22.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo34.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo50.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo29.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo8.webp" width="480" height="640" alt="" decoding="async"><img src="/assets/images/thumb/photo22.webp" width="480" height="640" alt="" decoding="async"></div></div>
+        </div>
       </div>
+    </section>
 
-      <h2 class="vh" data-i18n="g.list">الصور</h2>
-      <div class="runs">
+    <section class="g-collection" aria-labelledby="g-list-title">
+      <h2 class="vh" id="g-list-title" data-i18n="g.list">الصور</h2>
+      <div class="wrap">
+        <p class="g-hint label"><span class="g-hint-line" aria-hidden="true"></span><span data-i18n="g.hint">اضغط على أي صورة لتكبيرها</span></p>
+        <div class="runs">
         <ul class="run run--a">
-          <li><a class="frame" href="/assets/images/full/photo1.webp"><img src="/assets/images/thumb/photo1.webp" srcset="/assets/images/thumb/photo1.webp 480w, /assets/images/full/photo1.webp 960w" sizes="(min-width: 48rem) 48vw, 92vw" width="480" height="640" alt="حقل أخضر وشجرة وحيدة بجوار مياه عند الغروب" data-i18n-attr="alt:a1" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo2.webp"><img src="/assets/images/thumb/photo2.webp" srcset="/assets/images/thumb/photo2.webp 480w, /assets/images/full/photo2.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="طريق ترابي تحت أشجار كبيرة بجوار كوخ طيني" data-i18n-attr="alt:a2" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo3.webp"><img src="/assets/images/thumb/photo3.webp" srcset="/assets/images/thumb/photo3.webp 480w, /assets/images/full/photo3.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="برج كهرباء ومدخنة طوب فوق حقل أخضر" data-i18n-attr="alt:a3" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo4.webp"><img src="/assets/images/thumb/photo4.webp" srcset="/assets/images/thumb/photo4.webp 480w, /assets/images/full/photo4.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="سيارة حمراء على طريق ترابي وقت الغروب تحت أغصان شجرة" data-i18n-attr="alt:a4" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo5.webp"><img src="/assets/images/thumb/photo5.webp" srcset="/assets/images/thumb/photo5.webp 480w, /assets/images/full/photo5.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="أغصان عارية أمام سماء زرقاء داكنة وغيوم برتقالية" data-i18n-attr="alt:a5" decoding="async"></a></li>
+          <li class="card" data-n="1" style="--c1:#0087e7;--c2:#1d7f12">
+            <a class="card-link" href="/assets/images/full/photo1.webp" data-orig="/assets/images/photo1.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAABwBACdASoSABgAPtlco02oJSMiN/qoAQAbCWgAsR7jfgAkNXeVI53TZaC/IAD9H3QqUE8AI3Wqvm++slso/52t7QXdYdv/hWtoiI6AjV1he6lqZjPbW9MBjr4FNOXINQOG3Qmy0jKf/ENG8Z8+KxL9+UZWZxhxFWPoz53b+DWKYOMMAAA=)"><img src="/assets/images/thumb/photo1.webp" srcset="/assets/images/thumb/photo1.webp 480w, /assets/images/full/photo1.webp 960w" sizes="(min-width: 48rem) 46vw, 92vw" width="480" height="640" alt="حقل أخضر وشجرة وحيدة بجوار مياه عند الغروب" data-i18n-attr="alt:a1" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">01</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="2" style="--c1:#7f7124;--c2:#a5a9af">
+            <a class="card-link" href="/assets/images/full/photo2.webp" data-orig="/assets/images/photo2.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAADQBACdASoSABgAPu1qrlCppaQiqAqpMB2JZQC7ABEde9jKOPWUOBTMZ4tWHpYwAAD+kGtY1UdOTt1AWpeIoLtz3AIxhl+61PpowRye2WvxuVWy3DoXTCGHjz86Srnvl6NwsJHe5CT4bxBUdIpOPDMDHwMjmKaw9PvKHvJX29yzh8SchajpLK3ZMs/V3/GahPAAAA==)"><img src="/assets/images/thumb/photo2.webp" srcset="/assets/images/thumb/photo2.webp 480w, /assets/images/full/photo2.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="طريق ترابي تحت أشجار كبيرة بجوار كوخ طيني" data-i18n-attr="alt:a2" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">02</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="3" style="--c1:#8ddcfd;--c2:#747f2c">
+            <a class="card-link" href="/assets/images/full/photo3.webp" data-orig="/assets/images/photo3.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAADwBACdASoSABgAPu1sq1EppaOiqAqpMB2JaCzAAqSJvAW6hM86PmkPYXrWmWKzgwAA/tChxldPdE00OLYdSgxtdaS5EJf7vIIrYvwwFpbalOnLPJRlsHWdKoE9k1+FgO947xG050BJOHbc+JZXrcJVINSYatZZ/fwJrW8FnyjHIGAPh8ncft07O6st35D3HMMO4Wt2/Eqy8uoKDY7xjgst3LTuBUS3eHH8h2HkFAAAAA==)"><img src="/assets/images/thumb/photo3.webp" srcset="/assets/images/thumb/photo3.webp 480w, /assets/images/full/photo3.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="برج كهرباء ومدخنة طوب فوق حقل أخضر" data-i18n-attr="alt:a3" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">03</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="4" style="--c1:#dcb37b;--c2:#865f3a">
+            <a class="card-link" href="/assets/images/full/photo4.webp" data-orig="/assets/images/photo4.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAAAQBQCdASoSABgAPu1ur1IppiQiqAgBMB2JYgC+Wf/gHDflyCXs2ry1IvHzvl39wj8AAP6M564QEUhVLr3dR4ey66OA2hFv3KleJup6ApuaNd8sdVNKs2fpgr3HXzmTqBHQIpE//GqB5vkFl9HNlk9Wq2ilBf9YStHxQ4IPWq9yNlFtax2aSuChN43feRjdWeKa38CT/Gwwlhu9bRroAA==)"><img src="/assets/images/thumb/photo4.webp" srcset="/assets/images/thumb/photo4.webp 480w, /assets/images/full/photo4.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="سيارة حمراء على طريق ترابي وقت الغروب تحت أغصان شجرة" data-i18n-attr="alt:a4" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">04</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="5" style="--c1:#034484;--c2:#00337f">
+            <a class="card-link" href="/assets/images/full/photo5.webp" data-orig="/assets/images/photo5.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADwBACdASoSABgAPt1YpE2opSOiN/qoARAbiWoAnTLiKQBJoUh0K7V7+cZUO9u1wIAA/vQjfnaXFwLbTtr9BcwWWOqJcWa9yhTrE/alwW5fNhyketOx2vDmdKuYymmhkGSt5WDtd0JOotWz9AO+aYi/frNjeBNiABu2ROfa3gAAAA==)"><img src="/assets/images/thumb/photo5.webp" srcset="/assets/images/thumb/photo5.webp 480w, /assets/images/full/photo5.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="أغصان عارية أمام سماء زرقاء داكنة وغيوم برتقالية" data-i18n-attr="alt:a5" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">05</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
         </ul>
         <ul class="run run--d">
-          <li><a class="frame" href="/assets/images/full/photo6.webp"><img src="/assets/images/thumb/photo6.webp" srcset="/assets/images/thumb/photo6.webp 480w, /assets/images/full/photo6.webp 960w" sizes="(min-width: 48rem) 32vw, 92vw" width="480" height="640" alt="الشمس تغرب خلف شجرة وبرج كهرباء فوق حقل وسور حجري" data-i18n-attr="alt:a6" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo7.webp"><img src="/assets/images/thumb/photo7.webp" srcset="/assets/images/thumb/photo7.webp 480w, /assets/images/full/photo7.webp 960w" sizes="(min-width: 48rem) 32vw, 46vw" width="480" height="640" alt="قصب على حافة بركة مياه عند الغسق" data-i18n-attr="alt:a7" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo8.webp"><img src="/assets/images/thumb/photo8.webp" srcset="/assets/images/thumb/photo8.webp 480w, /assets/images/full/photo8.webp 960w" sizes="(min-width: 48rem) 32vw, 46vw" width="480" height="640" alt="برج كهرباء من الأسفل أمام سماء زرقاء" data-i18n-attr="alt:a8" loading="lazy" decoding="async"></a></li>
+          <li class="card" data-n="6" style="--c1:#7f5310;--c2:#89774c">
+            <a class="card-link" href="/assets/images/full/photo6.webp" data-orig="/assets/images/photo6.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAABQBQCdASoSABgAPu1sq1EppaOnKAqpMB2JZgC7G1/2gABz8h2bl2MfLex0XHply/SfUDAA/n1puvyFPfDvMTZjEX+d/HPTZ82w8sA6s/2eXIwWeKyajHg17zGLnwEbcLbGyqlQqavTwhre+um7jesCAodauiW+hLPNwAsBIGpzem5ckOc+5LtqRGqOKPO7mPeAAA==)"><img src="/assets/images/thumb/photo6.webp" srcset="/assets/images/thumb/photo6.webp 480w, /assets/images/full/photo6.webp 960w" sizes="(min-width: 48rem) 31vw, 92vw" width="480" height="640" alt="الشمس تغرب خلف شجرة وبرج كهرباء فوق حقل وسور حجري" data-i18n-attr="alt:a6" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">06</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="7" style="--c1:#5e7bb5;--c2:#c68f6e">
+            <a class="card-link" href="/assets/images/full/photo7.webp" data-orig="/assets/images/photo7.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAACwBACdASoSABgAPu1or1CppaSiqAqpMB2JQBadAOKrmjrovuVAtidA3JFtwxUAAN1XZav73PG62tiuaEF5Y9yf0dL2D0XvxUtiBOY5jJccgpdewRxsCQcbd9mF+SmUoPGoGGzu8qcBFg8U/+LH9vEQJ3X/qRuYOkGSKRdVpcEvrtP6i4iN99Mu3YAAAA==)"><img src="/assets/images/thumb/photo7.webp" srcset="/assets/images/thumb/photo7.webp 480w, /assets/images/full/photo7.webp 960w" sizes="(min-width: 48rem) 31vw, 46vw" width="480" height="640" alt="قصب على حافة بركة مياه عند الغسق" data-i18n-attr="alt:a7" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">07</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="8" style="--c1:#4e8fbd;--c2:#3a7f26">
+            <a class="card-link" href="/assets/images/full/photo8.webp" data-orig="/assets/images/photo8.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAAAwBQCdASoSABgAPu1oq0+ppiOiMBgIATAdiWJh4EYWZgAQDoEyhfCbwscnbRCFXVmOYAD+vLXxrjLIDBuJGbZn+u6szLH88DeMmPfY1IvHD1Gf6nEtZdc/XFLWh7tP29LXfeEvfjTwbg3rmlgs1dl16u9huX4VJMKOBrqAAAA=)"><img src="/assets/images/thumb/photo8.webp" srcset="/assets/images/thumb/photo8.webp 480w, /assets/images/full/photo8.webp 960w" sizes="(min-width: 48rem) 31vw, 46vw" width="480" height="640" alt="برج كهرباء من الأسفل أمام سماء زرقاء" data-i18n-attr="alt:a8" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">08</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
         </ul>
         <ul class="run run--b">
-          <li><a class="frame" href="/assets/images/full/photo9.webp"><img src="/assets/images/thumb/photo9.webp" srcset="/assets/images/thumb/photo9.webp 480w, /assets/images/full/photo9.webp 960w" sizes="(min-width: 48rem) 48vw, 92vw" width="480" height="640" alt="أبراج كهرباء ومدخنة طوب فوق حقل ذرة" data-i18n-attr="alt:a9" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo10.webp"><img src="/assets/images/thumb/photo10.webp" srcset="/assets/images/thumb/photo10.webp 480w, /assets/images/full/photo10.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="الشمس منخفضة فوق حقل قمح أخضر وأسلاك كهرباء" data-i18n-attr="alt:a10" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo11.webp"><img src="/assets/images/thumb/photo11.webp" srcset="/assets/images/thumb/photo11.webp 480w, /assets/images/full/photo11.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="شجرة بجوار برج كهرباء فوق حقل أخضر" data-i18n-attr="alt:a11" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo12.webp"><img src="/assets/images/thumb/photo12.webp" srcset="/assets/images/thumb/photo12.webp 480w, /assets/images/full/photo12.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="الشمس تغرب خلف مدخنة وبرج كهرباء وأسلاك" data-i18n-attr="alt:a12" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo13.webp"><img src="/assets/images/thumb/photo13.webp" srcset="/assets/images/thumb/photo13.webp 480w, /assets/images/full/photo13.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="قناة مياه صغيرة بين الحقول وقت الغروب" data-i18n-attr="alt:a13" loading="lazy" decoding="async"></a></li>
+          <li class="card" data-n="9" style="--c1:#006fea;--c2:#6098b4">
+            <a class="card-link" href="/assets/images/full/photo9.webp" data-orig="/assets/images/photo9.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAACwBQCdASoSABgAPuVepk2pJSOiN/VYASAciWgAnTKEdIK20v+AeR5YDleHB1J/z+faGkfCJ0AA/nCNHVXVPqfBQghWf/BBCxrTe/DFP4s4bMyaC78q5xfLG+zCFo4Q6qKoxAmj4bO6GsCFS/IZ2ywxoz+Lmm/U06IXnFuglI1IjsrpjBfscsT0AAA=)"><img src="/assets/images/thumb/photo9.webp" srcset="/assets/images/thumb/photo9.webp 480w, /assets/images/full/photo9.webp 960w" sizes="(min-width: 48rem) 46vw, 92vw" width="480" height="640" alt="أبراج كهرباء ومدخنة طوب فوق حقل ذرة" data-i18n-attr="alt:a9" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">09</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="10" style="--c1:#d18345;--c2:#067f00">
+            <a class="card-link" href="/assets/images/full/photo10.webp" data-orig="/assets/images/photo10.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQBACdASoSABgAPu1oq08ppiOiMBgIATAdiWIAnTKAAapuphkPRMvDRYffDBFYAAD+UrtTjTOXDJALtR+3J/936apaILppIloV+RkZYCe/xXt7MJqboubzklHpsZrK/tPSlKSpekfQAA==)"><img src="/assets/images/thumb/photo10.webp" srcset="/assets/images/thumb/photo10.webp 480w, /assets/images/full/photo10.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="الشمس منخفضة فوق حقل قمح أخضر وأسلاك كهرباء" data-i18n-attr="alt:a10" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">10</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="11" style="--c1:#7f4d11;--c2:#73a9cf">
+            <a class="card-link" href="/assets/images/full/photo11.webp" data-orig="/assets/images/photo11.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAADwBACdASoSABgAPu1ur1KppiQjqAgBMB2JZACdMuN1B66AIYQpBgkCGkcOwtb+YQAA/sBZDUoFDTKVRAXaJhfptkiA/ehTPAGq0Af4lcS7YsGrUwaVoCBOx/ws03Sgqo+obJgnJEjQ7oBxtw3dNC93de4fFWPdhNri4RVVDGGKcZV1khAUAYiGSIdrE8DtOwlVK0qBW0pZRMG48sSEpH4hIQAAAA==)"><img src="/assets/images/thumb/photo11.webp" srcset="/assets/images/thumb/photo11.webp 480w, /assets/images/full/photo11.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="شجرة بجوار برج كهرباء فوق حقل أخضر" data-i18n-attr="alt:a11" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">11</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="12" style="--c1:#006fa7;--c2:#257f05">
+            <a class="card-link" href="/assets/images/full/photo12.webp" data-orig="/assets/images/photo12.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAwBQCdASoSABgAPuFgpU2opaOiN/VYARAcCWYAsR+Owab5mDbJtUvdaQz6O2BnSjwjQAD+uVroJ/NYZGQDON2ZLDlv1KttRTkBfH+N/I3mW1QmAYRnVl5WQT8etmV75TbeNIxTwnwuCLXkgAA=)"><img src="/assets/images/thumb/photo12.webp" srcset="/assets/images/thumb/photo12.webp 480w, /assets/images/full/photo12.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="الشمس تغرب خلف مدخنة وبرج كهرباء وأسلاك" data-i18n-attr="alt:a12" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">12</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="13" style="--c1:#b89667;--c2:#7f761f">
+            <a class="card-link" href="/assets/images/full/photo13.webp" data-orig="/assets/images/photo13.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACwBACdASoSABgAPu1irFAppSQisBgIATAdiUAVHoIh95i+S+Ps4bf/sFr4MZQAAP34GHsjqFgctLn69+6qs30cxmokgIyuoNZSJkiT8y5EcFGO8vfeTvFGJ064lNgNbZcn8XVrEuTKlLWKWEDShlegAAA=)"><img src="/assets/images/thumb/photo13.webp" srcset="/assets/images/thumb/photo13.webp 480w, /assets/images/full/photo13.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="قناة مياه صغيرة بين الحقول وقت الغروب" data-i18n-attr="alt:a13" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">13</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
         </ul>
         <ul class="run run--c">
-          <li><a class="frame" href="/assets/images/full/photo14.webp"><img src="/assets/images/thumb/photo14.webp" srcset="/assets/images/thumb/photo14.webp 480w, /assets/images/full/photo14.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="شجرة وحيدة ومبنى خرساني صغير وسط حقل ذرة تحت سماء زرقاء" data-i18n-attr="alt:a14" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo15.webp"><img src="/assets/images/thumb/photo15.webp" srcset="/assets/images/thumb/photo15.webp 480w, /assets/images/full/photo15.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="غروب برتقالي وبنفسجي فوق صفحة النهر" data-i18n-attr="alt:a15" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo16.webp"><img src="/assets/images/thumb/photo16.webp" srcset="/assets/images/thumb/photo16.webp 480w, /assets/images/full/photo16.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="الشمس منخفضة خلف سنابل عشب" data-i18n-attr="alt:a16" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo17.webp"><img src="/assets/images/thumb/photo17.webp" srcset="/assets/images/thumb/photo17.webp 480w, /assets/images/full/photo17.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="الشمس تظهر خلف ورقة خضراء بعروق حمراء" data-i18n-attr="alt:a17" loading="lazy" decoding="async"></a></li>
+          <li class="card" data-n="14" style="--c1:#0081f9;--c2:#717f24">
+            <a class="card-link" href="/assets/images/full/photo14.webp" data-orig="/assets/images/photo14.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAAAQBQCdASoSABgAPu1ur1IppiQiqAgBMB2JbAB5AXKoBZiIAPN/0+xdFfiHl6bcIlQAAP4OoWKOpdCsnzZWQYlAbrm0JCU5haGXxsW7//VJqvZwEUYnzmVnJ//3NQybmPaxH6dEHsvON1ZzKLn+RG+Kix7ag/If9AWqp4chJmNV49bAGLoQJY2E2ESkbq7pA8hRB3BvtrarLvOFVoAqAAAA)"><img src="/assets/images/thumb/photo14.webp" srcset="/assets/images/thumb/photo14.webp 480w, /assets/images/full/photo14.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="شجرة وحيدة ومبنى خرساني صغير وسط حقل ذرة تحت سماء زرقاء" data-i18n-attr="alt:a14" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">14</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="15" style="--c1:#86371a;--c2:#46527f">
+            <a class="card-link" href="/assets/images/full/photo15.webp" data-orig="/assets/images/photo15.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAADQBACdASoSABgAPuVgpk2pJaOiMAwBIByJZgCsACHYQhjp8xQFVG4YC1pVUSefAAD+ociDxNzWvrok0p4ZH7rzkvSDGMDXbGB7Sr1Sbj+scJFFzeS+O2JO36kzqGxuHNdB0kRPEqaeR9rXd15j0XRCZfQuPb14tADupIAA)"><img src="/assets/images/thumb/photo15.webp" srcset="/assets/images/thumb/photo15.webp 480w, /assets/images/full/photo15.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="غروب برتقالي وبنفسجي فوق صفحة النهر" data-i18n-attr="alt:a15" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">15</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="16" style="--c1:#a27f5a;--c2:#7f7f21">
+            <a class="card-link" href="/assets/images/full/photo16.webp" data-orig="/assets/images/photo16.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACQBACdASoSABgAPu1mq0+ppSOjMBgIATAdiUAWHYId6aAzpoJVuJJ5ToBwHIQA3Ts2jhGenCJzwrb6JPWQU17tilObipyWc1U3f6hobqyJI2CDWY4BnflL9O6B5y81wAA=)"><img src="/assets/images/thumb/photo16.webp" srcset="/assets/images/thumb/photo16.webp 480w, /assets/images/full/photo16.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="الشمس منخفضة خلف سنابل عشب" data-i18n-attr="alt:a16" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">16</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="17" style="--c1:#7f6902;--c2:#a1a4a4">
+            <a class="card-link" href="/assets/images/full/photo17.webp" data-orig="/assets/images/photo17.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAADQBACdASoSABgAPu1kq06ppaQiKA1RMB2JYgAu/8A3PuOW6vlQi36W+oDnIG8WgAD8WlBDtPuZtQNx4o9X+fJWGBOfHCvrNaWBtN4C+42EUG1A+EgIuMztxLp38p21QZOpYBN6Lh4zKnnMVHzs/fd7u8RbcTake59Si4wAAAA=)"><img src="/assets/images/thumb/photo17.webp" srcset="/assets/images/thumb/photo17.webp 480w, /assets/images/full/photo17.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="الشمس تظهر خلف ورقة خضراء بعروق حمراء" data-i18n-attr="alt:a17" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">17</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
         </ul>
         <ul class="run run--a">
-          <li><a class="frame" href="/assets/images/full/photo18.webp"><img src="/assets/images/thumb/photo18.webp" srcset="/assets/images/thumb/photo18.webp 480w, /assets/images/full/photo18.webp 960w" sizes="(min-width: 48rem) 48vw, 92vw" width="480" height="640" alt="شجرة كبيرة على الأفق بجوار الماء وحقل أرز" data-i18n-attr="alt:a18" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo19.webp"><img src="/assets/images/thumb/photo19.webp" srcset="/assets/images/thumb/photo19.webp 480w, /assets/images/full/photo19.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="الشمس بين سعف النخيل مع وهج عدسة فوق الحقل" data-i18n-attr="alt:a19" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo20.webp"><img src="/assets/images/thumb/photo20.webp" srcset="/assets/images/thumb/photo20.webp 480w, /assets/images/full/photo20.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="شجرة على ضفة النهر تحت سماء زرقاء ووردية" data-i18n-attr="alt:a20" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo21.webp"><img src="/assets/images/thumb/photo21.webp" srcset="/assets/images/thumb/photo21.webp 480w, /assets/images/full/photo21.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="طريق ترابي بين الحقول تحت سماء غائمة" data-i18n-attr="alt:a21" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo22.webp"><img src="/assets/images/thumb/photo22.webp" srcset="/assets/images/thumb/photo22.webp 480w, /assets/images/full/photo22.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="شجرة بجوار أرض محروثة تحت سماء غائمة" data-i18n-attr="alt:a22" loading="lazy" decoding="async"></a></li>
+          <li class="card" data-n="18" style="--c1:#5e8abe;--c2:#7f7f30">
+            <a class="card-link" href="/assets/images/full/photo18.webp" data-orig="/assets/images/photo18.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAACwBACdASoSABgAPu1irVAppSQisBgIATAdiUAXZmX4GYiW9VopG40o8MZNn0+AAPyYTUhAVuTRYX2axu3Wys3wWGL6rPlsQpYKmQyg8Ns48B2lhFF6/2Ow8En51DbCxNnDrK0x4j/PWOZo+XEg+4v/YjrFLsOjzyBYqqIAAAA=)"><img src="/assets/images/thumb/photo18.webp" srcset="/assets/images/thumb/photo18.webp 480w, /assets/images/full/photo18.webp 960w" sizes="(min-width: 48rem) 46vw, 92vw" width="480" height="640" alt="شجرة كبيرة على الأفق بجوار الماء وحقل أرز" data-i18n-attr="alt:a18" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">18</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="19" style="--c1:#7f3a00;--c2:#7f5a10">
+            <a class="card-link" href="/assets/images/full/photo19.webp" data-orig="/assets/images/photo19.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAAAQBQCdASoSABgAPu1oqVAppaOiqA1RMB2JaADE2A2JykF4ADH98yP4TD8MMShSCl4AAPt1N+00EWakE9VptZNxqytv615EwXMwS1cHHgqwJ4s8iYCqD4CfELCvVmgjwd/B636nUbtWiMhXCZR2GSsWVPIxijWvMlBKOqpOp1518H/gFg0f8O5kQSaLKCUIZIqHtQJDdkyAAA==)"><img src="/assets/images/thumb/photo19.webp" srcset="/assets/images/thumb/photo19.webp 480w, /assets/images/full/photo19.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="الشمس بين سعف النخيل مع وهج عدسة فوق الحقل" data-i18n-attr="alt:a19" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">19</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="20" style="--c1:#008aea;--c2:#287f0b">
+            <a class="card-link" href="/assets/images/full/photo20.webp" data-orig="/assets/images/photo20.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAABQBACdASoSABgAPtlcpE2oJaOiN/qoAQAbCWYAnTLaQzzno6PgkTA0ivAAAP4Py4SDqc/38WamywwC86Vp7W4GO/+CC9XKvgarJr/8K1+DVmmvAYsi4NvYXqkdxHD9rCH83rogNtYuJhmXbSQBNDjQIVZozhzzjQiy6AAA)"><img src="/assets/images/thumb/photo20.webp" srcset="/assets/images/thumb/photo20.webp 480w, /assets/images/full/photo20.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="شجرة على ضفة النهر تحت سماء زرقاء ووردية" data-i18n-attr="alt:a20" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">20</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="21" style="--c1:#5f8cab;--c2:#7f603d">
+            <a class="card-link" href="/assets/images/full/photo21.webp" data-orig="/assets/images/photo21.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAAAQBQCdASoSABgAPu1ur1IppiQiqAgBMB2JYwCdMsdBOYx5fhuWfsiTzbN/0q2pl18AAPzLsquJBiLlzFC3z2kecmrSSlm4vdKmHsxJWvl6Yzk43Pihws3wBdp7m267+WDZdJhXGNN+mIpoUykb4OvnLLsek/G646BuWmreeRQ7C4Qs8uHzc44+0iq0uDw8ZQAAAA==)"><img src="/assets/images/thumb/photo21.webp" srcset="/assets/images/thumb/photo21.webp 480w, /assets/images/full/photo21.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="طريق ترابي بين الحقول تحت سماء غائمة" data-i18n-attr="alt:a21" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">21</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="22" style="--c1:#5f88ab;--c2:#647f3d">
+            <a class="card-link" href="/assets/images/full/photo22.webp" data-orig="/assets/images/photo22.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAADQBACdASoSABgAPu1sq1EppaOqqAqpUB2JYgCdMtpBElwMwWYg6jY2QGv7yvrtYADNzzuCmtv0fwTX/65Cxu0CI9kuRl7wdWdGmGg9DihIbmiWd2mw//iNd1i2P+qbzyuToQYvIuKpXzFQrmg6ifem7dPZeVJ5N2YYC04C2e7I3NTywyIdvtMmSlkWPAn+kcTungAA)"><img src="/assets/images/thumb/photo22.webp" srcset="/assets/images/thumb/photo22.webp 480w, /assets/images/full/photo22.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="شجرة بجوار أرض محروثة تحت سماء غائمة" data-i18n-attr="alt:a22" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">22</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
         </ul>
         <ul class="run run--d">
-          <li><a class="frame" href="/assets/images/full/photo23.webp"><img src="/assets/images/thumb/photo23.webp" srcset="/assets/images/thumb/photo23.webp 480w, /assets/images/full/photo23.webp 960w" sizes="(min-width: 48rem) 32vw, 92vw" width="480" height="640" alt="الشمس منخفضة فوق صفوف نباتات صغيرة" data-i18n-attr="alt:a23" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo24.webp"><img src="/assets/images/thumb/photo24.webp" srcset="/assets/images/thumb/photo24.webp 480w, /assets/images/full/photo24.webp 960w" sizes="(min-width: 48rem) 32vw, 46vw" width="480" height="640" alt="الغروب بين أوراق الشجر" data-i18n-attr="alt:a24" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo25.webp"><img src="/assets/images/thumb/photo25.webp" srcset="/assets/images/thumb/photo25.webp 480w, /assets/images/full/photo25.webp 960w" sizes="(min-width: 48rem) 32vw, 46vw" width="480" height="640" alt="مجموعة أشجار وقت الغروب بجوار الماء" data-i18n-attr="alt:a25" loading="lazy" decoding="async"></a></li>
+          <li class="card" data-n="23" style="--c1:#7f6509;--c2:#ba965a">
+            <a class="card-link" href="/assets/images/full/photo23.webp" data-orig="/assets/images/photo23.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACwAwCdASoSABgAPu1osFAppaSiqAqpMB2JYmkfUI8Gp3qxe4x8mAD3oL/F11NQpYg9rIgzDR+U5a2oSCaUtQUng+mVuQy7/g/hwbDZ5K4ZXZ8V1uvS1vwWeVU0q1xkONwJLVSNJv+spVkAAAA=)"><img src="/assets/images/thumb/photo23.webp" srcset="/assets/images/thumb/photo23.webp 480w, /assets/images/full/photo23.webp 960w" sizes="(min-width: 48rem) 31vw, 92vw" width="480" height="640" alt="الشمس منخفضة فوق صفوف نباتات صغيرة" data-i18n-attr="alt:a23" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">23</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="24" style="--c1:#7f7b24;--c2:#b49764">
+            <a class="card-link" href="/assets/images/full/photo24.webp" data-orig="/assets/images/photo24.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAABwBACdASoSABgAPu1oqk8ppiOiKA1RMB2JQBbZAiOy16aW/wNlkNYsSh3QwAD93OvRC8EjN21S11RWB2dFdnjEpdhYi1rwys8zgGP36Lu8efVPg6Psv3wKhh1meDqWC+GwXIQYVqPwCuHZbugOpfYN7gA=)"><img src="/assets/images/thumb/photo24.webp" srcset="/assets/images/thumb/photo24.webp 480w, /assets/images/full/photo24.webp 960w" sizes="(min-width: 48rem) 31vw, 46vw" width="480" height="640" alt="الغروب بين أوراق الشجر" data-i18n-attr="alt:a24" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">24</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="25" style="--c1:#1b7f00;--c2:#ca7e71">
+            <a class="card-link" href="/assets/images/full/photo25.webp" data-orig="/assets/images/photo25.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAwBACdASoSABgAPu1srFEppaQiqAqpMB2JQBjeggm8emYF5PvB6xnTdmAA/NM1ClWmNEU6tayNki6nKvtyOvJhUXAerX8HPC/u9D+ZwNOOxzGdLmjuc1I+VcH0qa4HVI3MbvqWU+/vWrrpjZji4YgSH30v0TAAAAA=)"><img src="/assets/images/thumb/photo25.webp" srcset="/assets/images/thumb/photo25.webp 480w, /assets/images/full/photo25.webp 960w" sizes="(min-width: 48rem) 31vw, 46vw" width="480" height="640" alt="مجموعة أشجار وقت الغروب بجوار الماء" data-i18n-attr="alt:a25" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">25</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
         </ul>
         <ul class="run run--b">
-          <li><a class="frame" href="/assets/images/full/photo26.webp"><img src="/assets/images/thumb/photo26.webp" srcset="/assets/images/thumb/photo26.webp 480w, /assets/images/full/photo26.webp 960w" sizes="(min-width: 48rem) 48vw, 92vw" width="480" height="640" alt="غروب وردي وأحمر خلف الأشجار وطريق ترابي وأسلاك كهرباء" data-i18n-attr="alt:a26" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo27.webp"><img src="/assets/images/thumb/photo27.webp" srcset="/assets/images/thumb/photo27.webp 480w, /assets/images/full/photo27.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="عربة بظل أسود أمام الشمس على طريق ترابي" data-i18n-attr="alt:a27" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo28.webp"><img src="/assets/images/thumb/photo28.webp" srcset="/assets/images/thumb/photo28.webp 480w, /assets/images/full/photo28.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="أشجار طويلة في ضوء المساء بجوار حقل" data-i18n-attr="alt:a28" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo29.webp"><img src="/assets/images/thumb/photo29.webp" srcset="/assets/images/thumb/photo29.webp 480w, /assets/images/full/photo29.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="الشمس خلف سعف النخيل وكوخ وأسلاك كهرباء" data-i18n-attr="alt:a29" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo30.webp"><img src="/assets/images/thumb/photo30.webp" srcset="/assets/images/thumb/photo30.webp 480w, /assets/images/full/photo30.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="شجرة عارية وبرج كهرباء ينعكسان على قناة مياه" data-i18n-attr="alt:a30" loading="lazy" decoding="async"></a></li>
+          <li class="card" data-n="26" style="--c1:#5a77a1;--c2:#9f3b2c">
+            <a class="card-link" href="/assets/images/full/photo26.webp" data-orig="/assets/images/photo26.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAAAwBACdASoSABgAPu1qq08ppiOjMBgIATAdiWwAuzLaQGyOGZTmjauDnwAAuDavW/0vEqaxmFUQzuRPylIyOGy9sWJKdju5dud9vE9f+wfOgnXf2LNuTPKQRjjSokNIRL5F9vi47CIMx1QKfuFfYLGB4QAAAA==)"><img src="/assets/images/thumb/photo26.webp" srcset="/assets/images/thumb/photo26.webp 480w, /assets/images/full/photo26.webp 960w" sizes="(min-width: 48rem) 46vw, 92vw" width="480" height="640" alt="غروب وردي وأحمر خلف الأشجار وطريق ترابي وأسلاك كهرباء" data-i18n-attr="alt:a26" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">26</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="27" style="--c1:#7f6b46;--c2:#7f6c47">
+            <a class="card-link" href="/assets/images/full/photo27.webp" data-orig="/assets/images/photo27.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAACwBACdASoSABgAPu1wsFIppiSiqAgBMB2JQAAEtcPZXL6mNuBPNTprcNfpaH/AAP5+e9cV3OAgoB8aghhMnGSYVrvDUFTwQs4XpHbr0zzCrlKv6mcU77/m9qR6soBgmrGa8xgZisw2Mwxsm18CElBzY58tdIxqtmk3qXFrBwAAAA==)"><img src="/assets/images/thumb/photo27.webp" srcset="/assets/images/thumb/photo27.webp 480w, /assets/images/full/photo27.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="عربة بظل أسود أمام الشمس على طريق ترابي" data-i18n-attr="alt:a27" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">27</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="28" style="--c1:#c5cfd2;--c2:#0b7f07">
+            <a class="card-link" href="/assets/images/full/photo28.webp" data-orig="/assets/images/photo28.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAAAwBACdASoSABgAPu1sq1EppaOiqAqpMB2JQBYdghy/6doWmxKFbRapcpAA/lnpenFzBtZSBlJXP1jPLYMevalTS6z2385SaqYh2ltkA4GP0HyIl1XRO9IZ4yGzRXYIdwaKidbG5xDRZ2soacD+mumaZyCK4J6b8gf5pbgau8qmEzAe5MGei/QaMXwAAA==)"><img src="/assets/images/thumb/photo28.webp" srcset="/assets/images/thumb/photo28.webp 480w, /assets/images/full/photo28.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="أشجار طويلة في ضوء المساء بجوار حقل" data-i18n-attr="alt:a28" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">28</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="29" style="--c1:#56799a;--c2:#737f35">
+            <a class="card-link" href="/assets/images/full/photo29.webp" data-orig="/assets/images/photo29.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAADQBACdASoSABgAPu1ur1IppiQiqAgBMB2JQBWAAb8ceQu4nzeAI+OpVZRdlxpB2AD+qcuWDbgD4rjoaHPlqMZq34LSxDUr/3r/y7Wdo+4Dvm+DmgccN0dmt/mLfHMTD6IiaHIRpu3urPWh2lPORk4BCtf8c3LGYQKygJNNEAA=)"><img src="/assets/images/thumb/photo29.webp" srcset="/assets/images/thumb/photo29.webp 480w, /assets/images/full/photo29.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="الشمس خلف سعف النخيل وكوخ وأسلاك كهرباء" data-i18n-attr="alt:a29" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">29</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="30" style="--c1:#309adf;--c2:#7f7d27">
+            <a class="card-link" href="/assets/images/full/photo30.webp" data-orig="/assets/images/photo30.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAABQBQCdASoSABgAPu1urlIppiQiqAgBMB2JagCxHtVENf/gEpjxTk/gMQ7SjDhuHru67gAA26HO6k0WFvpTqPy6pSyrvav5TsHyppmYPgzQJN9n8OWKq2H6ZSEk85DjJfgH0VB5RUOhzsS0S+K3mGwTQFSnxnAFjZShDwdr7doXCeK/68MMyEpXzJdXuz2+jkgp0sM1PzPO16qotwoVSZJct3YgCZGYAAA=)"><img src="/assets/images/thumb/photo30.webp" srcset="/assets/images/thumb/photo30.webp 480w, /assets/images/full/photo30.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="شجرة عارية وبرج كهرباء ينعكسان على قناة مياه" data-i18n-attr="alt:a30" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">30</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
         </ul>
         <ul class="run run--c">
-          <li><a class="frame" href="/assets/images/full/photo31.webp"><img src="/assets/images/thumb/photo31.webp" srcset="/assets/images/thumb/photo31.webp 480w, /assets/images/full/photo31.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="شجرة ومبنى صغير تحت سماء غائمة" data-i18n-attr="alt:a31" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo32.webp"><img src="/assets/images/thumb/photo32.webp" srcset="/assets/images/thumb/photo32.webp 480w, /assets/images/full/photo32.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="شجرة فوق صخور وعشب تحت سماء غائمة" data-i18n-attr="alt:a32" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo33.webp"><img src="/assets/images/thumb/photo33.webp" srcset="/assets/images/thumb/photo33.webp 480w, /assets/images/full/photo33.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="أوراق مضاءة من الخلف بضوء الشمس الغاربة" data-i18n-attr="alt:a33" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo34.webp"><img src="/assets/images/thumb/photo34.webp" srcset="/assets/images/thumb/photo34.webp 480w, /assets/images/full/photo34.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="ورقة موز أمام النهر وقت الغسق" data-i18n-attr="alt:a34" loading="lazy" decoding="async"></a></li>
+          <li class="card" data-n="31" style="--c1:#639ac4;--c2:#2c7f20">
+            <a class="card-link" href="/assets/images/full/photo31.webp" data-orig="/assets/images/photo31.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAABwBACdASoSABgAPu1or1AppaSiqAqpMB2JRm/9YAQBQAAKFeC0zMzPLMmQAAD81Lj6GH6z+/OFxv9N/33JvFRnPXxtjbR8radXZ2i866JzgK0xZC98wD3Vta8FYPkof2fPVYYMjMWCf3/cHSI7cRjbsRUJH6d14rqSSQ1BEaQDlzgA)"><img src="/assets/images/thumb/photo31.webp" srcset="/assets/images/thumb/photo31.webp 480w, /assets/images/full/photo31.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="شجرة ومبنى صغير تحت سماء غائمة" data-i18n-attr="alt:a31" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">31</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="32" style="--c1:#acb6bc;--c2:#3f7f1c">
+            <a class="card-link" href="/assets/images/full/photo32.webp" data-orig="/assets/images/photo32.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAADwBACdASoSABgAPu1urlIppiQiqAgBMB2JZQDA/TuBQt85IO8nvbGOXF0ZWVPwkoAA/toBL9wvjd/u3uJBjV8PKUK5iXfyIp8DoxPYx46tVcYeeNMgM6T+qDROTDiNvXUikkLvUL+pv6tAf9fYyAN8ku+l7stZ5a1dGtGoi5FS9x8RXcsp0CIfNT3IkC3WJVO4EzEneR1uIHByITkfUxpuHQl4+FmqwkFbAAAA)"><img src="/assets/images/thumb/photo32.webp" srcset="/assets/images/thumb/photo32.webp 480w, /assets/images/full/photo32.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="شجرة فوق صخور وعشب تحت سماء غائمة" data-i18n-attr="alt:a32" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">32</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="33" style="--c1:#7f5b12;--c2:#b28b4b">
+            <a class="card-link" href="/assets/images/full/photo33.webp" data-orig="/assets/images/photo33.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAAAQBQCdASoSABgAPu1ep06ppKMiMBgMATAdiWYAnTLHQUQQGVI1OeURopW7uxoOwOwAAP7lMw9MuiTLJHiKH3c/1mMo/iOI9RnFr9e0hsWRrCxeuCNrBB8Zin78AMWy3jUA/Vf0zgh/FLxQHwc0/NgH7+cR/9NoxJ3DBVM9hYWNNbDfWEI//cMkEBkNREg4SMWAFUsW+FtsFksQAAA=)"><img src="/assets/images/thumb/photo33.webp" srcset="/assets/images/thumb/photo33.webp 480w, /assets/images/full/photo33.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="أوراق مضاءة من الخلف بضوء الشمس الغاربة" data-i18n-attr="alt:a33" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">33</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="34" style="--c1:#3972bc;--c2:#0a597f">
+            <a class="card-link" href="/assets/images/full/photo34.webp" data-orig="/assets/images/photo34.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAAAwBACdASoSABgAPu1oqVAppiOiqA1RMB2JYgBV/QKp9V3fq9UK0BOUmYAA+bQhkRdDr2/e0giNePPdKdqbTbnxnlJM0+xEz/11rjGZNsXXjNf+DZGu1bghQk5P3NdWOCuVQdPN4waaCDkusghPGy0VwxvFqUNU/TiiwK8RDcc4/cKzEgiFwAAA)"><img src="/assets/images/thumb/photo34.webp" srcset="/assets/images/thumb/photo34.webp 480w, /assets/images/full/photo34.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="ورقة موز أمام النهر وقت الغسق" data-i18n-attr="alt:a34" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">34</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
         </ul>
         <ul class="run run--a">
-          <li><a class="frame" href="/assets/images/full/photo35.webp"><img src="/assets/images/thumb/photo35.webp" srcset="/assets/images/thumb/photo35.webp 480w, /assets/images/full/photo35.webp 960w" sizes="(min-width: 48rem) 48vw, 92vw" width="480" height="640" alt="نباتات بطاطس وغروب برتقالي" data-i18n-attr="alt:a35" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo36.webp"><img src="/assets/images/thumb/photo36.webp" srcset="/assets/images/thumb/photo36.webp 480w, /assets/images/full/photo36.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="شجرة وأبراج كهرباء في وهج ضبابي فوق حقل أرز" data-i18n-attr="alt:a36" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo37.webp"><img src="/assets/images/thumb/photo37.webp" srcset="/assets/images/thumb/photo37.webp 480w, /assets/images/full/photo37.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="أشجار كبيرة بجذور متدلية في حديقة" data-i18n-attr="alt:a37" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo38.webp"><img src="/assets/images/thumb/photo38.webp" srcset="/assets/images/thumb/photo38.webp 480w, /assets/images/full/photo38.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="مدخنة طوب تحت سماء زرقاء وغيوم فوق حقل أخضر" data-i18n-attr="alt:a38" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo39.webp"><img src="/assets/images/thumb/photo39.webp" srcset="/assets/images/thumb/photo39.webp 480w, /assets/images/full/photo39.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="قمر مكتمل فوق مبنى طوب غير مكتمل" data-i18n-attr="alt:a39" loading="lazy" decoding="async"></a></li>
+          <li class="card" data-n="35" style="--c1:#dfd77c;--c2:#047f2a">
+            <a class="card-link" href="/assets/images/full/photo35.webp" data-orig="/assets/images/photo35.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAACQBACdASoSABgAPu1oqU+ppiOiKA1RMB2JagCdMwnBgEduAlq3y9CTOUEcrAAA/uv/qXu7UFGmVxniWInRMWrMt9lkoyjWf/ig8BObv6bMl5+qSqD7H6FVCPsYGfnKoOE/jm79D8ceTwAMiUT2DYB9CqE5A9nlhAxYUAQmAI3LjlRAAAA=)"><img src="/assets/images/thumb/photo35.webp" srcset="/assets/images/thumb/photo35.webp 480w, /assets/images/full/photo35.webp 960w" sizes="(min-width: 48rem) 46vw, 92vw" width="480" height="640" alt="نباتات بطاطس وغروب برتقالي" data-i18n-attr="alt:a35" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">35</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="36" style="--c1:#506f90;--c2:#af8e61">
+            <a class="card-link" href="/assets/images/full/photo36.webp" data-orig="/assets/images/photo36.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAACQBACdASoSABgAPu1iq1AppSOisBgIATAdiUATpmM1/8A2jUrKx70aIAX4vMAA/UV5EszBYgWSN9uW1IrK/Gi67aRiqi76h5nwnVxN4zTS5Kq1L7qZZRrNzhaKfjUBQk4xjzjXULMXYgaT7s3QRjh8Xl2VzpYAAAA=)"><img src="/assets/images/thumb/photo36.webp" srcset="/assets/images/thumb/photo36.webp 480w, /assets/images/full/photo36.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="شجرة وأبراج كهرباء في وهج ضبابي فوق حقل أرز" data-i18n-attr="alt:a36" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">36</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="37" style="--c1:#7f6829;--c2:#7a7f47">
+            <a class="card-link" href="/assets/images/full/photo37.webp" data-orig="/assets/images/photo37.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAABwBACdASoSABgAPu1sq1EppaOiqAqpMB2JYwC+SA3o1Lm7i9JZ2KxZEnFagAD+ufwzHepAzZQKEwPluRxq4LQL7W4yVAU2VuKuXi4TN1tOiggx+xbfdIPXgrmTPa0iWWG4sYYIYLESwxXEpl/fipvdeHSTY6iw/HMIBDyGWdEUfkCAAAA=)"><img src="/assets/images/thumb/photo37.webp" srcset="/assets/images/thumb/photo37.webp 480w, /assets/images/full/photo37.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="أشجار كبيرة بجذور متدلية في حديقة" data-i18n-attr="alt:a37" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">37</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="38" style="--c1:#006ccf;--c2:#1c7f24">
+            <a class="card-link" href="/assets/images/full/photo38.webp" data-orig="/assets/images/photo38.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAADwBQCdASoSABgAPu1orVCppaQiqAqpMB2JbACdMxyAL7NS7qX/u4ABg490POVA30Euc9dbBl9BwAD+bnHt0eo6a3eBOT64xULD8MV0/tWK/lsIvqScl/yX7+mHfEnfCt5J5Ry9Pqs+UYODtTrTBIR7M8bGJylCtJXSrToGneFH74UXpFMieKEqxeXxyE7CudqbiHbJrC/d2Oj2w4C7AAAA)"><img src="/assets/images/thumb/photo38.webp" srcset="/assets/images/thumb/photo38.webp 480w, /assets/images/full/photo38.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="مدخنة طوب تحت سماء زرقاء وغيوم فوق حقل أخضر" data-i18n-attr="alt:a38" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">38</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="39" style="--c1:#7f6245;--c2:#8b644d">
+            <a class="card-link" href="/assets/images/full/photo39.webp" data-orig="/assets/images/photo39.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABQBACdASoSABgAPu1kqE2ppaOmMAgBMB2JZQC7OUAAan7G+YonnQs2RCXgAPml4o0bp+38Wn0cpP3Nbx/qvfT3eG0Fx10TmK38MWnNCZcCPGzqXuX+V4PK7KwAAA==)"><img src="/assets/images/thumb/photo39.webp" srcset="/assets/images/thumb/photo39.webp 480w, /assets/images/full/photo39.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="قمر مكتمل فوق مبنى طوب غير مكتمل" data-i18n-attr="alt:a39" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">39</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
         </ul>
         <ul class="run run--d">
-          <li><a class="frame" href="/assets/images/full/photo40.webp"><img src="/assets/images/thumb/photo40.webp" srcset="/assets/images/thumb/photo40.webp 480w, /assets/images/full/photo40.webp 960w" sizes="(min-width: 48rem) 32vw, 92vw" width="480" height="640" alt="القمر بين أوراق شجرة داكنة" data-i18n-attr="alt:a40" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo41.webp"><img src="/assets/images/thumb/photo41.webp" srcset="/assets/images/thumb/photo41.webp 480w, /assets/images/full/photo41.webp 960w" sizes="(min-width: 48rem) 32vw, 46vw" width="480" height="640" alt="القمر خلف أغصان غير واضحة" data-i18n-attr="alt:a41" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo42.webp"><img src="/assets/images/thumb/photo42.webp" srcset="/assets/images/thumb/photo42.webp 480w, /assets/images/full/photo42.webp 960w" sizes="(min-width: 48rem) 32vw, 46vw" width="480" height="640" alt="ظل مدخنة وقت الغروب البرتقالي" data-i18n-attr="alt:a42" loading="lazy" decoding="async"></a></li>
+          <li class="card" data-n="40" style="--c1:#7f5f47;--c2:#507f39">
+            <a class="card-link" href="/assets/images/full/photo40.webp" data-orig="/assets/images/photo40.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAABwBACdASoSABgAPu1qq08ppiOiMBgIATAdiWcAzuwQ75In/qIiSsb3zVkbhAD+8qWwBMTa8gXA6pslKKXW9a1Br67M8AiMU4Z9LXjXYLL8eWHIAAA=)"><img src="/assets/images/thumb/photo40.webp" srcset="/assets/images/thumb/photo40.webp 480w, /assets/images/full/photo40.webp 960w" sizes="(min-width: 48rem) 31vw, 92vw" width="480" height="640" alt="القمر بين أوراق شجرة داكنة" data-i18n-attr="alt:a40" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">40</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="41" style="--c1:#767f39;--c2:#47667f">
+            <a class="card-link" href="/assets/images/full/photo41.webp" data-orig="/assets/images/photo41.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBQCdASoSABgAPu1ipk4ppaMiMBgMATAdiWcbYAHoECl+ii0ZPWN1w4SoO/8dMgQwAP7wx1u8+XbSrIEyZvYGvI8RUFNulJpCo/B28mKlaqLSIMxL2umY9FpbZR3zR+Vn0Sggse6+R2JumQAAAA==)"><img src="/assets/images/thumb/photo41.webp" srcset="/assets/images/thumb/photo41.webp 480w, /assets/images/full/photo41.webp 960w" sizes="(min-width: 48rem) 31vw, 46vw" width="480" height="640" alt="القمر خلف أغصان غير واضحة" data-i18n-attr="alt:a41" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">41</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="42" style="--c1:#e4b25e;--c2:#757f23">
+            <a class="card-link" href="/assets/images/full/photo42.webp" data-orig="/assets/images/photo42.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAADQBACdASoSABgAPu1kqE2ppayiMBgMAZAdiWgAuwALPJ+8KNWliwI/m2kz8kNXfAD+y+wquHvOXvVL/Roco5Cep8fiid65uBMZVqumXjVh11l4tyW7Zy5PB8fvF7ZeO9s2ft19EZPB2nl5nrMNTwWzaAJTT862uasVoHjUCAA=)"><img src="/assets/images/thumb/photo42.webp" srcset="/assets/images/thumb/photo42.webp 480w, /assets/images/full/photo42.webp 960w" sizes="(min-width: 48rem) 31vw, 46vw" width="480" height="640" alt="ظل مدخنة وقت الغروب البرتقالي" data-i18n-attr="alt:a42" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">42</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
         </ul>
         <ul class="run run--b">
-          <li><a class="frame" href="/assets/images/full/photo43.webp"><img src="/assets/images/thumb/photo43.webp" srcset="/assets/images/thumb/photo43.webp 480w, /assets/images/full/photo43.webp 960w" sizes="(min-width: 48rem) 48vw, 92vw" width="480" height="640" alt="قمة شجرة أمام سماء زرقاء مسائية" data-i18n-attr="alt:a43" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo44.webp"><img src="/assets/images/thumb/photo44.webp" srcset="/assets/images/thumb/photo44.webp 480w, /assets/images/full/photo44.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="قمر صغير في سماء مظلمة" data-i18n-attr="alt:a44" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo45.webp"><img src="/assets/images/thumb/photo45.webp" srcset="/assets/images/thumb/photo45.webp 480w, /assets/images/full/photo45.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="شجرة بظل أسود أمام غروب أحمر خلف مبنى" data-i18n-attr="alt:a45" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo46.webp"><img src="/assets/images/thumb/photo46.webp" srcset="/assets/images/thumb/photo46.webp 480w, /assets/images/full/photo46.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="مبنى ومظلة خشبية خلف أغصان تحت سماء زرقاء" data-i18n-attr="alt:a46" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo47.webp"><img src="/assets/images/thumb/photo47.webp" srcset="/assets/images/thumb/photo47.webp 480w, /assets/images/full/photo47.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="نصف قمر فوق مدخنة وقت الغسق" data-i18n-attr="alt:a47" loading="lazy" decoding="async"></a></li>
+          <li class="card" data-n="43" style="--c1:#49759d;--c2:#76aad3">
+            <a class="card-link" href="/assets/images/full/photo43.webp" data-orig="/assets/images/photo43.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADwBACdASoSABgAPu1oqk+ppiOiMBgIATAdiUAWcAHnQ4+JMwbBv5nzNIH6NJA1CEgA/iLG/RUlhyq9v8fFA96qwa7d8Q8YTJwSFMMWbkJn7KuPt6jhQwOOBrXUJVWhSJJqrN/JNSWT/aqqVDgAAA==)"><img src="/assets/images/thumb/photo43.webp" srcset="/assets/images/thumb/photo43.webp 480w, /assets/images/full/photo43.webp 960w" sizes="(min-width: 48rem) 46vw, 92vw" width="480" height="640" alt="قمة شجرة أمام سماء زرقاء مسائية" data-i18n-attr="alt:a43" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">43</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="44" style="--c1:#7f7f7f;--c2:#7f7543">
+            <a class="card-link" href="/assets/images/full/photo44.webp" data-orig="/assets/images/photo44.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAADQAgCdASoSABgAPu1wsVKppiSiqAgBMB2JaQAAPaOgAP7w+ZMwAA==)"><img src="/assets/images/thumb/photo44.webp" srcset="/assets/images/thumb/photo44.webp 480w, /assets/images/full/photo44.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="قمر صغير في سماء مظلمة" data-i18n-attr="alt:a44" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">44</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="45" style="--c1:#936341;--c2:#7f6e47">
+            <a class="card-link" href="/assets/images/full/photo45.webp" data-orig="/assets/images/photo45.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADwBACdASoSABgAPu1sq1EppaOiqAqpMB2JZgCzgBI+YSPL8JyzBB1WsHoO/pe/j5wA/u6yFQ8xmUkZe6j9Q0dKysb4uySwd71IoIAWNx8be7MshKcUnY3jAbXQfycHH6FDFd/sCpwcHI2ohx1AAA==)"><img src="/assets/images/thumb/photo45.webp" srcset="/assets/images/thumb/photo45.webp 480w, /assets/images/full/photo45.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="شجرة بظل أسود أمام غروب أحمر خلف مبنى" data-i18n-attr="alt:a45" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">45</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="46" style="--c1:#366c9c;--c2:#dda67b">
+            <a class="card-link" href="/assets/images/full/photo46.webp" data-orig="/assets/images/photo46.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAABQBQCdASoSABgAPu1iqlAppSOisBgIATAdiWQAsR4KYH+AbTOGT2cR73BPMI9dT6/vnGQA/un5F1hmnQRCGNcfmDpLp4SMdx1/GoNuCNFqJspRFhVYt8NHX7XGncat/R9he+gSsLTlDcZmSiamtthou8gnglpsb1ZoWamYSCXcSCQGnNeGsmwDapj08eWOeIJGNNyQrkXexeKuwff3o7f2LNEaOFnu1Te6ZAAA)"><img src="/assets/images/thumb/photo46.webp" srcset="/assets/images/thumb/photo46.webp 480w, /assets/images/full/photo46.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="مبنى ومظلة خشبية خلف أغصان تحت سماء زرقاء" data-i18n-attr="alt:a46" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">46</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="47" style="--c1:#7f6147;--c2:#47637f">
+            <a class="card-link" href="/assets/images/full/photo47.webp" data-orig="/assets/images/photo47.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAwCdASoSABgAPu1oq08ppiOiMBgIATAdiWcAgAAGBKH13AlSGSAA/u/JO6fSVubmT9qoDqZ4Twq3FsSvVQW2kO+OcmFbBC7OBR7el7PXMUGAAAA=)"><img src="/assets/images/thumb/photo47.webp" srcset="/assets/images/thumb/photo47.webp 480w, /assets/images/full/photo47.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="نصف قمر فوق مدخنة وقت الغسق" data-i18n-attr="alt:a47" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">47</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
         </ul>
         <ul class="run run--c">
-          <li><a class="frame" href="/assets/images/full/photo48.webp"><img src="/assets/images/thumb/photo48.webp" srcset="/assets/images/thumb/photo48.webp 480w, /assets/images/full/photo48.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="قمر أحمر خلف الأشجار" data-i18n-attr="alt:a48" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo49.webp"><img src="/assets/images/thumb/photo49.webp" srcset="/assets/images/thumb/photo49.webp 480w, /assets/images/full/photo49.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="أوراق شجر غير واضحة بتركيز ناعم" data-i18n-attr="alt:a49" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo50.webp"><img src="/assets/images/thumb/photo50.webp" srcset="/assets/images/thumb/photo50.webp 480w, /assets/images/full/photo50.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="غروب برتقالي فوق حقل أخضر ومدخنة" data-i18n-attr="alt:a50" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo51.webp"><img src="/assets/images/thumb/photo51.webp" srcset="/assets/images/thumb/photo51.webp 480w, /assets/images/full/photo51.webp 960w" sizes="(min-width: 48rem) 24vw, 46vw" width="480" height="640" alt="هلال خلف غصن داكن مائل" data-i18n-attr="alt:a51" loading="lazy" decoding="async"></a></li>
+          <li class="card" data-n="48" style="--c1:#475a7f;--c2:#7f7f7f">
+            <a class="card-link" href="/assets/images/full/photo48.webp" data-orig="/assets/images/photo48.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACQAwCdASoSABgAPu1sq1EppaOiqAqpMB2JaQAALnWXsHFPnVgAAP70G2UKX8YxxKKlnbeU0JbCgAAA)"><img src="/assets/images/thumb/photo48.webp" srcset="/assets/images/thumb/photo48.webp 480w, /assets/images/full/photo48.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="قمر أحمر خلف الأشجار" data-i18n-attr="alt:a48" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">48</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="49" style="--c1:#989a91;--c2:#477f5f">
+            <a class="card-link" href="/assets/images/full/photo49.webp" data-orig="/assets/images/photo49.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQBACdASoSABgAPu1aqE2ppKOiN/VYATAdiWcAwCgRA4DeFp7WXm+NNDmeGR9WAAD+WIScqAOhI2HjXWv1ZIhBT+ZCEzW/6rAZn+Boi8TdcjC87FBNuyMp2P/fNYX7xBjjuYJBZOQYAA==)"><img src="/assets/images/thumb/photo49.webp" srcset="/assets/images/thumb/photo49.webp 480w, /assets/images/full/photo49.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="أوراق شجر غير واضحة بتركيز ناعم" data-i18n-attr="alt:a49" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">49</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="50" style="--c1:#b86c45;--c2:#177f00">
+            <a class="card-link" href="/assets/images/full/photo50.webp" data-orig="/assets/images/photo50.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAACwBACdASoSABgAPuFcqE2opSQiMAwBEBwJZgCdMxgDSdTcmwXwji8cBkKiHSMAAPdf+nuznAPOuuU4x+gbITjp/SoOOaHwgfhazB3zmz69j5G03LjAR5Pre6P9UFKOYre/sAAA)"><img src="/assets/images/thumb/photo50.webp" srcset="/assets/images/thumb/photo50.webp 480w, /assets/images/full/photo50.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="غروب برتقالي فوق حقل أخضر ومدخنة" data-i18n-attr="alt:a50" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">50</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="51" style="--c1:#7f7347;--c2:#475a7f">
+            <a class="card-link" href="/assets/images/full/photo51.webp" data-orig="/assets/images/photo51.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACwAwCdASoSABgAPtVWok2oJKMiN+gBABqJZwAAiOY8NfaHA0gmMAD+9Bza+4/kejXrYAUqPPb3iRt6bnhekt4AAAA=)"><img src="/assets/images/thumb/photo51.webp" srcset="/assets/images/thumb/photo51.webp 480w, /assets/images/full/photo51.webp 960w" sizes="(min-width: 48rem) 23vw, 46vw" width="480" height="640" alt="هلال خلف غصن داكن مائل" data-i18n-attr="alt:a51" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">51</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
         </ul>
         <ul class="run run--d">
-          <li><a class="frame" href="/assets/images/full/photo52.webp"><img src="/assets/images/thumb/photo52.webp" srcset="/assets/images/thumb/photo52.webp 480w, /assets/images/full/photo52.webp 960w" sizes="(min-width: 48rem) 32vw, 92vw" width="480" height="640" alt="هلال ونجمة خافتة فوق أضواء المدينة عند الغسق" data-i18n-attr="alt:a52" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo53.webp"><img src="/assets/images/thumb/photo53.webp" srcset="/assets/images/thumb/photo53.webp 480w, /assets/images/full/photo53.webp 960w" sizes="(min-width: 48rem) 32vw, 46vw" width="480" height="640" alt="هلال بجوار أعمدة داكنة" data-i18n-attr="alt:a53" loading="lazy" decoding="async"></a></li>
-          <li><a class="frame" href="/assets/images/full/photo54.webp"><img src="/assets/images/thumb/photo54.webp" srcset="/assets/images/thumb/photo54.webp 480w, /assets/images/full/photo54.webp 960w" sizes="(min-width: 48rem) 32vw, 46vw" width="480" height="640" alt="شجرة وحقل أخضر وأسلاك كهرباء تحت سماء زرقاء" data-i18n-attr="alt:a54" loading="lazy" decoding="async"></a></li>
+          <li class="card" data-n="52" style="--c1:#9f754c;--c2:#47707f">
+            <a class="card-link" href="/assets/images/full/photo52.webp" data-orig="/assets/images/photo52.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACwBACdASoSABgAPu1orVAppaQisBgIATAdiUPoAQVpHA0r+e9Qmb4cIu4jgtDkAP766sqKWrJPq//fgasTCbtyfUJTF4ygEJaSWiKwbAKrXZ6j6wtpenfqk28RrDJmYy/8ZaJPwcUAAA==)"><img src="/assets/images/thumb/photo52.webp" srcset="/assets/images/thumb/photo52.webp 480w, /assets/images/full/photo52.webp 960w" sizes="(min-width: 48rem) 31vw, 92vw" width="480" height="640" alt="هلال ونجمة خافتة فوق أضواء المدينة عند الغسق" data-i18n-attr="alt:a52" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">52</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="53" style="--c1:#7f6f47;--c2:#477f6c">
+            <a class="card-link" href="/assets/images/full/photo53.webp" data-orig="/assets/images/photo53.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAABQAwCdASoSABgAPu1iqU4ppaOmMAgBMB2JZwDLpDDZtq+tAAD+76euIfW0uWg/x1a0G7KeBazlOuN92wwWEb94I4kAAA==)"><img src="/assets/images/thumb/photo53.webp" srcset="/assets/images/thumb/photo53.webp 480w, /assets/images/full/photo53.webp 960w" sizes="(min-width: 48rem) 31vw, 46vw" width="480" height="640" alt="هلال بجوار أعمدة داكنة" data-i18n-attr="alt:a53" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">53</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
+          <li class="card" data-n="54" style="--c1:#007df9;--c2:#787f1d">
+            <a class="card-link" href="/assets/images/full/photo54.webp" data-orig="/assets/images/photo54.jpg">
+              <span class="card-media" style="--lqip:url(data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAAAwBQCdASoSABgAPu1irU2ppaSiKA1RMB2JagCdMoHgA5/8A82+zxUqSME4AAuR6oA9AAD+DnEdKRX2fK0vW2riw6K5FzymE2Dr//BBeuUjSwMfh0Wy1kP+xc4Ec1oy5TaZ9T1wW1fmKkxwG0VdY87PAzSAp+E671mxBxCHgOhjel1YLss+NOwVAQo6UxT01J0uawBO7uyAfFcAImuAGX84PAA=)"><img src="/assets/images/thumb/photo54.webp" srcset="/assets/images/thumb/photo54.webp 480w, /assets/images/full/photo54.webp 960w" sizes="(min-width: 48rem) 31vw, 46vw" width="480" height="640" alt="شجرة وحقل أخضر وأسلاك كهرباء تحت سماء زرقاء" data-i18n-attr="alt:a54" loading="lazy" decoding="async"></span>
+              <span class="card-veil" aria-hidden="true"></span>
+              <span class="card-meta"><span class="card-no label keep">54</span><span class="card-open" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span></span>
+            </a>
+          </li>
         </ul>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <section class="section--dark g-cta" aria-labelledby="g-cta-title">
+      <div class="wrap g-cta-grid">
+        <div>
+          <h2 class="display" id="g-cta-title" data-i18n="g.cta.title">المزيد من الصور <span class="accent">على إنستغرام.</span></h2>
+          <p class="section-intro" data-i18n="g.cta.text">تابعني على إنستغرام، أو راسلني على واتساب إن كان عندك مشروع أو فكرة.</p>
+        </div>
+        <div class="g-cta-links">
+          <a class="cta" href="https://www.instagram.com/abdullhamid_fayad22" target="_blank" rel="noopener noreferrer">
+            <span class="chip chip--ig"><svg class="icon icon-fill" aria-hidden="true"><use href="#b-instagram"/></svg></span>
+            <span class="cta-text"><span class="label" data-i18n="chan.visual">بصري</span><strong lang="en" dir="ltr">Instagram</strong></span>
+            <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>
+          </a>
+          <a class="channels-a" href="https://wa.me/201091573063" target="_blank" rel="noopener noreferrer">
+            <span class="chip chip--wa"><svg class="icon icon-fill" aria-hidden="true"><use href="#b-whatsapp"/></svg></span>
+            <span class="chan-text"><span class="label" data-i18n="contact.wa.label">تفضّل واتساب؟</span><strong data-i18n="contact.wa.title">ابدأ محادثة</strong></span>
+            <svg class="icon chan-go" aria-hidden="true"><use href="#i-external"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="site-footer g-footer">
+  <footer class="site-footer">
     <div class="wrap footer-row">
-      <p class="label" data-i18n="g.footer">© 2026 FAYAD — معرض التصوير</p>
-      <a class="foot-link" href="#top">
-        <span data-i18n="g.top">العودة للأعلى</span>
-        <svg class="icon icon-up" aria-hidden="true"><use href="#i-up"/></svg>
+      <a class="brand" href="#top" data-i18n-attr="aria-label:brand.top" aria-label="FAYAD — العودة إلى الأعلى">
+        <img src="/icons/favicon.svg?v=3" alt="" width="36" height="36">
+        <span class="brand-text">
+          <span class="brand-name">FAYAD</span>
+          <span class="brand-role label" data-i18n="footer.name">عبد الحميد فياض</span>
+        </span>
       </a>
+      <p class="footer-roles label" data-i18n="footer.roles">مطوّر Front-End / مصوّر / طالب هندسة حاسبات</p>
+      <p class="footer-meta">
+        <span class="label keep">© 2026 FAYAD</span>
+        <a class="foot-link" href="#top">
+          <span data-i18n="footer.top">العودة للأعلى</span>
+          <svg class="icon icon-up" aria-hidden="true"><use href="#i-up"/></svg>
+        </a>
+      </p>
     </div>
   </footer>
 
@@ -233,7 +612,10 @@
     <div class="viewer-bar">
       <p class="viewer-count label"><span id="viewer-current">01</span><span aria-hidden="true">/</span><span id="viewer-total">54</span></p>
       <div class="viewer-actions">
-        <a class="viewer-original label" id="viewer-original" href="/assets/images/photo1.jpg" target="_blank" rel="noopener" data-i18n="viewer.original">فتح الأصل</a>
+        <a class="viewer-dl" id="viewer-download" href="/assets/images/photo1.jpg" download="fayad-photo-01.jpg">
+          <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+          <span data-i18n="viewer.download">تحميل</span>
+        </a>
         <button type="button" class="viewer-btn" id="viewer-close" autofocus aria-label="إغلاق" data-i18n-attr="aria-label:viewer.close">
           <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
         </button>
@@ -244,15 +626,21 @@
     </button>
     <figure class="viewer-stage">
       <img id="viewer-image" alt="" decoding="async">
+      <div class="viewer-error" id="viewer-error" hidden>
+        <p data-i18n="viewer.error">تعذّر تحميل الصورة.</p>
+        <button type="button" class="viewer-retry" id="viewer-retry"><svg class="icon" aria-hidden="true"><use href="#i-retry"/></svg><span data-i18n="viewer.retry">إعادة المحاولة</span></button>
+      </div>
     </figure>
     <button type="button" class="viewer-btn viewer-next" id="viewer-next" aria-label="الصورة التالية" data-i18n-attr="aria-label:viewer.next">
       <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
     </button>
     <p class="vh" id="viewer-status" role="status" aria-live="polite"></p>
+    <p class="toast" id="viewer-toast" role="status" aria-live="polite" hidden></p>
   </dialog>
 
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/home.js" defer></script>
   <script src="/assets/js/gallery.js" defer></script>
   <script src="/assets/js/sw-register.js" defer></script>
 </body>

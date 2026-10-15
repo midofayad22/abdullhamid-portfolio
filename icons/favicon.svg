@@ -1,5 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="FAYAD">
-  <rect width="64" height="64" rx="14" fill="#0a2a26"/>
-  <path d="M10 54 28.4 13.5Q32 7 35.6 13.5L54 54h-9.6L32 26.8 19.6 54z" fill="#46d9c6"/>
-  <rect x="4" y="41.5" width="56" height="5.5" fill="#e2b04a"/>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#12564d"/>
+      <stop offset="1" stop-color="#06211e"/>
+    </linearGradient>
+    <linearGradient id="a" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#93f6e7"/>
+      <stop offset="1" stop-color="#2fc9b5"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <rect x=".5" y=".5" width="63" height="63" rx="13.5" fill="none" stroke="#fff" stroke-opacity=".1"/>
+  <path d="M9.5 54 28.4 12.2Q32 6 35.6 12.2L54.5 54h-8.9L32 22.6 18.4 54z" fill="url(#a)"/>
+  <path d="M25.6 40a6.4 6.4 0 0 1 12.8 0z" fill="#ffd27a"/>
+  <rect x="5" y="40" width="54" height="5" rx="2.5" fill="#f0b94f"/>
 </svg>
